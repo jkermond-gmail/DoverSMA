@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoverSMA", "DoverSMA\DoverSMA.csproj", "{C7B0AF96-5C09-49F8-AD04-2D680149EFA3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{1B31EC10-C894-4FBB-B249-B940486B4940}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C7B0AF96-5C09-49F8-AD04-2D680149EFA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7B0AF96-5C09-49F8-AD04-2D680149EFA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7B0AF96-5C09-49F8-AD04-2D680149EFA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B31EC10-C894-4FBB-B249-B940486B4940}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B31EC10-C894-4FBB-B249-B940486B4940}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B31EC10-C894-4FBB-B249-B940486B4940}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B31EC10-C894-4FBB-B249-B940486B4940}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
