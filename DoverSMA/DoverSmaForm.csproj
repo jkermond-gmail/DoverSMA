@@ -50,6 +50,12 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DoverSmaEngine">
+      <HintPath>..\DoverSmaEngine\bin\Debug\DoverSmaEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="DoverUtilities">
+      <HintPath>..\DoverUtilities\bin\Debug\DoverUtilities.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -61,9 +67,6 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Utilities">
-      <HintPath>..\Utilities\bin\Debug\netstandard2.0\Utilities.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DoverSMA_Form.cs">

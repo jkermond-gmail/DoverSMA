@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnProcessSmaOfferings = new System.Windows.Forms.Button();
+            this.BtnProcessSmaOfferings = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnProcessSmaOfferings
+            // BtnProcessSmaOfferings
             // 
-            this.btnProcessSmaOfferings.Location = new System.Drawing.Point(12, 30);
-            this.btnProcessSmaOfferings.Name = "btnProcessSmaOfferings";
-            this.btnProcessSmaOfferings.Size = new System.Drawing.Size(167, 23);
-            this.btnProcessSmaOfferings.TabIndex = 0;
-            this.btnProcessSmaOfferings.Text = "Process Legg SMA Offerings\r\n";
-            this.btnProcessSmaOfferings.UseVisualStyleBackColor = true;
-            this.btnProcessSmaOfferings.Click += new System.EventHandler(this.btnProcessSmaOfferings_Click);
+            this.BtnProcessSmaOfferings.Location = new System.Drawing.Point(12, 30);
+            this.BtnProcessSmaOfferings.Name = "BtnProcessSmaOfferings";
+            this.BtnProcessSmaOfferings.Size = new System.Drawing.Size(167, 23);
+            this.BtnProcessSmaOfferings.TabIndex = 0;
+            this.BtnProcessSmaOfferings.Text = "Process Legg SMA Offerings\r\n";
+            this.BtnProcessSmaOfferings.UseVisualStyleBackColor = true;
+            this.BtnProcessSmaOfferings.Click += new System.EventHandler(this.BtnProcessSmaOfferings_Click);
             // 
             // DoverSMA_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnProcessSmaOfferings);
+            this.Controls.Add(this.BtnProcessSmaOfferings);
             this.Name = "DoverSMA_Form";
             this.Text = "DoverSMA_Form";
             this.ResumeLayout(false);
@@ -55,6 +55,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnProcessSmaOfferings;
+        private System.Windows.Forms.Button BtnProcessSmaOfferings;
     }
 }

@@ -1,6 +1,33 @@
-C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-06-01 13:36:19
-C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-06-01 13:37:54
-C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-06-01 13:39:02
-C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-06-01 13:39:26
-C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-06-01 13:39:53
-C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-06-01 13:40:45
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-06-04 18:50:55
+ProcessOfferingsFile: C:\A_Dover\Dev\SMA Beta Data-JK\LeggSmaOfferings.csv started
+----- Skipping Row 1379------
+AssetManager|Legg Mason
+SponsorFirm|Kalos Management
+AdvisoryPlatform|Third Party Models Program
+SmaStrategy|CBI All Cap Growth SMA
+SmaProductType|Model Delivery
+-----------
+----- Skipping Row 1457------
+AssetManager|Legg Mason
+SponsorFirm|Mulberry Capital Management
+AdvisoryPlatform|Third Party Models Program
+SmaStrategy|CBI Large Cap Growth SMA
+SmaProductType|Model Delivery
+-----------
+----- Skipping Row 1473------
+AssetManager|Legg Mason
+SponsorFirm|Northwest Asset Management
+AdvisoryPlatform|Third Party Models Program
+SmaStrategy|CBI Large Cap Growth SMA
+SmaProductType|Model Delivery
+-----------
+----- Skipping Row 1794------
+AssetManager|Legg Mason
+SponsorFirm|Dynasty Wealth Management
+AdvisoryPlatform|Uniform Overlay Management Program (UOMP)
+SmaStrategy|CBI Multi Cap Growth SMA
+SmaProductType|Traditional
+-----------
+ProcessOfferingsFile: Rows Processed 1913
+ProcessOfferingsFile: Rows Added 1906
+ProcessOfferingsFile: C:\A_Dover\Dev\SMA Beta Data-JK\LeggSmaOfferings.csv finished

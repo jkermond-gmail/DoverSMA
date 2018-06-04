@@ -1,15 +1,15 @@
-﻿using System;
+﻿
+using System;
 using System.Diagnostics;
 using System.IO;
 
-
-namespace Utilities
+namespace DoverUtilities
 {
     public static class LogHelper
     {
         private static StreamWriter swLogFile = null;
         private static string LogFileName;
-        private static string OutputPath = @"C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\";
+        //private static string OutputPath = @"C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\";
         private static bool LogFileOpened = false;
 
         /*
@@ -37,7 +37,7 @@ namespace Utilities
             else
             {
                 bool append = true;
-                swLogFile = new StreamWriter(Path.Combine(logFilePath, logFileName), append); 
+                swLogFile = new StreamWriter(Path.Combine(logFilePath, logFileName), append);
             }
             LogFileOpened = true;
             string message = LogFileName + " opened " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
