@@ -17,6 +17,8 @@ namespace DoverSMA
     public partial class DoverSMA_Form : Form
     {
         private FileProcessor mSmaFileProcessor = null;
+        private string mFilepath = @"C:\A_Dover\Dev\SMA Beta Data-JK";
+        private string mFilename = @"LeggSmaOfferings.csv";
 
         public DoverSMA_Form()
         {
@@ -28,9 +30,12 @@ namespace DoverSMA
 
         private void BtnProcessSmaOfferings_Click(object sender, EventArgs e)
         {
-            string filepath = @"C:\A_Dover\Dev\SMA Beta Data-JK";
-            string filename = @"LeggSmaOfferings.csv";
-            mSmaFileProcessor.ProcessOfferingsFile(Path.Combine(filepath, filename));
+            mSmaFileProcessor.ProcessOfferingsData(Path.Combine(mFilepath, mFilename));
+        }
+
+        private void BtnProcessSmaFlows_Click(object sender, EventArgs e)
+        {
+            mSmaFileProcessor.ProcessFlowsData(Path.Combine(mFilepath, mFilename));
         }
     }
 }

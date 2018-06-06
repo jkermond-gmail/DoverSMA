@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.BtnProcessSmaOfferings = new System.Windows.Forms.Button();
+            this.BtnProcessSmaFlows = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnProcessSmaOfferings
@@ -41,11 +42,22 @@
             this.BtnProcessSmaOfferings.UseVisualStyleBackColor = true;
             this.BtnProcessSmaOfferings.Click += new System.EventHandler(this.BtnProcessSmaOfferings_Click);
             // 
+            // BtnProcessSmaFlows
+            // 
+            this.BtnProcessSmaFlows.Location = new System.Drawing.Point(12, 59);
+            this.BtnProcessSmaFlows.Name = "BtnProcessSmaFlows";
+            this.BtnProcessSmaFlows.Size = new System.Drawing.Size(167, 23);
+            this.BtnProcessSmaFlows.TabIndex = 1;
+            this.BtnProcessSmaFlows.Text = "Process Legg SMA Flows";
+            this.BtnProcessSmaFlows.UseVisualStyleBackColor = true;
+            this.BtnProcessSmaFlows.Click += new System.EventHandler(this.BtnProcessSmaFlows_Click);
+            // 
             // DoverSMA_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BtnProcessSmaFlows);
             this.Controls.Add(this.BtnProcessSmaOfferings);
             this.Name = "DoverSMA_Form";
             this.Text = "DoverSMA_Form";
@@ -56,5 +68,6 @@
         #endregion
 
         private System.Windows.Forms.Button BtnProcessSmaOfferings;
+        private System.Windows.Forms.Button BtnProcessSmaFlows;
     }
 }
