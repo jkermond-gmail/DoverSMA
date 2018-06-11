@@ -18,7 +18,9 @@ namespace DoverSMA
     {
         private FileProcessor mSmaFileProcessor = null;
         private string mFilepath = @"C:\A_Dover\Dev\SMA Beta Data-JK";
-        private string mFilename = @"LeggSmaOfferings.csv";
+        private string mOfferingsAndFlowFilename = @"LeggSmaOfferings.csv";
+        private string mStrategiesAndReturnsFilename = @"LeggSmaStrategies.csv";
+
 
         public DoverSMA_Form()
         {
@@ -30,12 +32,22 @@ namespace DoverSMA
 
         private void BtnProcessSmaOfferings_Click(object sender, EventArgs e)
         {
-            mSmaFileProcessor.ProcessOfferingsData(Path.Combine(mFilepath, mFilename));
+            mSmaFileProcessor.ProcessOfferingsData(Path.Combine(mFilepath, mOfferingsAndFlowFilename));
         }
 
         private void BtnProcessSmaFlows_Click(object sender, EventArgs e)
         {
-            mSmaFileProcessor.ProcessFlowsData(Path.Combine(mFilepath, mFilename));
+            mSmaFileProcessor.ProcessFlowsData(Path.Combine(mFilepath, mOfferingsAndFlowFilename));
+        }
+
+        private void BtnProcessSmaStrategies_Click(object sender, EventArgs e)
+        {
+            mSmaFileProcessor.ProcessStrategiesData(Path.Combine(mFilepath, mStrategiesAndReturnsFilename));
+        }
+
+        private void BtnProcessSmaReturns_Click(object sender, EventArgs e)
+        {
+            mSmaFileProcessor.ProcessReturnsData(Path.Combine(mFilepath, mStrategiesAndReturnsFilename));
         }
     }
 }

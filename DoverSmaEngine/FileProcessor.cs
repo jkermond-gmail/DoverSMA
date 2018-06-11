@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 
 using LumenWorks.Framework.IO.Csv;
 
@@ -15,6 +16,11 @@ namespace DoverSmaEngine
 {
     public class FileProcessor
     {
+
+        private string[] mEndOfQuarterDates = { "", "03/31/", "06/30/", "09/30/", "12/31/" };
+        private string[] mReturnTypes = { "Quarterly", "1 year", "3 year" };
+        private string[] mReturnTypeCol = { "", "      1-Year", "         3-Year" };
+
         // assets, gross flows, redemptions, net flows, derived flows
         private enum FlowTypes { a, g, r, n, d };
         
@@ -159,7 +165,7 @@ namespace DoverSmaEngine
                         if (addCount == 0) cmd.Parameters.Add("@" + colName, SqlDbType.VarChar);
                         cmd.Parameters["@" + colName].Value = valueParsed;
 
-                        colName = "SmaStrategyId";
+                        colName = "MorningstarStrategyId";
                         valueParsed = ParseColumn(row, colName);
                         if (addCount == 0) cmd.Parameters.Add("@" + colName, SqlDbType.VarChar);
                         cmd.Parameters["@" + colName].Value = valueParsed;
@@ -192,9 +198,9 @@ namespace DoverSmaEngine
                         cmd.CommandText =
                             "insert into " + tableName +
                                 "(AssetManager, SponsorFirm, AdvisoryPlatform, SmaStrategy, SmaProductType, TampRIAPlatform," +
-                                " SponsorFirmId, SmaStrategyId, MorningstarClass, MorningstarClassId, TotalAccounts, CsvFileRow) " +
+                                " SponsorFirmId, MorningstarStrategyId, MorningstarClass, MorningstarClassId, TotalAccounts, CsvFileRow) " +
                             "Values (@AssetManager, @SponsorFirm, @AdvisoryPlatform, @SmaStrategy, @SmaProductType, @TampRIAPlatform, " +
-                                    "@SponsorFirmId, @SmaStrategyId, @MorningstarClass, @MorningstarClassId, @TotalAccounts, @CsvFileRow)";
+                                    "@SponsorFirmId, @MorningstarStrategyId, @MorningstarClass, @MorningstarClassId, @TotalAccounts, @CsvFileRow)";
                         cmd.ExecuteNonQuery();
                         addCount += 1;
                     }
@@ -305,15 +311,13 @@ namespace DoverSmaEngine
                                 cmd2.Parameters.Add("@SmaOfferingId", SqlDbType.Int);
                             cmd2.Parameters["@SmaOfferingId"].Value = SmaOfferingId;
 
-                            string[] EndOfQuarterDates = { "", "03/31/", "06/30/", "09/30/", "12/31/" };
-
                             for ( int year = 2016; year <= 2018; year++)
                             {
                                 string sYear = year.ToString();
                                 for( int quarter = 1; quarter <= 4; quarter++ )
                                 {
                                     string sQuarter = quarter.ToString();
-                                    string flowDate = EndOfQuarterDates[quarter].ToString() + sYear;
+                                    string flowDate = mEndOfQuarterDates[quarter].ToString() + sYear;
 
                                     if (addCount == 0)
                                         cmd2.Parameters.Add("@FlowDate", SqlDbType.Date);
@@ -405,5 +409,267 @@ namespace DoverSmaEngine
             LogHelper.WriteLine(logFuncName + "Rows Added " + addCount);
             LogHelper.WriteLine(logFuncName + filePath + " finished");
         }
+
+        public void ProcessStrategiesData(string filePath)
+        {
+            SqlCommand cmd = null;
+            string sqlSelect = "";
+            string sqlWhere = "";
+            string valueParsed = "";
+            string colName = "";
+            string tableName = " SmaStrategies ";
+            string logFuncName = "ProcessStrategiesData: ";
+            string format;
+            DateTime result;
+            CultureInfo provider = CultureInfo.InvariantCulture;
+
+
+            int currentRowCount = 1; // Since csv file has a header set row to 1, data starts in row 2
+            int addCount = 0;
+
+            LogHelper.WriteLine(logFuncName + filePath + " started");
+
+            DataTable dt = ReadCsvIntoTable(filePath);
+
+            sqlSelect = "select count(*) from" + tableName;
+            sqlWhere = @"where AssetManager = @AssetManager and SmaStrategy = @SmaStrategy";
+
+            cmd = new SqlCommand
+            {
+                Connection = mSqlConn1,
+                CommandText = sqlSelect + sqlWhere
+            };
+
+            foreach (DataRow row in dt.Rows)
+            {
+                currentRowCount += 1;
+                colName = "AssetManager";
+                valueParsed = ParseColumn(row, colName);
+                if (currentRowCount == 2) cmd.Parameters.Add("@" + colName, SqlDbType.VarChar);
+                cmd.Parameters["@" + colName].Value = valueParsed;
+
+                colName = "SmaStrategy";
+                valueParsed = ParseColumn(row, colName);
+                if (currentRowCount == 2) cmd.Parameters.Add("@" + colName, SqlDbType.VarChar);
+                cmd.Parameters["@" + colName].Value = valueParsed;
+
+                try
+                {
+                    cmd.CommandText = sqlSelect + sqlWhere;
+                    int iCount = (int)cmd.ExecuteScalar();
+                    if (iCount == 0)
+                    {
+                        colName = "MorningstarStrategyId";
+                        valueParsed = ParseColumn(row, colName);
+                        if (addCount == 0) cmd.Parameters.Add("@" + colName, SqlDbType.VarChar);
+                        cmd.Parameters["@" + colName].Value = valueParsed;
+
+                        colName = "MorningstarClass";
+                        valueParsed = ParseColumn(row, colName);
+                        if (addCount == 0) cmd.Parameters.Add("@" + colName, SqlDbType.VarChar);
+                        cmd.Parameters["@" + colName].Value = valueParsed;
+
+                        colName = "MorningstarClassId";
+                        valueParsed = ParseColumn(row, colName);
+                        if (addCount == 0) cmd.Parameters.Add("@" + colName, SqlDbType.VarChar);
+                        cmd.Parameters["@" + colName].Value = valueParsed;
+
+                        colName = "ManagerClass";
+                        valueParsed = ParseColumn(row, colName);
+                        if (addCount == 0) cmd.Parameters.Add("@" + colName, SqlDbType.VarChar);
+                        cmd.Parameters["@" + colName].Value = valueParsed;
+
+                        colName = "InceptionDate";
+                        valueParsed = ParseColumn(row, colName);
+                        if (addCount == 0) cmd.Parameters.Add("@" + colName, SqlDbType.Date);
+
+                        format = "MM/dd/yy";
+                        try
+                        {
+                            result = DateTime.ParseExact(valueParsed, format, provider);
+                            Console.WriteLine("{0} converts to {1}.", valueParsed, result.ToString());
+                            cmd.Parameters["@" + colName].Value = result.ToString();
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("{0} is not in the correct format.", valueParsed);
+                        }
+
+                        cmd.Parameters["@" + colName].Value = valueParsed;
+
+
+                        cmd.CommandText =
+                            "insert into " + tableName +
+                                "(AssetManager, SmaStrategy, MorningstarStrategyId, MorningstarClass, MorningstarClassId, ManagerClass, InceptionDate) " +
+                            "Values (@AssetManager, @SmaStrategy, @MorningstarStrategyId, @MorningstarClass, @MorningstarClassId, @ManagerClass, @InceptionDate)";
+                        cmd.ExecuteNonQuery();
+                        addCount += 1;
+                    }
+                    else if (iCount > 0)
+                    {
+                        LogHelper.WriteLine("----- Skipping Row " + (currentRowCount) + "------");
+
+                        foreach (DataColumn column in dt.Columns)
+                        {
+                            if (column.ColumnName.Equals("AssetManager") || column.ColumnName.Equals("SmaStrategy"))
+                                LogHelper.WriteLine(column.ColumnName.ToString() + "|" + row[column].ToString());
+                        }
+                        LogHelper.WriteLine("-----------");
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    LogHelper.WriteLine(logFuncName + ex.Message + " line number: " + ex.LineNumber);
+                }
+                finally
+                {
+                }
+            }
+            LogHelper.WriteLine(logFuncName + "Rows Processed " + currentRowCount);
+            LogHelper.WriteLine(logFuncName + "Rows Added " + addCount);
+            LogHelper.WriteLine(logFuncName + filePath + " finished");
+        }
+
+        public void ProcessReturnsData(string filePath)
+        {
+            SqlCommand cmd1 = null;
+            SqlCommand cmd2 = null;
+            string sqlSelect = "";
+            string sqlWhere = "";
+            string valueParsed = "";
+            string colName = "";
+            string logFuncName = "ProcessReturnsData: ";
+
+            int currentRowCount = 1; // Since csv file has a header set row to 1, data starts in row 2
+            int addCount = 0;
+
+            LogHelper.WriteLine(logFuncName + filePath + " started");
+
+            DataTable dt = ReadCsvIntoTable(filePath);
+
+            sqlSelect = @"select SmaStrategyId from SmaStrategies ";
+            sqlWhere = @"where AssetManager = @AssetManager and SmaStrategy = @SmaStrategy";
+
+            cmd1 = new SqlCommand
+            {
+                Connection = mSqlConn1,
+                CommandText = sqlSelect + sqlWhere
+            };
+
+            cmd2 = new SqlCommand
+            {
+                Connection = mSqlConn2
+            };
+
+
+            foreach (DataRow row in dt.Rows)
+            {
+                currentRowCount += 1;
+                colName = "AssetManager";
+                valueParsed = ParseColumn(row, colName);
+                if (currentRowCount == 2) cmd1.Parameters.Add("@" + colName, SqlDbType.VarChar);
+                cmd1.Parameters["@" + colName].Value = valueParsed;
+
+                colName = "SmaStrategy";
+                valueParsed = ParseColumn(row, colName);
+                if (currentRowCount == 2) cmd1.Parameters.Add("@" + colName, SqlDbType.VarChar);
+                cmd1.Parameters["@" + colName].Value = valueParsed;
+
+                try
+                {
+                    SqlDataReader dr = null;
+                    cmd1.CommandText = sqlSelect + sqlWhere;
+
+                    dr = cmd1.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        if (dr.Read())
+                        {
+                            Int32 SmaStrategyId = Convert.ToInt32(dr["SmaStrategyId"].ToString());
+                            if (addCount == 0)
+                                cmd2.Parameters.Add("@SmaStrategyId", SqlDbType.Int);
+                            cmd2.Parameters["@SmaStrategyId"].Value = SmaStrategyId;
+
+                            for (int year = 2016; year <= 2018; year++)
+                            {
+                                string sYear = year.ToString();
+                                for (int quarter = 1; quarter <= 4; quarter++)
+                                {
+                                    for (int returnTypeIndex = 0; returnTypeIndex <= 2; returnTypeIndex++)
+                                    {
+                                        string sQuarter = quarter.ToString();
+                                        string flowDate = mEndOfQuarterDates[quarter].ToString() + sYear;
+
+                                        if (addCount == 0)
+                                            cmd2.Parameters.Add("@ReturnDate", SqlDbType.Date);
+                                        cmd2.Parameters["@ReturnDate"].Value = flowDate;
+
+                                        colName = sQuarter + "Q" + " " + sYear + mReturnTypeCol[returnTypeIndex];
+
+                                        if (dt.Columns.Contains(colName))
+                                        {
+                                            valueParsed = ParseColumn(row, colName);
+                                            colName = "ReturnValue";
+                                            if (addCount == 0)
+                                            {
+                                                cmd2.Parameters.Add("@" + colName, SqlDbType.VarChar);
+                                                cmd2.Parameters.Add("@ReturnType", SqlDbType.VarChar);
+                                            }
+                                            cmd2.Parameters["@" + colName].Value = valueParsed;
+                                            cmd2.Parameters["@ReturnType"].Value = mReturnTypes[returnTypeIndex];
+
+                                            cmd2.CommandText =
+                                                "insert into SmaReturns " +
+                                                    "(SmaStrategyId, ReturnType, ReturnDate, ReturnValue) " +
+                                                "Values (@SmaStrategyId, @ReturnType, @ReturnDate, @ReturnValue)";
+                                            try
+                                            {
+                                                cmd2.ExecuteNonQuery();
+                                            }
+                                            catch (SqlException ex)
+                                            {
+                                                LogHelper.WriteLine(logFuncName + ex.Message + " line number: " + ex.LineNumber);
+                                            }
+                                            finally
+                                            {
+                                                addCount += 1;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            LogHelper.WriteLine("Column Name: " + colName + " not found");
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        LogHelper.WriteLine("----- Strategy not found Skipping Row " + (currentRowCount) + "------");
+
+                        foreach (DataColumn column in dt.Columns)
+                        {
+                            if (column.ColumnName.Equals("AssetManager") || column.ColumnName.Equals("SmaStrategy") )
+                                LogHelper.WriteLine(column.ColumnName.ToString() + "|" + row[column].ToString());
+                        }
+                        LogHelper.WriteLine("-----------");
+                    }
+                    dr.Close();
+                }
+                catch (SqlException ex)
+                {
+                    LogHelper.WriteLine(logFuncName + ex.Message + " line number: " + ex.LineNumber);
+                }
+                finally
+                {
+                }
+            }
+            LogHelper.WriteLine(logFuncName + "Rows Processed " + currentRowCount);
+            LogHelper.WriteLine(logFuncName + "Rows Added " + addCount);
+            LogHelper.WriteLine(logFuncName + filePath + " finished");
+        }
+
+
     }
 }

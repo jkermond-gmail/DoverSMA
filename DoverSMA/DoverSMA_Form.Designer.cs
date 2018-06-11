@@ -30,6 +30,8 @@
         {
             this.BtnProcessSmaOfferings = new System.Windows.Forms.Button();
             this.BtnProcessSmaFlows = new System.Windows.Forms.Button();
+            this.BtnProcessSmaStrategies = new System.Windows.Forms.Button();
+            this.BtnProcessSmaReturns = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnProcessSmaOfferings
@@ -52,11 +54,33 @@
             this.BtnProcessSmaFlows.UseVisualStyleBackColor = true;
             this.BtnProcessSmaFlows.Click += new System.EventHandler(this.BtnProcessSmaFlows_Click);
             // 
+            // BtnProcessSmaStrategies
+            // 
+            this.BtnProcessSmaStrategies.Location = new System.Drawing.Point(12, 88);
+            this.BtnProcessSmaStrategies.Name = "BtnProcessSmaStrategies";
+            this.BtnProcessSmaStrategies.Size = new System.Drawing.Size(167, 23);
+            this.BtnProcessSmaStrategies.TabIndex = 2;
+            this.BtnProcessSmaStrategies.Text = "Process Legg SMA Strategies";
+            this.BtnProcessSmaStrategies.UseVisualStyleBackColor = true;
+            this.BtnProcessSmaStrategies.Click += new System.EventHandler(this.BtnProcessSmaStrategies_Click);
+            // 
+            // BtnProcessSmaReturns
+            // 
+            this.BtnProcessSmaReturns.Location = new System.Drawing.Point(12, 117);
+            this.BtnProcessSmaReturns.Name = "BtnProcessSmaReturns";
+            this.BtnProcessSmaReturns.Size = new System.Drawing.Size(167, 23);
+            this.BtnProcessSmaReturns.TabIndex = 3;
+            this.BtnProcessSmaReturns.Text = "Process Legg SMA Returns";
+            this.BtnProcessSmaReturns.UseVisualStyleBackColor = true;
+            this.BtnProcessSmaReturns.Click += new System.EventHandler(this.BtnProcessSmaReturns_Click);
+            // 
             // DoverSMA_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BtnProcessSmaReturns);
+            this.Controls.Add(this.BtnProcessSmaStrategies);
             this.Controls.Add(this.BtnProcessSmaFlows);
             this.Controls.Add(this.BtnProcessSmaOfferings);
             this.Name = "DoverSMA_Form";
@@ -69,5 +93,7 @@
 
         private System.Windows.Forms.Button BtnProcessSmaOfferings;
         private System.Windows.Forms.Button BtnProcessSmaFlows;
+        private System.Windows.Forms.Button BtnProcessSmaStrategies;
+        private System.Windows.Forms.Button BtnProcessSmaReturns;
     }
 }
