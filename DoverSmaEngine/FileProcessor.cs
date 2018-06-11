@@ -669,7 +669,5 @@ namespace DoverSmaEngine
             LogHelper.WriteLine(logFuncName + "Rows Added " + addCount);
             LogHelper.WriteLine(logFuncName + filePath + " finished");
         }
-
-
     }
 }
