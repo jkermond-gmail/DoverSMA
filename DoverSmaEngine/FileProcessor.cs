@@ -23,6 +23,7 @@ namespace DoverSmaEngine
 
         // assets, gross flows, redemptions, net flows, derived flows
         private enum FlowTypes { a, g, r, n, d };
+        private enum ManagerTypes { Legg, Prin, Alli, Dela, GWNK };
         
         string[] flowTypes = Enum.GetNames(typeof(FlowTypes));
 
@@ -184,11 +185,13 @@ namespace DoverSmaEngine
             switch (Manager)
             {
                 case "Legg":
-                    ProcessStrategiesData(Path.Combine(mFilepath, mOAFF_legg));
+                    ProcessStrategiesData(Path.Combine(mFilepath, mSARF_legg)); //, ManagerTypes.Legg);
                     break;
                 case "Principal":
+                    ProcessStrategiesData(Path.Combine(mFilepath, mSARF_prin)); //, ManagerTypes.Prin);
                     break;
                 case "Allianz":
+                    ProcessStrategiesData(Path.Combine(mFilepath, mSARF_alli)); //, ManagerTypes.Alli);
                     break;
                 case "Delaware":
                     break;
@@ -202,11 +205,13 @@ namespace DoverSmaEngine
             switch (Manager)
             {
                 case "Legg":
-                    ProcessReturnsData(Path.Combine(mFilepath, mOAFF_legg));
+                    ProcessReturnsData(Path.Combine(mFilepath, mSARF_legg));
                     break;
                 case "Principal":
+                    ProcessReturnsData(Path.Combine(mFilepath, mSARF_prin));
                     break;
                 case "Allianz":
+                    ProcessReturnsData(Path.Combine(mFilepath, mSARF_alli));
                     break;
                 case "Delaware":
                     break;
@@ -543,7 +548,7 @@ namespace DoverSmaEngine
 
         #region ProcessStrategies
 
-        public void ProcessStrategiesData(string filePath)
+        private void ProcessStrategiesData(string filePath) //, ManagerTypes managerType)
         {
             SqlCommand cmd = null;
             string sqlSelect = "";
@@ -616,7 +621,10 @@ namespace DoverSmaEngine
                         valueParsed = ParseColumn(row, colName);
                         if (addCount == 0) cmd.Parameters.Add("@" + colName, SqlDbType.Date);
 
-                        format = "MM/dd/yy";
+                        //if ( managerType.Equals(ManagerTypes.Alli))
+                        //    format = "M/d/yyyy";
+                        //else
+                            format = "MM/dd/yy";
                         try
                         {
                             result = DateTime.ParseExact(valueParsed, format, provider);
