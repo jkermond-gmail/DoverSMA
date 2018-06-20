@@ -17,37 +17,41 @@ namespace DoverSMA
     public partial class DoverSMA_Form : Form
     {
         private FileProcessor mSmaFileProcessor = null;
-        private string mFilepath = @"C:\A_Dover\Dev\SMA Beta Data-JK";
-        private string mOfferingsAndFlowFilename = @"LeggSmaOfferings.csv";
-        private string mStrategiesAndReturnsFilename = @"LeggSmaStrategies.csv";
-
+        private string mSelectedManager = "";
 
         public DoverSMA_Form()
         {
             InitializeComponent();
             bool deleteExisting = false;
             LogHelper.StartLog("DoverSmaLog.txt", @"C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\", deleteExisting);
-            mSmaFileProcessor = new FileProcessor();            
+            mSmaFileProcessor = new FileProcessor();
+            ListBoxManagers.SetSelected(0, true);
         }
+
 
         private void BtnProcessSmaOfferings_Click(object sender, EventArgs e)
         {
-            mSmaFileProcessor.ProcessOfferingsData(Path.Combine(mFilepath, mOfferingsAndFlowFilename));
+            mSmaFileProcessor.ProcessManagerOfferings(mSelectedManager);
         }
 
         private void BtnProcessSmaFlows_Click(object sender, EventArgs e)
         {
-            mSmaFileProcessor.ProcessFlowsData(Path.Combine(mFilepath, mOfferingsAndFlowFilename));
+            mSmaFileProcessor.ProcessManagerFlows(mSelectedManager);
         }
 
         private void BtnProcessSmaStrategies_Click(object sender, EventArgs e)
         {
-            mSmaFileProcessor.ProcessStrategiesData(Path.Combine(mFilepath, mStrategiesAndReturnsFilename));
+            mSmaFileProcessor.ProcessManagerStrategies(mSelectedManager);
         }
 
         private void BtnProcessSmaReturns_Click(object sender, EventArgs e)
         {
-            mSmaFileProcessor.ProcessReturnsData(Path.Combine(mFilepath, mStrategiesAndReturnsFilename));
+            mSmaFileProcessor.ProcessManagerReturns(mSelectedManager);
+        }
+
+        private void ListBoxManagers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            mSelectedManager = ListBoxManagers.SelectedItem.ToString();
         }
     }
 }

@@ -53044,3 +53044,5 @@ Column Name: 4Q 2018         3-Year not found
 ProcessReturnsData: Rows Processed 126
 ProcessReturnsData: Rows Added 1375
 ProcessReturnsData: C:\A_Dover\Dev\SMA Beta Data-JK\LeggSmaStrategies.csv finished
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-06-20 11:17:12
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-06-20 11:18:38

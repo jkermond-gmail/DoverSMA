@@ -30,6 +30,26 @@ namespace DoverSmaEngine
         private SqlConnection mSqlConn2 = null;
         private string mConnectionString = "";
 
+        private string mFilepath = @"C:\A_Dover\Dev\Vifs";
+        
+        // (OAFF_) Offering and Flows Files 
+        // (SARF_) Strategies and Returns Files
+        private string mOAFF_legg = @"OAFF_legg.csv";
+        private string mSARF_legg = @"SARF_legg.csv";
+        private string mOAFF_prin = @"OAFF_prin.csv";
+        private string mSARF_prin = @"SARF_prin.csv";
+        private string mOAFF_alli = @"OAFF_alli.csv";
+        private string mSARF_alli = @"SARF_alli.csv";
+        private string mOAFF_dela = @"OAFF_dela.csv";
+        private string mSARF_dela = @"SARF_dela.csv";
+        private string mOAFF_gwnk = @"OAFF_gwnk.csv";
+        private string mSARF_gwnk = @"SARF_gwnk.csv";
+//        private string mOAFF_ = @"OAFF_.csv";
+//        private string mSARF_ = @"SARF_.csv";
+
+        /// <summary>
+        /// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// </summary>
         public FileProcessor()
         {
             mConnectionString = @"server=JKERMOND-NEW\SQLEXPRESS2014;database=DoverSma;uid=sa;pwd=M@gichat!";
@@ -41,7 +61,9 @@ namespace DoverSmaEngine
         }
 
         #region CsvReader
-
+        /// <summary>
+        /// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// </summary>
         private DataTable ReadCsvIntoTable(string filePath)
         {
             DataTable dt = new DataTable();
@@ -65,6 +87,9 @@ namespace DoverSmaEngine
             return (dt);
         }
 
+        /// <summary>
+        /// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// </summary>
         void Csv_ParseError(object sender, ParseErrorEventArgs e)
         {
             //if (e.Error is MissingFieldCsvException)
@@ -80,6 +105,9 @@ namespace DoverSmaEngine
         }
 
 
+        /// <summary>
+        /// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// </summary>
         private string ParseColumn(DataRow dr, string column)
         {
             string value = "";
@@ -91,9 +119,106 @@ namespace DoverSmaEngine
             return (value);
         }
 
-        #endregion
+        #endregion CsvReader
 
-        public void ProcessOfferingsData(string filePath)
+        #region GetStuff_Commented
+        //public string GetManagerFilepath()
+        //{
+        //    return (mFilepath);
+        //}
+
+        //public string GetOfferingsAndFlowFilename(string Manager)
+        //{
+        //    return (mOfferingsAndFlowFilename);
+        //}
+
+        //public string GetStrategiesAndReturnsFilename(string Manager)
+        //{
+        //    return (mStrategiesAndReturnsFilename);
+        //}
+
+        #endregion GetStuff_Commented
+
+        #region ProcessManager
+
+        public void ProcessManagerOfferings(string Manager)
+        {
+            switch (Manager)
+            {
+                case "Legg":
+                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_legg));
+                    break;
+                case "Principal":
+                    //ProcessOfferingsDataMultiRow1(Path.Combine(mFilepath, mOAFF_prin));
+                    break;
+                case "Allianz":
+                    //ProcessOfferingsDataSingleLine(Path.Combine(mFilepath, mOAFF_alli));
+                    break;
+                case "Delaware":
+                    break;
+                case "GWNK":
+                    break;
+            }
+        }
+
+        public void ProcessManagerFlows(string Manager)
+        {
+            switch (Manager)
+            {
+                case "Legg":
+                    ProcessFlowsDataSingleRow(Path.Combine(mFilepath, mOAFF_legg));
+                    break;
+                case "Principal":
+                    break;
+                case "Allianz":
+                    break;
+                case "Delaware":
+                    break;
+                case "GWNK":
+                    break;
+            }
+        }
+
+        public void ProcessManagerStrategies(string Manager)
+        {
+            switch (Manager)
+            {
+                case "Legg":
+                    ProcessStrategiesData(Path.Combine(mFilepath, mOAFF_legg));
+                    break;
+                case "Principal":
+                    break;
+                case "Allianz":
+                    break;
+                case "Delaware":
+                    break;
+                case "GWNK":
+                    break;
+            }
+        }
+
+        public void ProcessManagerReturns(string Manager)
+        {
+            switch (Manager)
+            {
+                case "Legg":
+                    ProcessReturnsData(Path.Combine(mFilepath, mOAFF_legg));
+                    break;
+                case "Principal":
+                    break;
+                case "Allianz":
+                    break;
+                case "Delaware":
+                    break;
+                case "GWNK":
+                    break;
+            }
+        }
+        #endregion ProcessManager
+
+        #region ProcessOfferings
+
+        public void ProcessOfferingsDataSingleRow(string filePath)
         {
             SqlCommand cmd = null;
             string sqlSelect = "";
@@ -230,7 +355,11 @@ namespace DoverSmaEngine
             LogHelper.WriteLine(logFuncName + filePath + " finished");
         }
 
-        public void ProcessFlowsData(string filePath)
+        #endregion ProcessOfferings
+
+
+        #region ProcessFlows
+        public void ProcessFlowsDataSingleRow(string filePath)
         {
             SqlCommand cmd1 = null;
             SqlCommand cmd2 = null;
@@ -410,6 +539,10 @@ namespace DoverSmaEngine
             LogHelper.WriteLine(logFuncName + filePath + " finished");
         }
 
+        #endregion ProcessFlows
+
+        #region ProcessStrategies
+
         public void ProcessStrategiesData(string filePath)
         {
             SqlCommand cmd = null;
@@ -529,6 +662,11 @@ namespace DoverSmaEngine
             LogHelper.WriteLine(logFuncName + "Rows Added " + addCount);
             LogHelper.WriteLine(logFuncName + filePath + " finished");
         }
+
+        #endregion ProcessStrategies
+
+
+        #region ProcessReturns
 
         public void ProcessReturnsData(string filePath)
         {
@@ -669,5 +807,6 @@ namespace DoverSmaEngine
             LogHelper.WriteLine(logFuncName + "Rows Added " + addCount);
             LogHelper.WriteLine(logFuncName + filePath + " finished");
         }
+        #endregion ProcessReturns
     }
 }

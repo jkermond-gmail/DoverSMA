@@ -32,53 +32,70 @@
             this.BtnProcessSmaFlows = new System.Windows.Forms.Button();
             this.BtnProcessSmaStrategies = new System.Windows.Forms.Button();
             this.BtnProcessSmaReturns = new System.Windows.Forms.Button();
+            this.ListBoxManagers = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // BtnProcessSmaOfferings
             // 
-            this.BtnProcessSmaOfferings.Location = new System.Drawing.Point(12, 30);
+            this.BtnProcessSmaOfferings.Location = new System.Drawing.Point(12, 86);
             this.BtnProcessSmaOfferings.Name = "BtnProcessSmaOfferings";
             this.BtnProcessSmaOfferings.Size = new System.Drawing.Size(167, 23);
             this.BtnProcessSmaOfferings.TabIndex = 0;
-            this.BtnProcessSmaOfferings.Text = "Process Legg SMA Offerings\r\n";
+            this.BtnProcessSmaOfferings.Text = "Process SMA Offerings\r\n";
             this.BtnProcessSmaOfferings.UseVisualStyleBackColor = true;
             this.BtnProcessSmaOfferings.Click += new System.EventHandler(this.BtnProcessSmaOfferings_Click);
             // 
             // BtnProcessSmaFlows
             // 
-            this.BtnProcessSmaFlows.Location = new System.Drawing.Point(12, 59);
+            this.BtnProcessSmaFlows.Location = new System.Drawing.Point(12, 115);
             this.BtnProcessSmaFlows.Name = "BtnProcessSmaFlows";
             this.BtnProcessSmaFlows.Size = new System.Drawing.Size(167, 23);
             this.BtnProcessSmaFlows.TabIndex = 1;
-            this.BtnProcessSmaFlows.Text = "Process Legg SMA Flows";
+            this.BtnProcessSmaFlows.Text = "Process SMA Flows";
             this.BtnProcessSmaFlows.UseVisualStyleBackColor = true;
             this.BtnProcessSmaFlows.Click += new System.EventHandler(this.BtnProcessSmaFlows_Click);
             // 
             // BtnProcessSmaStrategies
             // 
-            this.BtnProcessSmaStrategies.Location = new System.Drawing.Point(12, 88);
+            this.BtnProcessSmaStrategies.Location = new System.Drawing.Point(12, 144);
             this.BtnProcessSmaStrategies.Name = "BtnProcessSmaStrategies";
             this.BtnProcessSmaStrategies.Size = new System.Drawing.Size(167, 23);
             this.BtnProcessSmaStrategies.TabIndex = 2;
-            this.BtnProcessSmaStrategies.Text = "Process Legg SMA Strategies";
+            this.BtnProcessSmaStrategies.Text = "Process SMA Strategies";
             this.BtnProcessSmaStrategies.UseVisualStyleBackColor = true;
             this.BtnProcessSmaStrategies.Click += new System.EventHandler(this.BtnProcessSmaStrategies_Click);
             // 
             // BtnProcessSmaReturns
             // 
-            this.BtnProcessSmaReturns.Location = new System.Drawing.Point(12, 117);
+            this.BtnProcessSmaReturns.Location = new System.Drawing.Point(12, 173);
             this.BtnProcessSmaReturns.Name = "BtnProcessSmaReturns";
             this.BtnProcessSmaReturns.Size = new System.Drawing.Size(167, 23);
             this.BtnProcessSmaReturns.TabIndex = 3;
-            this.BtnProcessSmaReturns.Text = "Process Legg SMA Returns";
+            this.BtnProcessSmaReturns.Text = "Process SMA Returns";
             this.BtnProcessSmaReturns.UseVisualStyleBackColor = true;
             this.BtnProcessSmaReturns.Click += new System.EventHandler(this.BtnProcessSmaReturns_Click);
+            // 
+            // ListBoxManagers
+            // 
+            this.ListBoxManagers.FormattingEnabled = true;
+            this.ListBoxManagers.Items.AddRange(new object[] {
+            "Legg",
+            "Principal",
+            "Allianz",
+            "Delaware",
+            "GW&K"});
+            this.ListBoxManagers.Location = new System.Drawing.Point(12, 63);
+            this.ListBoxManagers.Name = "ListBoxManagers";
+            this.ListBoxManagers.Size = new System.Drawing.Size(120, 17);
+            this.ListBoxManagers.TabIndex = 4;
+            this.ListBoxManagers.SelectedIndexChanged += new System.EventHandler(this.ListBoxManagers_SelectedIndexChanged);
             // 
             // DoverSMA_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ListBoxManagers);
             this.Controls.Add(this.BtnProcessSmaReturns);
             this.Controls.Add(this.BtnProcessSmaStrategies);
             this.Controls.Add(this.BtnProcessSmaFlows);
@@ -95,5 +112,6 @@
         private System.Windows.Forms.Button BtnProcessSmaFlows;
         private System.Windows.Forms.Button BtnProcessSmaStrategies;
         private System.Windows.Forms.Button BtnProcessSmaReturns;
+        private System.Windows.Forms.ListBox ListBoxManagers;
     }
 }
