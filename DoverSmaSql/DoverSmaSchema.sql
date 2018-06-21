@@ -1,12 +1,12 @@
 USE [master]
 GO
-/****** Object:  Database [DoverSma]    Script Date: 6/11/2018 7:42:53 PM ******/
+/****** Object:  Database [DoverSma]    Script Date: 6/21/2018 11:46:01 AM ******/
 CREATE DATABASE [DoverSma]
  CONTAINMENT = NONE
  ON  PRIMARY 
 ( NAME = N'DoverSma', FILENAME = N'C:\A_Development\SQL\DoverSma\Db\DoverSma.mdf' , SIZE = 6144KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
  LOG ON 
-( NAME = N'DoverSma_log', FILENAME = N'C:\A_Development\SQL\DoverSma\Db\DoverSma_log.ldf' , SIZE = 2304KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+( NAME = N'DoverSma_log', FILENAME = N'C:\A_Development\SQL\DoverSma\Db\DoverSma_log.ldf' , SIZE = 15040KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
 GO
 ALTER DATABASE [DoverSma] SET COMPATIBILITY_LEVEL = 120
 GO
@@ -75,7 +75,7 @@ ALTER DATABASE [DoverSma] SET DELAYED_DURABILITY = DISABLED
 GO
 USE [DoverSma]
 GO
-/****** Object:  Table [dbo].[SmaFlows]    Script Date: 6/11/2018 7:42:53 PM ******/
+/****** Object:  Table [dbo].[SmaFlows]    Script Date: 6/21/2018 11:46:01 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -101,7 +101,7 @@ CREATE TABLE [dbo].[SmaFlows](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[SmaOfferings]    Script Date: 6/11/2018 7:42:53 PM ******/
+/****** Object:  Table [dbo].[SmaOfferings]    Script Date: 6/21/2018 11:46:01 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -112,7 +112,7 @@ CREATE TABLE [dbo].[SmaOfferings](
 	[SmaOfferingId] [int] IDENTITY(10001,1) NOT NULL,
 	[AssetManager] [varchar](50) NOT NULL,
 	[SponsorFirm] [varchar](50) NOT NULL,
-	[AdvisoryPlatform] [varchar](50) NOT NULL,
+	[AdvisoryPlatform] [varchar](80) NOT NULL,
 	[SmaStrategy] [varchar](50) NOT NULL,
 	[SmaProductType] [varchar](50) NOT NULL CONSTRAINT [DF_SmaOfferings_SmaProductType]  DEFAULT (''),
 	[TampRIAPlatform] [varchar](50) NOT NULL CONSTRAINT [DF_SmaOfferings_TampRIAPlatform]  DEFAULT (''),
@@ -136,7 +136,7 @@ CREATE TABLE [dbo].[SmaOfferings](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[SmaReturns]    Script Date: 6/11/2018 7:42:53 PM ******/
+/****** Object:  Table [dbo].[SmaReturns]    Script Date: 6/21/2018 11:46:01 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -160,7 +160,7 @@ CREATE TABLE [dbo].[SmaReturns](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[SmaStrategies]    Script Date: 6/11/2018 7:42:53 PM ******/
+/****** Object:  Table [dbo].[SmaStrategies]    Script Date: 6/21/2018 11:46:01 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

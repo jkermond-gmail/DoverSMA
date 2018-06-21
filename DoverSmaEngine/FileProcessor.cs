@@ -45,9 +45,10 @@ namespace DoverSmaEngine
         private string mSARF_dela = @"SARF_dela.csv";
         private string mOAFF_gwnk = @"OAFF_gwnk.csv";
         private string mSARF_gwnk = @"SARF_gwnk.csv";
-//        private string mOAFF_ = @"OAFF_.csv";
-//        private string mSARF_ = @"SARF_.csv";
+        //        private string mOAFF_ = @"OAFF_.csv";
+        //        private string mSARF_ = @"SARF_.csv";
 
+        #region Constructor
         /// <summary>
         /// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /// </summary>
@@ -60,6 +61,7 @@ namespace DoverSmaEngine
             mSqlConn2.Open();
 
         }
+        #endregion Constructor
 
         #region CsvReader
         /// <summary>
@@ -115,7 +117,10 @@ namespace DoverSmaEngine
             if (dr.Table.Columns.Contains(column))
             {
                 if (!dr.IsNull(column))
+                {
                     value = dr[column].ToString();
+                    value = value.Trim();
+                }
             }
             return (value);
         }
@@ -153,11 +158,12 @@ namespace DoverSmaEngine
                     //ProcessOfferingsDataMultiRow1(Path.Combine(mFilepath, mOAFF_prin));
                     break;
                 case "Allianz":
-                    //ProcessOfferingsDataSingleLine(Path.Combine(mFilepath, mOAFF_alli));
+                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_alli));
                     break;
                 case "Delaware":
                     break;
-                case "GWNK":
+                case "GW&K":
+                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_gwnk));
                     break;
             }
         }
@@ -172,10 +178,12 @@ namespace DoverSmaEngine
                 case "Principal":
                     break;
                 case "Allianz":
+                    ProcessFlowsDataSingleRow(Path.Combine(mFilepath, mOAFF_alli));
                     break;
                 case "Delaware":
                     break;
-                case "GWNK":
+                case "GW&K":
+                    ProcessFlowsDataSingleRow(Path.Combine(mFilepath, mOAFF_gwnk));
                     break;
             }
         }
@@ -195,7 +203,9 @@ namespace DoverSmaEngine
                     break;
                 case "Delaware":
                     break;
-                case "GWNK":
+                case "GW&K":
+                    ProcessStrategiesData(Path.Combine(mFilepath, mSARF_gwnk)); //, ManagerTypes.Alli);
+
                     break;
             }
         }
@@ -215,7 +225,8 @@ namespace DoverSmaEngine
                     break;
                 case "Delaware":
                     break;
-                case "GWNK":
+                case "GW&K":
+                    ProcessReturnsData(Path.Combine(mFilepath, mSARF_gwnk));
                     break;
             }
         }
