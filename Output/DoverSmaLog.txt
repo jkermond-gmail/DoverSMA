@@ -63271,3 +63271,951 @@ Column Name: 4Q 2018 d not found
 ProcessFlowsData: Rows Processed 70
 ProcessFlowsData: Rows Added 621
 ProcessFlowsData: C:\A_Dover\Dev\Vifs\OAFF_alli.csv finished
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-07-06 15:40:45
+ProcessOfferingsDataSingleRow: C:\A_Dover\Dev\Vifs\OAFF_legg.csv started
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-07-06 15:41:51
+ProcessOfferingsDataMultiRow: C:\A_Dover\Dev\Vifs\OAFF_prin.csv started
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-07-06 16:22:28
+ProcessOfferingsDataMultiRow: C:\A_Dover\Dev\Vifs\OAFF_prin.csv started
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-07-06 16:26:07
+ProcessOfferingsDataMultiRow: C:\A_Dover\Dev\Vifs\OAFF_prin.csv started
+ProcessOfferingsDataMultiRow: String or binary data would be truncated.
+The statement has been terminated. line number: 1
+----- Skipping Row 53------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA U.S. Real Estate Equity Securities
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 102------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 107------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 112------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 126------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 131------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 141------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 146------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Preferred Securities
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 151------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 156------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 161------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 188------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA U.S. Real Estate Equity Securities
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 231------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Small-Cap Core Equity
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 236------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Small-Cap Value Equity
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 241------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Preferred Securities
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 275------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 285------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Preferred Securities
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 290------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 295------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Tax Advantaged Preferred Securities
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 300------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 305------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA U.S. Real Estate Equity Securities
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 310------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 322------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA MidCap Equity
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 335------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Preferred Securities
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 352------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Preferred Securities
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 357------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Tax Advantaged Preferred Securities
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 379------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA MidCap Equity
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 388------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Preferred Capital Securities
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 393------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Preferred Securities
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 398------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Tax Advantaged Preferred Securities
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 403------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA U.S. Real Estate Equity Securities
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 408------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 420------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA CCI Mid Cap Growth
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 432------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Preferred Capital Securities
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 438------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Tax Advantaged Preferred Securities
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 458------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA U.S. Real Estate Equity Securities
+SmaProductType|SMA Dual Contract
+-----------
+----- Skipping Row 476------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 492------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Preferred Securities
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 505------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 517------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 531------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Edge Small MidCap Dividend Income
+SmaProductType|SMA Dual Contract
+-----------
+----- Skipping Row 536------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 541------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 546------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Edge Small MidCap Dividend Income with MLPs
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 551------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 566------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 571------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 585------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 590------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 605------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Tax Advantaged Preferred Securities
+SmaProductType|SMA Dual Contract
+-----------
+----- Skipping Row 610------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 615------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 620------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA U.S. Real Estate Equity Securities
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 625------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 638------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA U.S. Real Estate Equity Securities
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 659------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Edge Small MidCap Dividend Income
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 664------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA MidCap Equity
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 669------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Preferred Capital Securities
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 674------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Preferred Securities
+SmaProductType|SMA Dual Contract
+-----------
+----- Skipping Row 679------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 684------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Tax Advantaged Preferred Securities
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 701------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 706------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Edge Small MidCap Dividend Income with MLPs
+SmaProductType|SMA Dual Contract
+-----------
+----- Skipping Row 711------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 715------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 720------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Preferred Securities
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 725------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Tax Advantaged Preferred Securities
+SmaProductType|SMA Single Contract
+-----------
+ProcessOfferingsDataMultiRow: String or binary data would be truncated.
+The statement has been terminated. line number: 1
+----- Skipping Row 753------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Preferred Securities
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 758------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Tax Advantaged Preferred Securities
+SmaProductType|SMA Dual Contract
+-----------
+----- Skipping Row 777------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 782------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 787------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 796------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 801------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 806------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Edge Small MidCap Dividend Income with MLPs
+SmaProductType|SMA Dual Contract
+-----------
+----- Skipping Row 811------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 816------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 821------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA High Yield
+SmaProductType|SMA Dual Contract
+-----------
+----- Skipping Row 826------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA MidCap Equity
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 831------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 841------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Offshore Preferred Securities
+SmaProductType|SMA Dual Contract
+-----------
+----- Skipping Row 846------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 855------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 860------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 865------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 870------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Tax Advantaged Preferred Securities
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 875------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 884------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 889------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 902------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 914------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 919------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 924------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA MidCap Equity
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 929------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 939------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 944------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Offshore Preferred Securities
+SmaProductType|SMA Dual Contract
+-----------
+----- Skipping Row 948------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Preferred Capital Securities
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 953------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 958------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Preferred Securities
+SmaProductType|SMA Dual Contract
+-----------
+----- Skipping Row 963------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Tax Advantaged Preferred Securities
+SmaProductType|SMA Dual Contract
+-----------
+----- Skipping Row 968------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 973------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 978------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA U.S. Real Estate Equity Securities
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 983------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 996------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA MidCap Equity
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 1001------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Small-Cap Value Equity
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 1010------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Preferred Securities
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 1015------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Tax Advantaged Preferred Securities
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 1020------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA U.S. Real Estate Equity Securities
+SmaProductType|SMA Single Contract
+-----------
+ProcessOfferingsDataMultiRow: Rows Processed 1033
+ProcessOfferingsDataMultiRow: Rows Added 62
+ProcessOfferingsDataMultiRow: C:\A_Dover\Dev\Vifs\OAFF_prin.csv finished
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-07-06 16:37:39
+ProcessOfferingsDataSingleRow: C:\A_Dover\Dev\Vifs\OAFF_legg.csv started
+----- Skipping Row 1379------
+AssetManager|Legg Mason
+SponsorFirm|Kalos Management
+AdvisoryPlatform|Third Party Models Program
+SmaStrategy|CBI All Cap Growth SMA
+SmaProductType|Model Delivery
+-----------
+----- Skipping Row 1457------
+AssetManager|Legg Mason
+SponsorFirm|Mulberry Capital Management
+AdvisoryPlatform|Third Party Models Program
+SmaStrategy|CBI Large Cap Growth SMA
+SmaProductType|Model Delivery
+-----------
+----- Skipping Row 1473------
+AssetManager|Legg Mason
+SponsorFirm|Northwest Asset Management
+AdvisoryPlatform|Third Party Models Program
+SmaStrategy|CBI Large Cap Growth SMA
+SmaProductType|Model Delivery
+-----------
+ProcessOfferingsDataSingleRow: Rows Processed 1913
+ProcessOfferingsDataSingleRow: Rows Added 1909
+ProcessOfferingsDataSingleRow: C:\A_Dover\Dev\Vifs\OAFF_legg.csv finished
+ProcessOfferingsDataMultiRow: C:\A_Dover\Dev\Vifs\OAFF_prin.csv started
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-07-06 16:39:23
+ProcessOfferingsDataMultiRow: C:\A_Dover\Dev\Vifs\OAFF_prin.csv started
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-07-06 16:40:18
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-07-06 16:43:15
+ProcessOfferingsDataMultiRow: C:\A_Dover\Dev\Vifs\OAFF_prin.csv started
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-07-06 16:46:09
+ProcessOfferingsDataMultiRow: C:\A_Dover\Dev\Vifs\OAFF_prin.csv started
+----- Skipping Row 102------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-07-06 17:04:41
+ProcessOfferingsDataMultiRow: C:\A_Dover\Dev\Vifs\OAFF_prin.csv started
+----- Skipping Row 74------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 102------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 107------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 112------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 126------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 131------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 141------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 151------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 156------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 161------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+ProcessOfferingsDataMultiRow: String or binary data would be truncated.
+The statement has been terminated. line number: 1
+----- Skipping Row 335------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Preferred Securities
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 425------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Edge Small MidCap Dividend Income
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 432------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Preferred Capital Securities
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 438------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Tax Advantaged Preferred Securities
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 505------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 664------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA MidCap Equity
+SmaProductType|SMA Model-Only Contract
+-----------
+----- Skipping Row 711------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+ProcessOfferingsDataMultiRow: String or binary data would be truncated.
+The statement has been terminated. line number: 1
+----- Skipping Row 777------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 782------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 787------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 801------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 816------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 831------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 846------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 855------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 865------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 870------
+AssetManager|
+SponsorFirm|
+SmaStrategy|SMA Spectrum Tax Advantaged Preferred Securities
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 875------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 884------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 889------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 902------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 914------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|SMA Single Contract
+-----------
+----- Skipping Row 919------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 929------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 939------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 953------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 973------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+----- Skipping Row 983------
+AssetManager|
+SponsorFirm|
+SmaStrategy|
+SmaProductType|
+-----------
+ProcessOfferingsDataMultiRow: Rows Processed 1033
+ProcessOfferingsDataMultiRow: Rows Added 133
+ProcessOfferingsDataMultiRow: C:\A_Dover\Dev\Vifs\OAFF_prin.csv finished
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-07-06 17:18:08
+ProcessOfferingsDataMultiRow: C:\A_Dover\Dev\Vifs\OAFF_prin.csv started
