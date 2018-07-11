@@ -37,7 +37,7 @@
             // 
             // BtnProcessSmaOfferings
             // 
-            this.BtnProcessSmaOfferings.Location = new System.Drawing.Point(12, 86);
+            this.BtnProcessSmaOfferings.Location = new System.Drawing.Point(12, 134);
             this.BtnProcessSmaOfferings.Name = "BtnProcessSmaOfferings";
             this.BtnProcessSmaOfferings.Size = new System.Drawing.Size(167, 23);
             this.BtnProcessSmaOfferings.TabIndex = 0;
@@ -47,7 +47,7 @@
             // 
             // BtnProcessSmaFlows
             // 
-            this.BtnProcessSmaFlows.Location = new System.Drawing.Point(12, 115);
+            this.BtnProcessSmaFlows.Location = new System.Drawing.Point(12, 163);
             this.BtnProcessSmaFlows.Name = "BtnProcessSmaFlows";
             this.BtnProcessSmaFlows.Size = new System.Drawing.Size(167, 23);
             this.BtnProcessSmaFlows.TabIndex = 1;
@@ -57,7 +57,7 @@
             // 
             // BtnProcessSmaStrategies
             // 
-            this.BtnProcessSmaStrategies.Location = new System.Drawing.Point(12, 144);
+            this.BtnProcessSmaStrategies.Location = new System.Drawing.Point(12, 192);
             this.BtnProcessSmaStrategies.Name = "BtnProcessSmaStrategies";
             this.BtnProcessSmaStrategies.Size = new System.Drawing.Size(167, 23);
             this.BtnProcessSmaStrategies.TabIndex = 2;
@@ -67,7 +67,7 @@
             // 
             // BtnProcessSmaReturns
             // 
-            this.BtnProcessSmaReturns.Location = new System.Drawing.Point(12, 173);
+            this.BtnProcessSmaReturns.Location = new System.Drawing.Point(12, 221);
             this.BtnProcessSmaReturns.Name = "BtnProcessSmaReturns";
             this.BtnProcessSmaReturns.Size = new System.Drawing.Size(167, 23);
             this.BtnProcessSmaReturns.TabIndex = 3;
@@ -83,10 +83,13 @@
             "Principal",
             "Allianz",
             "Delaware",
-            "GW&K"});
-            this.ListBoxManagers.Location = new System.Drawing.Point(12, 63);
+            "GW&K",
+            "Brandes",
+            "Congress",
+            "Franklin Templeton"});
+            this.ListBoxManagers.Location = new System.Drawing.Point(12, 11);
             this.ListBoxManagers.Name = "ListBoxManagers";
-            this.ListBoxManagers.Size = new System.Drawing.Size(120, 17);
+            this.ListBoxManagers.Size = new System.Drawing.Size(120, 95);
             this.ListBoxManagers.TabIndex = 4;
             this.ListBoxManagers.SelectedIndexChanged += new System.EventHandler(this.ListBoxManagers_SelectedIndexChanged);
             // 

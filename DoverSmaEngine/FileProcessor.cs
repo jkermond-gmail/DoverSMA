@@ -45,6 +45,12 @@ namespace DoverSmaEngine
         private string mSARF_dela = @"SARF_dela.csv";
         private string mOAFF_gwnk = @"OAFF_gwnk.csv";
         private string mSARF_gwnk = @"SARF_gwnk.csv";
+        private string mOAFF_bran = @"OAFF_bran.csv";
+        private string mSARF_bran = @"SARF_bran.csv";
+        private string mOAFF_cong = @"OAFF_cong.csv";
+        private string mSARF_cong = @"SARF_cong.csv";
+        private string mOAFF_fran = @"OAFF_fran.csv";
+        private string mSARF_fran = @"SARF_fran.csv";
         //        private string mOAFF_ = @"OAFF_.csv";
         //        private string mSARF_ = @"SARF_.csv";
 
@@ -166,6 +172,16 @@ namespace DoverSmaEngine
                 case "GW&K":
                     ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_gwnk));
                     break;
+                case "Brandes":
+                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_bran));
+                    break;
+                case "Congress":
+                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_cong));
+                    break;
+                case "Franklin Templeton":
+                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_fran));
+                    break;
+
             }
         }
 
@@ -187,6 +203,16 @@ namespace DoverSmaEngine
                 case "GW&K":
                     ProcessFlowsDataSingleRow(Path.Combine(mFilepath, mOAFF_gwnk));
                     break;
+                case "Brandes":
+                    ProcessFlowsDataSingleRow(Path.Combine(mFilepath, mOAFF_bran));
+                    break;
+                case "Congress":
+                    ProcessFlowsDataSingleRow(Path.Combine(mFilepath, mOAFF_cong));
+                    break;
+                case "Franklin Templeton":
+                    ProcessFlowsDataSingleRow(Path.Combine(mFilepath, mOAFF_fran));
+                    break;
+
             }
         }
 
@@ -195,19 +221,27 @@ namespace DoverSmaEngine
             switch (Manager)
             {
                 case "Legg":
-                    ProcessStrategiesData(Path.Combine(mFilepath, mSARF_legg)); //, ManagerTypes.Legg);
+                    ProcessStrategiesData(Path.Combine(mFilepath, mSARF_legg)); 
                     break;
                 case "Principal":
-                    ProcessStrategiesData(Path.Combine(mFilepath, mSARF_prin)); //, ManagerTypes.Prin);
+                    ProcessStrategiesData(Path.Combine(mFilepath, mSARF_prin)); 
                     break;
                 case "Allianz":
-                    ProcessStrategiesData(Path.Combine(mFilepath, mSARF_alli)); //, ManagerTypes.Alli);
+                    ProcessStrategiesData(Path.Combine(mFilepath, mSARF_alli)); 
                     break;
                 case "Delaware":
                     break;
                 case "GW&K":
-                    ProcessStrategiesData(Path.Combine(mFilepath, mSARF_gwnk)); //, ManagerTypes.Alli);
-
+                    ProcessStrategiesData(Path.Combine(mFilepath, mSARF_gwnk)); 
+                    break;
+                case "Brandes":
+                    ProcessStrategiesData(Path.Combine(mFilepath, mSARF_bran));
+                    break;
+                case "Congress":
+                    ProcessStrategiesData(Path.Combine(mFilepath, mSARF_cong));
+                    break;
+                case "Franklin Templeton":
+                    ProcessStrategiesData(Path.Combine(mFilepath, mSARF_fran));
                     break;
             }
         }
@@ -230,6 +264,16 @@ namespace DoverSmaEngine
                 case "GW&K":
                     ProcessReturnsData(Path.Combine(mFilepath, mSARF_gwnk));
                     break;
+                case "Brandes":
+                    ProcessReturnsData(Path.Combine(mFilepath, mSARF_bran));
+                    break;
+                case "Congress":
+                    ProcessReturnsData(Path.Combine(mFilepath, mSARF_cong));
+                    break;
+                case "Franklin Templeton":
+                    ProcessReturnsData(Path.Combine(mFilepath, mSARF_fran));
+                    break;
+
             }
         }
         #endregion ProcessManager
@@ -361,7 +405,7 @@ namespace DoverSmaEngine
                 }
                 catch (SqlException ex)
                 {
-                    LogHelper.WriteLine(logFuncName + ex.Message + " line number: " + ex.LineNumber);
+                    LogHelper.WriteLine(logFuncName + ex.Message + " line number: " + currentRowCount);
                 }
                 finally
                 {
@@ -513,7 +557,7 @@ namespace DoverSmaEngine
                 }
                 catch (SqlException ex)
                 {
-                    LogHelper.WriteLine(logFuncName + ex.Message + " line number: " + ex.LineNumber);
+                    LogHelper.WriteLine(logFuncName + ex.Message + " line number: " + currentRowCount);
                 }
                 finally
                 {
@@ -664,7 +708,7 @@ namespace DoverSmaEngine
                                                 }
                                                 catch (SqlException ex)
                                                 {
-                                                    LogHelper.WriteLine(logFuncName + ex.Message + " line number: " + ex.LineNumber);
+                                                    LogHelper.WriteLine(logFuncName + ex.Message + " line number: " + currentRowCount);
                                                 }
                                                 finally
                                                 {
@@ -701,7 +745,7 @@ namespace DoverSmaEngine
                 }
                 catch (SqlException ex)
                 {
-                    LogHelper.WriteLine(logFuncName + ex.Message + " line number: " + ex.LineNumber);
+                    LogHelper.WriteLine(logFuncName + ex.Message + " line number: " + currentRowCount);
                 }
                 finally
                 {
@@ -844,10 +888,11 @@ namespace DoverSmaEngine
                                             //cmd2.Parameters.Add("@Redemptions", SqlDbType.Date);
                                             //cmd2.Parameters.Add("@NetFlows", SqlDbType.Date);
                                         }
-                                        cmd2.Parameters["@FlowDate"].Value = flowDate;
 
-                                        //DateTime dt2 = DateTime.ParseExact(flowDate, "MM/dd/yyyy", CultureInfo.InvariantCulture);
-                                        //flowDate = dt2.ToString("yyyy-MM-dd");
+                                        DateTime dt2 = DateTime.ParseExact(flowDate, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                                        flowDate = dt2.ToString("yyyy-MM-dd");
+                                        //cmd2.Parameters["@FlowDate"].Value = flowDate;
+                                        cmd2.Parameters["@FlowDate"].Value = dt2;
 
                                         colName = sQuarter + "Q" + " " + sYear ;
 
@@ -870,6 +915,13 @@ namespace DoverSmaEngine
                                                     colName = "NetFlows";
                                                     break;
                                             }
+
+                                            /*
+                                             string sql2 = "UPDATE student SET moneyspent = moneyspent + @spent WHERE id=@id";
+                                            SqlCommand myCommand2 = new SqlCommand(sql2, conn);
+                                            myCommand2.Parameters.AddWithValue("@spent", 50 )
+                                            myCommand2.Parameters.AddWithValue("@id", 1 ) 
+                                             */
                                             sqlUpdate = "update SmaFlows set " + colName.ToString() + " = '" + valueParsed.ToString() + "' ";
                                             cmd2.Parameters["@" + colName].Value = valueParsed;
 
@@ -895,11 +947,13 @@ namespace DoverSmaEngine
                                             }
                                             try
                                             {
+                                                //fuk 'Failed to convert parameter value from a String to a DateTime.'
+
                                                 cmd2.ExecuteNonQuery();
                                             }
                                             catch (SqlException ex)
                                             {
-                                                LogHelper.WriteLine(logFuncName + ex.Message + " line number: " + ex.LineNumber);
+                                                LogHelper.WriteLine(logFuncName + ex.Message + " line number: " + currentRowCount);
                                             }
                                             finally
                                             {
@@ -941,7 +995,7 @@ namespace DoverSmaEngine
                 }
                 catch (SqlException ex)
                 {
-                    LogHelper.WriteLine(logFuncName + ex.Message + " line number: " + ex.LineNumber);
+                    LogHelper.WriteLine(logFuncName + ex.Message + " line number: " + currentRowCount);
                 }
                 finally
                 {
@@ -970,6 +1024,7 @@ namespace DoverSmaEngine
             string format;
             DateTime result;
             CultureInfo provider = CultureInfo.InvariantCulture;
+            bool useInceptionDate = false;
 
 
             int currentRowCount = 1; // Since csv file has a header set row to 1, data starts in row 2
@@ -1029,30 +1084,44 @@ namespace DoverSmaEngine
 
                         colName = "InceptionDate";
                         valueParsed = ParseColumn(row, colName);
-                        if (addCount == 0) cmd.Parameters.Add("@" + colName, SqlDbType.Date);
 
                         //if ( managerType.Equals(ManagerTypes.Alli))
                         //    format = "M/d/yyyy";
                         //else
-                            format = "MM/dd/yy";
-                        try
+                        //    format = "MM/dd/yy";
+
+                        if (valueParsed.Length == 8)
                         {
-                            result = DateTime.ParseExact(valueParsed, format, provider);
-                            Console.WriteLine("{0} converts to {1}.", valueParsed, result.ToString());
-                            cmd.Parameters["@" + colName].Value = result.ToString();
+                            try
+                            {
+                                useInceptionDate = true;
+                                if (addCount == 0) cmd.Parameters.Add("@" + colName, SqlDbType.Date);
+                                format = "MM/dd/yy";
+                                result = DateTime.ParseExact(valueParsed, format, provider);
+                                Console.WriteLine("{0} converts to {1}.", valueParsed, result.ToString());
+                                cmd.Parameters["@" + colName].Value = result.ToString();
+                            }
+                            catch (FormatException)
+                            {
+                                Console.WriteLine("{0} is not in the correct format.", valueParsed);
+                            }
                         }
-                        catch (FormatException)
+
+
+                        if (useInceptionDate)
                         {
-                            Console.WriteLine("{0} is not in the correct format.", valueParsed);
+                            cmd.CommandText =
+                                "insert into " + tableName +
+                                    "(AssetManager, SmaStrategy, MorningstarStrategyId, MorningstarClass, MorningstarClassId, ManagerClass, InceptionDate) " +
+                                "Values (@AssetManager, @SmaStrategy, @MorningstarStrategyId, @MorningstarClass, @MorningstarClassId, @ManagerClass, @InceptionDate)";
                         }
-
-                        cmd.Parameters["@" + colName].Value = valueParsed;
-
-
-                        cmd.CommandText =
-                            "insert into " + tableName +
-                                "(AssetManager, SmaStrategy, MorningstarStrategyId, MorningstarClass, MorningstarClassId, ManagerClass, InceptionDate) " +
-                            "Values (@AssetManager, @SmaStrategy, @MorningstarStrategyId, @MorningstarClass, @MorningstarClassId, @ManagerClass, @InceptionDate)";
+                        else
+                        {
+                            cmd.CommandText =
+                                "insert into " + tableName +
+                                    "(AssetManager, SmaStrategy, MorningstarStrategyId, MorningstarClass, MorningstarClassId, ManagerClass) " +
+                                "Values (@AssetManager, @SmaStrategy, @MorningstarStrategyId, @MorningstarClass, @MorningstarClassId, @ManagerClass)";
+                        }
                         cmd.ExecuteNonQuery();
                         addCount += 1;
                     }
@@ -1070,7 +1139,7 @@ namespace DoverSmaEngine
                 }
                 catch (SqlException ex)
                 {
-                    LogHelper.WriteLine(logFuncName + ex.Message + " line number: " + ex.LineNumber);
+                    LogHelper.WriteLine(logFuncName + ex.Message + " line number: " + currentRowCount);
                 }
                 finally
                 {
@@ -1215,7 +1284,7 @@ namespace DoverSmaEngine
                 }
                 catch (SqlException ex)
                 {
-                    LogHelper.WriteLine(logFuncName + ex.Message + " line number: " + ex.LineNumber);
+                    LogHelper.WriteLine(logFuncName + ex.Message + " line number: " + currentRowCount);
                 }
                 finally
                 {
