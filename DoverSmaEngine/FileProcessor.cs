@@ -51,6 +51,12 @@ namespace DoverSmaEngine
         private string mSARF_cong = @"SARF_cong.csv";
         private string mOAFF_fran = @"OAFF_fran.csv";
         private string mSARF_fran = @"SARF_fran.csv";
+        private string mOAFF_inve = @"OAFF_inve.csv";
+        private string mSARF_inve = @"SARF_inve.csv";
+        private string mOAFF_laza = @"OAFF_laza.csv";
+        private string mSARF_laza = @"SARF_laza.csv";
+        private string mOAFF_anch = @"OAFF_anch.csv";
+        private string mSARF_anch = @"SARF_anch.csv";
         //        private string mOAFF_ = @"OAFF_.csv";
         //        private string mSARF_ = @"SARF_.csv";
 
@@ -181,7 +187,15 @@ namespace DoverSmaEngine
                 case "Franklin Templeton":
                     ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_fran));
                     break;
-
+                case "Invesco":
+                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_inve));
+                    break;
+                case "Lazard":
+                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_laza));
+                    break;
+                case "Anchor":
+                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_anch));
+                    break;
             }
         }
 
@@ -212,7 +226,15 @@ namespace DoverSmaEngine
                 case "Franklin Templeton":
                     ProcessFlowsDataSingleRow(Path.Combine(mFilepath, mOAFF_fran));
                     break;
-
+                case "Invesco":
+                    ProcessFlowsDataSingleRow(Path.Combine(mFilepath, mOAFF_inve));
+                    break;
+                case "Lazard":
+                    ProcessFlowsDataSingleRow(Path.Combine(mFilepath, mOAFF_laza));
+                    break;
+                case "Anchor":
+                    ProcessFlowsDataSingleRow(Path.Combine(mFilepath, mOAFF_anch));
+                    break;
             }
         }
 
@@ -243,6 +265,13 @@ namespace DoverSmaEngine
                 case "Franklin Templeton":
                     ProcessStrategiesData(Path.Combine(mFilepath, mSARF_fran));
                     break;
+                case "Invesco":
+                    ProcessStrategiesData(Path.Combine(mFilepath, mSARF_inve));
+                    break;
+                case "Lazard":
+                    ProcessStrategiesData(Path.Combine(mFilepath, mSARF_laza));
+                    break;
+
             }
         }
 
@@ -272,6 +301,12 @@ namespace DoverSmaEngine
                     break;
                 case "Franklin Templeton":
                     ProcessReturnsData(Path.Combine(mFilepath, mSARF_fran));
+                    break;
+                case "Invesco":
+                    ProcessReturnsData(Path.Combine(mFilepath, mSARF_inve));
+                    break;
+                case "Lazard":
+                    ProcessReturnsData(Path.Combine(mFilepath, mSARF_laza));
                     break;
 
             }

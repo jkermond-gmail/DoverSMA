@@ -86,8 +86,11 @@
             "GW&K",
             "Brandes",
             "Congress",
-            "Franklin Templeton"});
-            this.ListBoxManagers.Location = new System.Drawing.Point(12, 11);
+            "Franklin Templeton",
+            "Invesco",
+            "Lazard",
+            "Anchor"});
+            this.ListBoxManagers.Location = new System.Drawing.Point(12, 12);
             this.ListBoxManagers.Name = "ListBoxManagers";
             this.ListBoxManagers.Size = new System.Drawing.Size(120, 95);
             this.ListBoxManagers.TabIndex = 4;
