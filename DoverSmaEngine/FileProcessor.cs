@@ -271,6 +271,9 @@ namespace DoverSmaEngine
                 case "Lazard":
                     ProcessStrategiesData(Path.Combine(mFilepath, mSARF_laza));
                     break;
+                case "Anchor":
+                    ProcessStrategiesData(Path.Combine(mFilepath, mSARF_anch));
+                    break;
 
             }
         }
@@ -308,10 +311,19 @@ namespace DoverSmaEngine
                 case "Lazard":
                     ProcessReturnsData(Path.Combine(mFilepath, mSARF_laza));
                     break;
+                case "Anchor":
+                    ProcessReturnsData(Path.Combine(mFilepath, mSARF_anch));
+                    break;
 
             }
         }
         #endregion ProcessManager
+
+        private string AssetManagerCode( string filePath)
+        {
+            int startPos = filePath.IndexOf(".csv") - 4;
+            return(filePath.Substring(startPos, 4));
+        }
 
         #region ProcessOfferings
 
@@ -324,7 +336,7 @@ namespace DoverSmaEngine
             string colName = "";
             string tableName = " SmaOfferings ";
             string logFuncName = "ProcessOfferingsDataSingleRow: ";
-
+            string assetManagerCode = AssetManagerCode(filePath);
 
             int currentRowCount = 1; // Since csv file has a header set row to 1, data starts in row 2
             int addCount = 0;
@@ -334,7 +346,7 @@ namespace DoverSmaEngine
             DataTable dt = ReadCsvIntoTable(filePath);
 
             sqlSelect = "select count(*) from" + tableName;
-            sqlWhere = @"where AssetManager = @AssetManager and SponsorFirm = @SponsorFirm  and AdvisoryPlatform = @AdvisoryPlatform  and SmaStrategy = @SmaStrategy and 
+            sqlWhere = @"where AssetManagerCode = @AssetManagerCode and SponsorFirm = @SponsorFirm  and AdvisoryPlatform = @AdvisoryPlatform  and SmaStrategy = @SmaStrategy and 
                         SmaProductType = @SmaProductType and TampRIAPlatform = @TampRIAPlatform and ManagerClass = @ManagerClass";
 
             cmd = new SqlCommand
@@ -346,10 +358,9 @@ namespace DoverSmaEngine
             foreach (DataRow row in dt.Rows)
             {
                 currentRowCount += 1;
-                colName = "AssetManager";
-                valueParsed = ParseColumn(row, colName);
+                colName = "AssetManagerCode";
                 if (currentRowCount == 2) cmd.Parameters.Add("@" + colName, SqlDbType.VarChar);
-                cmd.Parameters["@" + colName].Value = valueParsed;
+                cmd.Parameters["@" + colName].Value = assetManagerCode;
 
                 colName = "SponsorFirm";
                 valueParsed = ParseColumn(row, colName);
@@ -418,9 +429,9 @@ namespace DoverSmaEngine
 
                         cmd.CommandText =
                             "insert into " + tableName +
-                                "(AssetManager, SponsorFirm, AdvisoryPlatform, SmaStrategy, SmaProductType, TampRIAPlatform, ManagerClass," +
+                                "(AssetManagerCode, SponsorFirm, AdvisoryPlatform, SmaStrategy, SmaProductType, TampRIAPlatform, ManagerClass," +
                                 " SponsorFirmId, MorningstarStrategyId, MorningstarClass, MorningstarClassId, TotalAccounts, CsvFileRow) " +
-                            "Values (@AssetManager, @SponsorFirm, @AdvisoryPlatform, @SmaStrategy, @SmaProductType, @TampRIAPlatform, @ManagerClass," +
+                            "Values (@AssetManagerCode, @SponsorFirm, @AdvisoryPlatform, @SmaStrategy, @SmaProductType, @TampRIAPlatform, @ManagerClass," +
                                     " @SponsorFirmId, @MorningstarStrategyId, @MorningstarClass, @MorningstarClassId, @TotalAccounts, @CsvFileRow)";
                         cmd.ExecuteNonQuery();
                         addCount += 1;
@@ -462,7 +473,7 @@ namespace DoverSmaEngine
             string tableName = " SmaOfferings ";
             string logFuncName = "ProcessOfferingsDataMultiRow: ";
             // key fields
-            string assetManager = "";
+            string assetManagerCode = AssetManagerCode(filePath);
             string sponsorFirm = "";
             string smaStrategy = "";
             string smaProductType = "";
@@ -474,6 +485,7 @@ namespace DoverSmaEngine
             int currentRowCount = 1; // Since csv file has a header set row to 1, data starts in row 2
             int addCount = 0;
 
+
             LogHelper.WriteLine(logFuncName + filePath + " started");
 
             DataTable dt = ReadCsvIntoTable(filePath);
@@ -482,7 +494,7 @@ namespace DoverSmaEngine
             //  and AdvisoryPlatform = @AdvisoryPlatform  
             //  and TampRIAPlatform = @TampRIAPlatform
             sqlSelect = "select count(*) from" + tableName;
-            sqlWhere = @"where AssetManager = @AssetManager and SponsorFirm = @SponsorFirm  and SmaStrategy = @SmaStrategy and 
+            sqlWhere = @"where AssetManagerCode = @AssetManagerCode and SponsorFirm = @SponsorFirm  and SmaStrategy = @SmaStrategy and 
                         SmaProductType = @SmaProductType and ManagerClass = @ManagerClass";
 
             cmd = new SqlCommand
@@ -498,12 +510,9 @@ namespace DoverSmaEngine
                 //if (currentRowCount == 855)
                 //    currentRowCount = currentRowCount;
 
-                colName = "AssetManager";
-                valueParsed = ParseColumn(row, colName);
-                if (valueParsed.Length > 0)
-                    assetManager = valueParsed;
+                colName = "AssetManagerCode";
                 if (currentRowCount == 2) cmd.Parameters.Add("@" + colName, SqlDbType.VarChar);
-                cmd.Parameters["@" + colName].Value = assetManager;
+                cmd.Parameters["@" + colName].Value = assetManagerCode;
 
                 colName = "SponsorFirm";
                 valueParsed = ParseColumn(row, colName);
@@ -572,9 +581,9 @@ namespace DoverSmaEngine
                         //    @SponsorFirmId, @MorningstarClassId, @TotalAccounts,  Note @TotalAccounts is provided but is not on the Offering level but on the Sponsor Firm level
                         cmd.CommandText =
                         "insert into " + tableName +
-                            "(AssetManager, SponsorFirm, SmaStrategy, SmaProductType," +
+                            "(AssetManagerCode, SponsorFirm, SmaStrategy, SmaProductType," +
                             " MorningstarStrategyId, MorningstarClass, ManagerClass, CsvFileRow) " +
-                        "Values (@AssetManager, @SponsorFirm, @SmaStrategy, @SmaProductType, " +
+                        "Values (@AssetManagerCode, @SponsorFirm, @SmaStrategy, @SmaProductType, " +
                                 "@MorningstarStrategyId, @MorningstarClass, @ManagerClass, @CsvFileRow)";
                         cmd.ExecuteNonQuery();
                         addCount += 1;
@@ -582,7 +591,7 @@ namespace DoverSmaEngine
                     else if (iCount > 0)
                     {
                         LogHelper.WriteLine("----- Skipping Row " + (currentRowCount) + "------");
-                        LogHelper.WriteLine("assetManager   = " + assetManager);
+                        LogHelper.WriteLine("assetManager   = " + assetManagerCode);
                         LogHelper.WriteLine("sponsorFirm    = " + sponsorFirm);
                         LogHelper.WriteLine("smaStrategy    = " + smaStrategy);
                         LogHelper.WriteLine("smaProductType = " + smaProductType);
@@ -616,6 +625,7 @@ namespace DoverSmaEngine
             string valueParsed = "";
             string colName = "";
             string logFuncName = "ProcessFlowsDataSingleRow: ";
+            string assetManagerCode = AssetManagerCode(filePath);
 
             int currentRowCount = 1; // Since csv file has a header set row to 1, data starts in row 2
             int addCount = 0;
@@ -625,7 +635,7 @@ namespace DoverSmaEngine
             DataTable dt = ReadCsvIntoTable(filePath);
 
             sqlSelect = @"select SmaOfferingId from SmaOfferings ";
-            sqlWhere = @"where AssetManager = @AssetManager and SponsorFirm = @SponsorFirm  and AdvisoryPlatform = @AdvisoryPlatform  and SmaStrategy = @SmaStrategy and " +
+            sqlWhere = @"where AssetManagerCode = @AssetManagerCode and SponsorFirm = @SponsorFirm  and AdvisoryPlatform = @AdvisoryPlatform  and SmaStrategy = @SmaStrategy and " +
                         "SmaProductType = @SmaProductType and TampRIAPlatform = @TampRIAPlatform";
 
             cmd1 = new SqlCommand
@@ -643,10 +653,9 @@ namespace DoverSmaEngine
             foreach (DataRow row in dt.Rows)
             {
                 currentRowCount += 1;
-                colName = "AssetManager";
-                valueParsed = ParseColumn(row, colName);
+                colName = "AssetManagerCode";
                 if (currentRowCount == 2) cmd1.Parameters.Add("@" + colName, SqlDbType.VarChar);
-                cmd1.Parameters["@" + colName].Value = valueParsed;
+                cmd1.Parameters["@" + colName].Value = assetManagerCode;
 
                 colName = "SponsorFirm";
                 valueParsed = ParseColumn(row, colName);
@@ -685,7 +694,11 @@ namespace DoverSmaEngine
                         {
                             Int32 SmaOfferingId = Convert.ToInt32( dr["SmaOfferingId"].ToString());
                             if (addCount == 0)
+                            {
+                                cmd2.Parameters.Add("@AssetManagerCode", SqlDbType.VarChar);
+                                cmd2.Parameters["@AssetManagerCode"].Value = assetManagerCode;
                                 cmd2.Parameters.Add("@SmaOfferingId", SqlDbType.Int);
+                            }
                             cmd2.Parameters["@SmaOfferingId"].Value = SmaOfferingId;
 
                             for ( int year = 2016; year <= 2018; year++)
@@ -735,8 +748,8 @@ namespace DoverSmaEngine
                                             {
                                                 cmd2.CommandText =
                                                     "insert into SmaFlows " +
-                                                     "(SmaOfferingId, FlowDate, Assets, GrossFlows, Redemptions, NetFlows, DerivedFlows) " +
-                                                    "Values (@SmaOfferingId, @FlowDate, @Assets, @GrossFlows, @Redemptions, @NetFlows, @DerivedFlows)";
+                                                     "(AssetManagerCode, SmaOfferingId, FlowDate, Assets, GrossFlows, Redemptions, NetFlows, DerivedFlows) " +
+                                                    "Values (@AssetManagerCode, @SmaOfferingId, @FlowDate, @Assets, @GrossFlows, @Redemptions, @NetFlows, @DerivedFlows)";
                                                 try
                                                 {
                                                     cmd2.ExecuteNonQuery();
@@ -802,12 +815,11 @@ namespace DoverSmaEngine
             string colName = "";
             string logFuncName = "ProcessFlowsDataMultiRow: ";
             // key fields
-            string assetManager = "";
             string sponsorFirm = "";
             string smaStrategy = "";
             string smaProductType = "";
             string managerClass = "";
-
+            string assetManagerCode = AssetManagerCode(filePath);
 
             int currentRowCount = 1; // Since csv file has a header set row to 1, data starts in row 2
             int addCount = 0;
@@ -818,7 +830,7 @@ namespace DoverSmaEngine
             DataTable dt = ReadCsvIntoTable(filePath);
 
             sqlSelect = @"select SmaOfferingId from SmaOfferings ";
-            sqlWhere = @"where AssetManager = @AssetManager and SponsorFirm = @SponsorFirm  and SmaStrategy = @SmaStrategy and 
+            sqlWhere = @"where AssetManagerCode = @AssetManagerCode and SponsorFirm = @SponsorFirm  and SmaStrategy = @SmaStrategy and 
                         SmaProductType = @SmaProductType and ManagerClass = @ManagerClass";
 
             cmd1 = new SqlCommand
@@ -843,12 +855,9 @@ namespace DoverSmaEngine
             {
                 currentRowCount += 1;
 
-                colName = "AssetManager";
-                valueParsed = ParseColumn(row, colName);
-                if (valueParsed.Length > 0)
-                    assetManager = valueParsed;
+                colName = "AssetManagerCode";
                 if (currentRowCount == 2) cmd1.Parameters.Add("@" + colName, SqlDbType.VarChar);
-                cmd1.Parameters["@" + colName].Value = assetManager;
+                cmd1.Parameters["@" + colName].Value = assetManagerCode;
 
                 colName = "SponsorFirm";
                 valueParsed = ParseColumn(row, colName);
@@ -970,8 +979,8 @@ namespace DoverSmaEngine
                                             {
                                                 cmd2.CommandText =
                                                     "insert into SmaFlows " +
-                                                        "(SmaOfferingId, FlowDate, GrossFlows) " +
-                                                    "Values (@SmaOfferingId, @FlowDate, @GrossFlows)";
+                                                        "(AssetManagerCode, SmaOfferingId, FlowDate, GrossFlows) " +
+                                                    "Values (@AssetManagerCode, @SmaOfferingId, @FlowDate, @GrossFlows)";
                                                 //"insert into SmaFlows " +
                                                 //        "(SmaOfferingId, FlowDate, Assets, GrossFlows, Redemptions, NetFlows, DerivedFlows) " +
                                                 //    "Values (@SmaOfferingId, @FlowDate, @Assets, @GrossFlows, @Redemptions, @NetFlows, @DerivedFlows)";
@@ -1018,11 +1027,11 @@ namespace DoverSmaEngine
                     else
                     {
                         LogHelper.WriteLine("----- Offering not found Skipping Row " + (currentRowCount) + "------");
-                        LogHelper.WriteLine("assetManager   = " + assetManager);
-                        LogHelper.WriteLine("sponsorFirm    = " + sponsorFirm);
-                        LogHelper.WriteLine("smaStrategy    = " + smaStrategy);
-                        LogHelper.WriteLine("smaProductType = " + smaProductType);
-                        LogHelper.WriteLine("managerClass   = " + managerClass);
+                        LogHelper.WriteLine("assetManagerCode   = " + assetManagerCode);
+                        LogHelper.WriteLine("sponsorFirm        = " + sponsorFirm);
+                        LogHelper.WriteLine("smaStrategy        = " + smaStrategy);
+                        LogHelper.WriteLine("smaProductType     = " + smaProductType);
+                        LogHelper.WriteLine("managerClass       = " + managerClass);
                         LogHelper.WriteLine("-----------");
                         LogHelper.WriteLine("-----------");
                     }
@@ -1060,7 +1069,7 @@ namespace DoverSmaEngine
             DateTime result;
             CultureInfo provider = CultureInfo.InvariantCulture;
             bool useInceptionDate = false;
-
+            string assetManagerCode = AssetManagerCode(filePath);
 
             int currentRowCount = 1; // Since csv file has a header set row to 1, data starts in row 2
             int addCount = 0;
@@ -1070,7 +1079,7 @@ namespace DoverSmaEngine
             DataTable dt = ReadCsvIntoTable(filePath);
 
             sqlSelect = "select count(*) from" + tableName;
-            sqlWhere = @"where AssetManager = @AssetManager and SmaStrategy = @SmaStrategy";
+            sqlWhere = @"where AssetManagerCode = @AssetManagerCode and SmaStrategy = @SmaStrategy";
 
             cmd = new SqlCommand
             {
@@ -1081,10 +1090,9 @@ namespace DoverSmaEngine
             foreach (DataRow row in dt.Rows)
             {
                 currentRowCount += 1;
-                colName = "AssetManager";
-                valueParsed = ParseColumn(row, colName);
+                colName = "AssetManagerCode";
                 if (currentRowCount == 2) cmd.Parameters.Add("@" + colName, SqlDbType.VarChar);
-                cmd.Parameters["@" + colName].Value = valueParsed;
+                cmd.Parameters["@" + colName].Value = assetManagerCode;
 
                 colName = "SmaStrategy";
                 valueParsed = ParseColumn(row, colName);
@@ -1147,15 +1155,15 @@ namespace DoverSmaEngine
                         {
                             cmd.CommandText =
                                 "insert into " + tableName +
-                                    "(AssetManager, SmaStrategy, MorningstarStrategyId, MorningstarClass, MorningstarClassId, ManagerClass, InceptionDate) " +
-                                "Values (@AssetManager, @SmaStrategy, @MorningstarStrategyId, @MorningstarClass, @MorningstarClassId, @ManagerClass, @InceptionDate)";
+                                    "(AssetManagerCode, SmaStrategy, MorningstarStrategyId, MorningstarClass, MorningstarClassId, ManagerClass, InceptionDate) " +
+                                "Values (@AssetManagerCode, @SmaStrategy, @MorningstarStrategyId, @MorningstarClass, @MorningstarClassId, @ManagerClass, @InceptionDate)";
                         }
                         else
                         {
                             cmd.CommandText =
                                 "insert into " + tableName +
-                                    "(AssetManager, SmaStrategy, MorningstarStrategyId, MorningstarClass, MorningstarClassId, ManagerClass) " +
-                                "Values (@AssetManager, @SmaStrategy, @MorningstarStrategyId, @MorningstarClass, @MorningstarClassId, @ManagerClass)";
+                                    "(AssetManagerCode, SmaStrategy, MorningstarStrategyId, MorningstarClass, MorningstarClassId, ManagerClass) " +
+                                "Values (@AssetManagerCode, @SmaStrategy, @MorningstarStrategyId, @MorningstarClass, @MorningstarClassId, @ManagerClass)";
                         }
                         cmd.ExecuteNonQuery();
                         addCount += 1;
@@ -1199,6 +1207,7 @@ namespace DoverSmaEngine
             string valueParsed = "";
             string colName = "";
             string logFuncName = "ProcessReturnsData: ";
+            string assetManagerCode = AssetManagerCode(filePath);
 
             int currentRowCount = 1; // Since csv file has a header set row to 1, data starts in row 2
             int addCount = 0;
@@ -1208,7 +1217,7 @@ namespace DoverSmaEngine
             DataTable dt = ReadCsvIntoTable(filePath);
 
             sqlSelect = @"select SmaStrategyId from SmaStrategies ";
-            sqlWhere = @"where AssetManager = @AssetManager and SmaStrategy = @SmaStrategy";
+            sqlWhere = @"where AssetManagerCode = @AssetManagerCode and SmaStrategy = @SmaStrategy";
 
             cmd1 = new SqlCommand
             {
@@ -1225,10 +1234,9 @@ namespace DoverSmaEngine
             foreach (DataRow row in dt.Rows)
             {
                 currentRowCount += 1;
-                colName = "AssetManager";
-                valueParsed = ParseColumn(row, colName);
+                colName = "AssetManagerCode";
                 if (currentRowCount == 2) cmd1.Parameters.Add("@" + colName, SqlDbType.VarChar);
-                cmd1.Parameters["@" + colName].Value = valueParsed;
+                cmd1.Parameters["@" + colName].Value = assetManagerCode;
 
                 colName = "SmaStrategy";
                 valueParsed = ParseColumn(row, colName);
@@ -1247,7 +1255,11 @@ namespace DoverSmaEngine
                         {
                             Int32 SmaStrategyId = Convert.ToInt32(dr["SmaStrategyId"].ToString());
                             if (addCount == 0)
+                            {
                                 cmd2.Parameters.Add("@SmaStrategyId", SqlDbType.Int);
+                                cmd2.Parameters.Add("@AssetManagerCode", SqlDbType.VarChar);
+                                cmd2.Parameters["@AssetManagerCode"].Value = assetManagerCode;
+                            }
                             cmd2.Parameters["@SmaStrategyId"].Value = SmaStrategyId;
 
                             for (int year = 2016; year <= 2018; year++)
@@ -1261,7 +1273,9 @@ namespace DoverSmaEngine
                                         string flowDate = mEndOfQuarterDates[quarter].ToString() + sYear;
 
                                         if (addCount == 0)
+                                        {
                                             cmd2.Parameters.Add("@ReturnDate", SqlDbType.Date);
+                                        }
                                         cmd2.Parameters["@ReturnDate"].Value = flowDate;
 
                                         colName = sQuarter + "Q" + " " + sYear + mReturnTypeCol[returnTypeIndex];
@@ -1280,8 +1294,8 @@ namespace DoverSmaEngine
 
                                             cmd2.CommandText =
                                                 "insert into SmaReturns " +
-                                                    "(SmaStrategyId, ReturnType, ReturnDate, ReturnValue) " +
-                                                "Values (@SmaStrategyId, @ReturnType, @ReturnDate, @ReturnValue)";
+                                                    "(AssetManagerCode, SmaStrategyId, ReturnType, ReturnDate, ReturnValue) " +
+                                                "Values (@AssetManagerCode, @SmaStrategyId, @ReturnType, @ReturnDate, @ReturnValue)";
                                             try
                                             {
                                                 cmd2.ExecuteNonQuery();

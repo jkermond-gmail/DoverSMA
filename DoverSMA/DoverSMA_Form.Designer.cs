@@ -79,17 +79,25 @@
             // 
             this.ListBoxManagers.FormattingEnabled = true;
             this.ListBoxManagers.Items.AddRange(new object[] {
-            "Legg",
-            "Principal",
             "Allianz",
-            "Delaware",
-            "GW&K",
+            "Anchor",
             "Brandes",
             "Congress",
+            "Delaware",
             "Franklin Templeton",
+            "GW&K",
             "Invesco",
             "Lazard",
-            "Anchor"});
+            "Legg",
+            "Principal",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""});
             this.ListBoxManagers.Location = new System.Drawing.Point(12, 12);
             this.ListBoxManagers.Name = "ListBoxManagers";
             this.ListBoxManagers.Size = new System.Drawing.Size(120, 95);
