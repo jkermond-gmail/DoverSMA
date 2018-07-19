@@ -57,6 +57,7 @@ namespace DoverSmaEngine
         private string mSARF_laza = @"SARF_laza.csv";
         private string mOAFF_anch = @"OAFF_anch.csv";
         private string mSARF_anch = @"SARF_anch.csv";
+        private string mOAFF_nuve = @"OAFF_nuve.csv";
         //        private string mOAFF_ = @"OAFF_.csv";
         //        private string mSARF_ = @"SARF_.csv";
 
@@ -196,6 +197,9 @@ namespace DoverSmaEngine
                 case "Anchor":
                     ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_anch));
                     break;
+                case "Nuveen":
+                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_nuve));
+                    break;
             }
         }
 
@@ -234,6 +238,9 @@ namespace DoverSmaEngine
                     break;
                 case "Anchor":
                     ProcessFlowsDataSingleRow(Path.Combine(mFilepath, mOAFF_anch));
+                    break;
+                case "Nuveen":
+                    ProcessFlowsDataSingleRowNuveen(Path.Combine(mFilepath, mOAFF_nuve));
                     break;
             }
         }
@@ -461,6 +468,8 @@ namespace DoverSmaEngine
             LogHelper.WriteLine(logFuncName + "Rows Added " + addCount);
             LogHelper.WriteLine(logFuncName + filePath + " finished");
         }
+
+
 
         // This routine was wriiten to handle Principals multi row format
         public void ProcessOfferingsDataMultiRow(string filePath)
@@ -803,6 +812,181 @@ namespace DoverSmaEngine
             LogHelper.WriteLine(logFuncName + "Rows Added " + addCount);
             LogHelper.WriteLine(logFuncName + filePath + " finished");
         }
+
+        public void ProcessFlowsDataSingleRowNuveen(string filePath)
+        {
+            SqlCommand cmd1 = null;
+            SqlCommand cmd2 = null;
+            string sqlSelect = "";
+            string sqlWhere = "";
+            string valueParsed = "";
+            string colName = "";
+            string logFuncName = "ProcessFlowsDataSingleRow: ";
+            string assetManagerCode = AssetManagerCode(filePath);
+
+            int currentRowCount = 1; // Since csv file has a header set row to 1, data starts in row 2
+            int addCount = 0;
+            CultureInfo provider = CultureInfo.InvariantCulture;
+
+            LogHelper.WriteLine(logFuncName + filePath + " started");
+
+            DataTable dt = ReadCsvIntoTable(filePath);
+
+            sqlSelect = @"select SmaOfferingId from SmaOfferings ";
+            sqlWhere = @"where AssetManagerCode = @AssetManagerCode and SponsorFirm = @SponsorFirm  and AdvisoryPlatform = @AdvisoryPlatform  and SmaStrategy = @SmaStrategy and " +
+                        "SmaProductType = @SmaProductType and TampRIAPlatform = @TampRIAPlatform";
+
+            cmd1 = new SqlCommand
+            {
+                Connection = mSqlConn1,
+                CommandText = sqlSelect + sqlWhere
+            };
+
+            cmd2 = new SqlCommand
+            {
+                Connection = mSqlConn2
+            };
+
+
+            foreach (DataRow row in dt.Rows)
+            {
+                currentRowCount += 1;
+                colName = "AssetManagerCode";
+                if (currentRowCount == 2) cmd1.Parameters.Add("@" + colName, SqlDbType.VarChar);
+                cmd1.Parameters["@" + colName].Value = assetManagerCode;
+
+                colName = "SponsorFirm";
+                valueParsed = ParseColumn(row, colName);
+                if (currentRowCount == 2) cmd1.Parameters.Add("@" + colName, SqlDbType.VarChar);
+                cmd1.Parameters["@" + colName].Value = valueParsed;
+
+                colName = "AdvisoryPlatform";
+                valueParsed = ParseColumn(row, colName);
+                if (currentRowCount == 2) cmd1.Parameters.Add("@" + colName, SqlDbType.VarChar);
+                cmd1.Parameters["@" + colName].Value = valueParsed;
+
+                colName = "SmaStrategy";
+                valueParsed = ParseColumn(row, colName);
+                if (currentRowCount == 2) cmd1.Parameters.Add("@" + colName, SqlDbType.VarChar);
+                cmd1.Parameters["@" + colName].Value = valueParsed;
+
+                colName = "SmaProductType";
+                valueParsed = ParseColumn(row, colName);
+                if (currentRowCount == 2) cmd1.Parameters.Add("@" + colName, SqlDbType.VarChar);
+                cmd1.Parameters["@" + colName].Value = valueParsed;
+
+                colName = "TampRIAPlatform";
+                valueParsed = ParseColumn(row, colName);
+                if (currentRowCount == 2) cmd1.Parameters.Add("@" + colName, SqlDbType.VarChar);
+                cmd1.Parameters["@" + colName].Value = valueParsed;
+
+                try
+                {
+                    SqlDataReader dr = null;
+                    cmd1.CommandText = sqlSelect + sqlWhere;
+
+                    dr = cmd1.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        if (dr.Read())
+                        {
+                            Int32 SmaOfferingId = Convert.ToInt32(dr["SmaOfferingId"].ToString());
+                            if (addCount == 0)
+                            {
+                                cmd2.Parameters.Add("@AssetManagerCode", SqlDbType.VarChar);
+                                cmd2.Parameters["@AssetManagerCode"].Value = assetManagerCode;
+                                cmd2.Parameters.Add("@SmaOfferingId", SqlDbType.Int);
+                                cmd2.Parameters.Add("@FlowDate", SqlDbType.Date);
+                                cmd2.Parameters.Add("@Assets", SqlDbType.VarChar);
+                            }
+                            cmd2.Parameters["@SmaOfferingId"].Value = SmaOfferingId;
+
+                            colName = "FlowDate";
+                            valueParsed = ParseColumn(row, colName);
+                            string sFlowDate = "";
+
+                            if(valueParsed.StartsWith("Q1"))
+                            {
+                                sFlowDate = "03/31/" + valueParsed.Substring(valueParsed.Length - 2);
+                            }
+                            else if (valueParsed.StartsWith("Q2"))
+                            {
+                                sFlowDate = "06/30/" + valueParsed.Substring(valueParsed.Length - 2);
+                            }
+                            else if (valueParsed.StartsWith("Q3"))
+                            {
+                                sFlowDate = "09/30/" + valueParsed.Substring(valueParsed.Length - 2);
+                            }
+                            else if (valueParsed.StartsWith("Q4"))
+                            {
+                                sFlowDate = "12/31/" + valueParsed.Substring(valueParsed.Length - 2);
+                            }
+
+                            if (sFlowDate.Length == 8)
+                            {
+                                try
+                                {
+                                    string format = "MM/dd/yy";
+                                    DateTime result = DateTime.ParseExact(sFlowDate, format, provider);
+                                    Console.WriteLine("{0} converts to {1}.", sFlowDate, result.ToString());
+                                    cmd2.Parameters["@FlowDate"].Value = result.ToString();
+                                }
+                                catch (FormatException)
+                                {
+                                    Console.WriteLine("{0} is not in the correct format.", valueParsed);
+                                }
+                            }
+
+                            colName = "Assets";
+                            valueParsed = ParseColumn(row, colName);
+                            cmd2.Parameters["@Assets"].Value = valueParsed;
+
+                            cmd2.CommandText =
+                                "insert into SmaFlows " +
+                                    "(AssetManagerCode, SmaOfferingId, FlowDate, Assets) " +
+                                "Values (@AssetManagerCode, @SmaOfferingId, @FlowDate, @Assets)";
+                            try
+                            {
+                                cmd2.ExecuteNonQuery();
+                            }
+                            catch (SqlException ex)
+                            {
+                                LogHelper.WriteLine(logFuncName + ex.Message + " line number: " + currentRowCount);
+                            }
+                            finally
+                            {
+                                addCount += 1;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        LogHelper.WriteLine("----- Offering not found Skipping Row " + (currentRowCount) + "------");
+
+                        foreach (DataColumn column in dt.Columns)
+                        {
+                            if (column.ColumnName.Equals("AssetManager") || column.ColumnName.Equals("SponsorFirm") || column.ColumnName.Equals("AdvisoryPlatform")
+                                || column.ColumnName.Equals("SmaStrategy") || column.ColumnName.Equals("SmaProductType") || column.ColumnName.Equals("TampRIAPlatform"))
+                                LogHelper.WriteLine(column.ColumnName.ToString() + "|" + row[column].ToString());
+                        }
+                        LogHelper.WriteLine("-----------");
+                    }
+                    dr.Close();
+                }
+                catch (SqlException ex)
+                {
+                    LogHelper.WriteLine(logFuncName + ex.Message + " line number: " + currentRowCount);
+                }
+                finally
+                {
+                }
+            }
+            LogHelper.WriteLine(logFuncName + "Rows Processed " + currentRowCount);
+            LogHelper.WriteLine(logFuncName + "Rows Added " + addCount);
+            LogHelper.WriteLine(logFuncName + filePath + " finished");
+        }
+
+
 
         public void ProcessFlowsDataMultiRow(string filePath)
         {
