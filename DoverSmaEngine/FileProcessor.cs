@@ -175,6 +175,7 @@ namespace DoverSmaEngine
                     ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_alli));
                     break;
                 case "Delaware":
+                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_dela));
                     break;
                 case "GW&K":
                     ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_gwnk));
@@ -217,6 +218,7 @@ namespace DoverSmaEngine
                     ProcessFlowsDataSingleRow(Path.Combine(mFilepath, mOAFF_alli));
                     break;
                 case "Delaware":
+                    ProcessFlowsDataSingleRow(Path.Combine(mFilepath, mOAFF_dela));
                     break;
                 case "GW&K":
                     ProcessFlowsDataSingleRow(Path.Combine(mFilepath, mOAFF_gwnk));
@@ -372,6 +374,9 @@ namespace DoverSmaEngine
                 colName = "SponsorFirm";
                 valueParsed = ParseColumn(row, colName);
                 if (currentRowCount == 2) cmd.Parameters.Add("@" + colName, SqlDbType.VarChar);
+                string sponsorFirm2 = ParseColumn(row, "SponsorFirm2");
+                if (sponsorFirm2.Length > 0)
+                    valueParsed += " - " + sponsorFirm2;
                 cmd.Parameters["@" + colName].Value = valueParsed;
 
                 colName = "AdvisoryPlatform";
@@ -552,7 +557,7 @@ namespace DoverSmaEngine
 
                 colName = "ManagerClass";
                 valueParsed = ParseColumn(row, colName);
-                if (valueParsed.Length > 0)
+                if ((valueParsed.Length > 0) && (valueParsed.EndsWith("Total") == false))
                     managerClass = valueParsed;
                 if (currentRowCount == 2) cmd.Parameters.Add("@" + colName, SqlDbType.VarChar);
                 cmd.Parameters["@" + colName].Value = managerClass;
@@ -1072,7 +1077,7 @@ namespace DoverSmaEngine
 
                 colName = "ManagerClass";
                 valueParsed = ParseColumn(row, colName);
-                if (valueParsed.Length > 0)
+                if ((valueParsed.Length > 0) && (valueParsed.EndsWith("Total") == false))
                     managerClass = valueParsed;
                 if (currentRowCount == 2) cmd1.Parameters.Add("@" + colName, SqlDbType.VarChar);
                 cmd1.Parameters["@" + colName].Value = managerClass;
@@ -1089,9 +1094,13 @@ namespace DoverSmaEngine
                         {
                             Int32 smaOfferingId = Convert.ToInt32(dr["SmaOfferingId"].ToString());
                             if (addCount == 0)
+                            {
                                 cmd2.Parameters.Add("@SmaOfferingId", SqlDbType.Int);
+                                cmd2.Parameters.Add("@AssetManagerCode", SqlDbType.VarChar);
+                            }
                             cmd2.Parameters["@SmaOfferingId"].Value = smaOfferingId;
-                            
+                            cmd2.Parameters["@AssetManagerCode"].Value = assetManagerCode;
+
                             colName = "Smry Trns Typ Txt";
                             valueParsed = ParseColumn(row, colName);
                             if ((valueParsed.Equals("Gross Flows")) ||
@@ -1103,24 +1112,31 @@ namespace DoverSmaEngine
                                 for (int year = 2016; year <= 2018; year++)
                                 {
                                     string sYear = year.ToString();
+                                    int year2 = year - 2000;
+                                    string sYearYY = year2.ToString();
                                     for (int quarter = 1; quarter <= 4; quarter++)
                                     {
                                         string sQuarter = quarter.ToString();
-                                        string flowDate = mEndOfQuarterDates[quarter].ToString() + sYear;
+                                        string flowDate = mEndOfQuarterDates[quarter].ToString() + sYearYY;
 
                                         if (addCount == 0)
                                         {
                                             cmd2.Parameters.Add("@FlowDate", SqlDbType.Date);
-                                            //cmd2.Parameters.Add("@Assets", SqlDbType.Date);
-                                            cmd2.Parameters.Add("@GrossFlows", SqlDbType.Date);
-                                            //cmd2.Parameters.Add("@Redemptions", SqlDbType.Date);
-                                            //cmd2.Parameters.Add("@NetFlows", SqlDbType.Date);
+                                            cmd2.Parameters.Add("@Assets", SqlDbType.VarChar);
+                                            cmd2.Parameters.Add("@GrossFlows", SqlDbType.VarChar);
+                                            cmd2.Parameters.Add("@Redemptions", SqlDbType.VarChar);
+                                            cmd2.Parameters.Add("@NetFlows", SqlDbType.VarChar);
                                         }
 
-                                        DateTime dt2 = DateTime.ParseExact(flowDate, "MM/dd/yyyy", CultureInfo.InvariantCulture);
-                                        flowDate = dt2.ToString("yyyy-MM-dd");
+                                        DateTime dt2 = DateTime.ParseExact(flowDate, "MM/dd/yy", CultureInfo.InvariantCulture);
+                                        //flowDate = dt2.ToString("yyyy-MM-dd");
                                         //cmd2.Parameters["@FlowDate"].Value = flowDate;
-                                        cmd2.Parameters["@FlowDate"].Value = dt2;
+                                        cmd2.Parameters["@FlowDate"].Value = dt2.ToString();
+
+                                        cmd2.Parameters["@Assets"].Value = "";
+                                        cmd2.Parameters["@GrossFlows"].Value = "";
+                                        cmd2.Parameters["@Redemptions"].Value = "";
+                                        cmd2.Parameters["@NetFlows"].Value = "";
 
                                         colName = sQuarter + "Q" + " " + sYear ;
 
@@ -1156,18 +1172,14 @@ namespace DoverSmaEngine
                                             string sqlSelect2 = "select count(*) from [DoverSma].[dbo].[SmaFlows] ";
                                             string sqlWhere2 =  "where SmaOfferingId = '" + smaOfferingId.ToString() + 
                                                                 "' and FlowDate = '" + flowDate.ToString() + "'";
-                                            //cmd3.CommandText = sqlSelect2 + sqlWhere2;
-                                            //int iCount2 = (int)cmd3.ExecuteScalar();
-                                            int iCount2 = 0;
+                                            cmd3.CommandText = sqlSelect2 + sqlWhere2;
+                                            int iCount2 = (int)cmd3.ExecuteScalar();
                                             if (iCount2 == 0)
                                             {
                                                 cmd2.CommandText =
-                                                    "insert into SmaFlows " +
-                                                        "(AssetManagerCode, SmaOfferingId, FlowDate, GrossFlows) " +
-                                                    "Values (@AssetManagerCode, @SmaOfferingId, @FlowDate, @GrossFlows)";
-                                                //"insert into SmaFlows " +
-                                                //        "(SmaOfferingId, FlowDate, Assets, GrossFlows, Redemptions, NetFlows, DerivedFlows) " +
-                                                //    "Values (@SmaOfferingId, @FlowDate, @Assets, @GrossFlows, @Redemptions, @NetFlows, @DerivedFlows)";
+                                                "insert into SmaFlows " +
+                                                        "(AssetManagerCode, SmaOfferingId, FlowDate, Assets, GrossFlows, Redemptions, NetFlows) " +
+                                                    "Values (@AssetManagerCode, @SmaOfferingId, @FlowDate, @Assets, @GrossFlows, @Redemptions, @NetFlows)";
                                             }
                                             else
                                             {
@@ -1175,8 +1187,6 @@ namespace DoverSmaEngine
                                             }
                                             try
                                             {
-                                                //fuk 'Failed to convert parameter value from a String to a DateTime.'
-
                                                 cmd2.ExecuteNonQuery();
                                             }
                                             catch (SqlException ex)
@@ -1188,10 +1198,10 @@ namespace DoverSmaEngine
                                                 if (iCount2 == 0)
                                                 {
                                                     addCount += 1;
-                                                    //cmd2.Parameters["@Assets"].Value = "";
-                                                    //cmd2.Parameters["@GrossFlows"].Value = "";
-                                                    //cmd2.Parameters["@Redemptions"].Value = "";
-                                                    //cmd2.Parameters["@NetFlows"].Value = "";
+                                                    cmd2.Parameters["@Assets"].Value = "";
+                                                    cmd2.Parameters["@GrossFlows"].Value = "";
+                                                    cmd2.Parameters["@Redemptions"].Value = "";
+                                                    cmd2.Parameters["@NetFlows"].Value = "";
                                                 }
                                                 else
                                                 {
