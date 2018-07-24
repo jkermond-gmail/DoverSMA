@@ -31,7 +31,7 @@ namespace DoverSmaEngine
         private SqlConnection mSqlConn3 = null;
         private string mConnectionString = "";
 
-        private string mFilepath = @"C:\A_Dover\Dev\Vifs";
+        private string mFilepath = @"C:\A_Dover\Dev\AMFs";
         
         // (OAFF_) Offering and Flows Files 
         // (SARF_) Strategies and Returns Files
@@ -58,6 +58,8 @@ namespace DoverSmaEngine
         private string mOAFF_anch = @"OAFF_anch.csv";
         private string mSARF_anch = @"SARF_anch.csv";
         private string mOAFF_nuve = @"OAFF_nuve.csv";
+        private string mOAFF_rena = @"OAFF_rena.csv";
+        private string mSARF_rena = @"SARF_rena.csv";
         //        private string mOAFF_ = @"OAFF_.csv";
         //        private string mSARF_ = @"SARF_.csv";
 
@@ -201,6 +203,9 @@ namespace DoverSmaEngine
                 case "Nuveen":
                     ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_nuve));
                     break;
+                case "Renaissance":
+                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_rena));
+                    break;
             }
         }
 
@@ -244,6 +249,9 @@ namespace DoverSmaEngine
                 case "Nuveen":
                     ProcessFlowsDataSingleRowNuveen(Path.Combine(mFilepath, mOAFF_nuve));
                     break;
+                case "Renaissance":
+                    ProcessFlowsDataSingleRow(Path.Combine(mFilepath, mOAFF_rena));
+                    break;
             }
         }
 
@@ -282,6 +290,9 @@ namespace DoverSmaEngine
                     break;
                 case "Anchor":
                     ProcessStrategiesData(Path.Combine(mFilepath, mSARF_anch));
+                    break;
+                case "Renaissance":
+                    ProcessStrategiesData(Path.Combine(mFilepath, mSARF_rena));
                     break;
 
             }
@@ -322,6 +333,9 @@ namespace DoverSmaEngine
                     break;
                 case "Anchor":
                     ProcessReturnsData(Path.Combine(mFilepath, mSARF_anch));
+                    break;
+                case "Renaissance":
+                    ProcessReturnsData(Path.Combine(mFilepath, mSARF_rena));
                     break;
 
             }
