@@ -171,7 +171,7 @@ namespace DoverSmaEngine
                     ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_legg));
                     break;
                 case "Principal":
-                    ProcessOfferingsDataMultiRow(Path.Combine(mFilepath, mOAFF_prin));
+                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_prin));
                     break;
                 case "Allianz":
                     ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_alli));
@@ -217,7 +217,7 @@ namespace DoverSmaEngine
                     ProcessFlowsDataSingleRow(Path.Combine(mFilepath, mOAFF_legg));
                     break;
                 case "Principal":
-                    ProcessFlowsDataMultiRow(Path.Combine(mFilepath, mOAFF_prin));
+                    ProcessFlowsDataSingleRow(Path.Combine(mFilepath, mOAFF_prin));
                     break;
                 case "Allianz":
                     ProcessFlowsDataSingleRow(Path.Combine(mFilepath, mOAFF_alli));
