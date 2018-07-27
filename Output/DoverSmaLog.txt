@@ -1,1796 +1,1861 @@
-C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-07-26 12:58:05
-ProcessOfferingsDataSingleRow: C:\A_Dover\Dev\AMFs\OAFF_anch.csv started
-ProcessOfferingsDataSingleRow: Rows Processed 144
-ProcessOfferingsDataSingleRow: Rows Added 119
-ProcessOfferingsDataSingleRow: BlankLines 24
-ProcessOfferingsDataSingleRow: C:\A_Dover\Dev\AMFs\OAFF_anch.csv finished
-ProcessFlowsDataSingleRow: C:\A_Dover\Dev\AMFs\OAFF_anch.csv started
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-Column Name: 2Q 2018 a not found
-Column Name: 2Q 2018 g not found
-Column Name: 2Q 2018 r not found
-Column Name: 2Q 2018 n not found
-Column Name: 2Q 2018 d not found
-Column Name: 3Q 2018 a not found
-Column Name: 3Q 2018 g not found
-Column Name: 3Q 2018 r not found
-Column Name: 3Q 2018 n not found
-Column Name: 3Q 2018 d not found
-Column Name: 4Q 2018 a not found
-Column Name: 4Q 2018 g not found
-Column Name: 4Q 2018 r not found
-Column Name: 4Q 2018 n not found
-Column Name: 4Q 2018 d not found
-ProcessFlowsDataSingleRow: Rows Processed 144
-ProcessFlowsDataSingleRow: Rows Added 1071
-ProcessFlowsDataSingleRow: BlankLines 24
-ProcessFlowsDataSingleRow: C:\A_Dover\Dev\AMFs\OAFF_anch.csv finished
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-07-27 13:44:29
+ProcessOfferingsDataSingleRow: C:\A_Development\visual studio 2017\Projects\DoverSMA\DoverAMFs\OAFF_lord.csv started
+----- Skipping Duplicate Row 13------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors PCG
+SponsorFirm|Wells Fargo Advisors PCG
+AdvisoryPlatform|Wells Fargo Advisors/DMA/Balanced
+SmaStrategy|Balanced
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 22------
+AssetManager|
+TampRIAPlatform|Prudential Investment Management Services LLC
+SponsorFirm|Prudential Investment Management Services LLC
+AdvisoryPlatform|Prudential/3rd Party/Convertibles
+SmaStrategy|Convertible
+SmaProductType|Traditional
+ManagerClass|Taxable Fixed Income
+-----------
+----- Skipping Duplicate Row 23------
+AssetManager|
+TampRIAPlatform|Prudential Investment Management Services LLC
+SponsorFirm|Prudential Investment Management Services LLC
+AdvisoryPlatform|Prudential/3rd Party/Convertibles
+SmaStrategy|Convertible
+SmaProductType|Traditional
+ManagerClass|Taxable Fixed Income
+-----------
+----- Skipping Duplicate Row 34------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Marketplace/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 35------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Marketplace/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 36------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Marketplace/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 37------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Marketplace/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 38------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Marketplace/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 39------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Marketplace/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 40------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Marketplace/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 41------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Marketplace/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 42------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Marketplace/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 43------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Marketplace/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 44------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Marketplace/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 45------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Marketplace/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 46------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Marketplace/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 47------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Marketplace/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 49------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Access/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 50------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Access/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 51------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Access/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 52------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Access/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 53------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Access/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 55------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 56------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 57------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 58------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 59------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 60------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 61------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 62------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 63------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 64------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 65------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 66------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 67------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 68------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 69------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 70------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 71------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 72------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 73------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 74------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 75------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 76------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 77------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 79------
+AssetManager|
+TampRIAPlatform|Fidelity Brokerage Serv
+SponsorFirm|Fidelity Brokerage Serv
+AdvisoryPlatform|Fidelity/Separate Account Network/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 80------
+AssetManager|
+TampRIAPlatform|Fidelity Brokerage Serv
+SponsorFirm|Fidelity Brokerage Serv
+AdvisoryPlatform|Fidelity/Separate Account Network/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 81------
+AssetManager|
+TampRIAPlatform|Fidelity Brokerage Serv
+SponsorFirm|Fidelity Brokerage Serv
+AdvisoryPlatform|Fidelity/Separate Account Network/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 82------
+AssetManager|
+TampRIAPlatform|Fidelity Brokerage Serv
+SponsorFirm|Fidelity Brokerage Serv
+AdvisoryPlatform|Fidelity/Separate Account Network/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 83------
+AssetManager|
+TampRIAPlatform|Fidelity Brokerage Serv
+SponsorFirm|Fidelity Brokerage Serv
+AdvisoryPlatform|Fidelity/Separate Account Network/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 84------
+AssetManager|
+TampRIAPlatform|Fidelity Brokerage Serv
+SponsorFirm|Fidelity Brokerage Serv
+AdvisoryPlatform|Fidelity/Separate Account Network/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 85------
+AssetManager|
+TampRIAPlatform|Fidelity Brokerage Serv
+SponsorFirm|Fidelity Brokerage Serv
+AdvisoryPlatform|Fidelity/Separate Account Network/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 86------
+AssetManager|
+TampRIAPlatform|Fidelity Brokerage Serv
+SponsorFirm|Fidelity Brokerage Serv
+AdvisoryPlatform|Fidelity/Separate Account Network/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 88------
+AssetManager|
+TampRIAPlatform|Lockwood Financial Svcs., Inc.
+SponsorFirm|Lockwood Financial Svcs., Inc.
+AdvisoryPlatform|Lockwood/Managed Account Direct(DC)/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 90------
+AssetManager|
+TampRIAPlatform|Lockwood Financial Svcs., Inc.
+SponsorFirm|Lockwood Financial Svcs., Inc.
+AdvisoryPlatform|Lockwood/Managed Account Command/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 91------
+AssetManager|
+TampRIAPlatform|Lockwood Financial Svcs., Inc.
+SponsorFirm|Lockwood Financial Svcs., Inc.
+AdvisoryPlatform|Lockwood/Managed Account Command/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 92------
+AssetManager|
+TampRIAPlatform|Lockwood Financial Svcs., Inc.
+SponsorFirm|Lockwood Financial Svcs., Inc.
+AdvisoryPlatform|Lockwood/Managed Account Command/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 99------
+AssetManager|
+TampRIAPlatform|Merrill Lynch
+SponsorFirm|Merrill Lynch
+AdvisoryPlatform|Merrill Lynch/UMA/IAP/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 109------
+AssetManager|
+TampRIAPlatform|TD Ameritrade
+SponsorFirm|TD Ameritrade
+AdvisoryPlatform|TD Ameritrade/Separate Account Exchange Program(DC)/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 110------
+AssetManager|
+TampRIAPlatform|TD Ameritrade
+SponsorFirm|TD Ameritrade
+AdvisoryPlatform|TD Ameritrade/Separate Account Exchange Program(DC)/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 111------
+AssetManager|
+TampRIAPlatform|TD Ameritrade
+SponsorFirm|TD Ameritrade
+AdvisoryPlatform|TD Ameritrade/Separate Account Exchange Program(DC)/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 112------
+AssetManager|
+TampRIAPlatform|TD Ameritrade
+SponsorFirm|TD Ameritrade
+AdvisoryPlatform|TD Ameritrade/Separate Account Exchange Program(DC)/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 117------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Private Advisory Network/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 118------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Private Advisory Network/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 121------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Masters/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 122------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/DMA/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 123------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/DMA/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 124------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Masters/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 125------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/DMA/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 126------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Masters/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 127------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/DMA/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 128------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Masters/Intermediate Municipal
+SmaStrategy|Intermediate Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 137------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Masters/International Core EAFE Plus
+SmaStrategy|International Core EAFE
+SmaProductType|Traditional
+ManagerClass|Global & International
+-----------
+----- Skipping Duplicate Row 138------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Masters/International Core EAFE Plus
+SmaStrategy|International Core EAFE
+SmaProductType|Traditional
+ManagerClass|Global & International
+-----------
+----- Skipping Duplicate Row 139------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/DMA/International Core EAFE Plus
+SmaStrategy|International Core EAFE
+SmaProductType|Traditional
+ManagerClass|Global & International
+-----------
+----- Skipping Duplicate Row 140------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/DMA/International Core EAFE Plus
+SmaStrategy|International Core EAFE
+SmaProductType|Traditional
+ManagerClass|Global & International
+-----------
+----- Skipping Duplicate Row 141------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Masters/International Core EAFE Plus
+SmaStrategy|International Core EAFE
+SmaProductType|Traditional
+ManagerClass|Global & International
+-----------
+----- Skipping Duplicate Row 142------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/DMA/International Core EAFE Plus
+SmaStrategy|International Core EAFE
+SmaProductType|Traditional
+ManagerClass|Global & International
+-----------
+----- Skipping Duplicate Row 143------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Masters/International Core EAFE Plus
+SmaStrategy|International Core EAFE
+SmaProductType|Traditional
+ManagerClass|Global & International
+-----------
+----- Skipping Duplicate Row 146------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Marketplace/Municipal 1-10 Year Ladder
+SmaStrategy|Laddered Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 147------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Marketplace/Municipal 1-10 Year Ladder
+SmaStrategy|Laddered Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 149------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Marketplace/Municipal 1-10 Year Ladder
+SmaStrategy|Laddered Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 153------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Marketplace/Municipal 1-10 Year Ladder
+SmaStrategy|Laddered Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 154------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Marketplace/Municipal 1-10 Year Ladder
+SmaStrategy|Laddered Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 157------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Municipal 1-5 Year Ladder
+SmaStrategy|Laddered Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 158------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Municipal 1-10 Year Ladder
+SmaStrategy|Laddered Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 159------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Municipal 1-10 Year Ladder
+SmaStrategy|Laddered Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 160------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Municipal 1-10 Year Ladder
+SmaStrategy|Laddered Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 162------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Municipal 1-5 Year Ladder
+SmaStrategy|Laddered Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 163------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Municipal 1-10 Year Ladder
+SmaStrategy|Laddered Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 164------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Municipal 1-5 Year Ladder
+SmaStrategy|Laddered Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 165------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Municipal 1-5 Year Ladder
+SmaStrategy|Laddered Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 168------
+AssetManager|
+TampRIAPlatform|Fidelity Brokerage Serv
+SponsorFirm|Fidelity Brokerage Serv
+AdvisoryPlatform|Fidelity/Separate Account Network/Municipal 1-10 Year Ladder
+SmaStrategy|Laddered Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 169------
+AssetManager|
+TampRIAPlatform|Fidelity Brokerage Serv
+SponsorFirm|Fidelity Brokerage Serv
+AdvisoryPlatform|Fidelity/Separate Account Network/Municipal 1-20 Year Ladder
+SmaStrategy|Laddered Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 170------
+AssetManager|
+TampRIAPlatform|Fidelity Brokerage Serv
+SponsorFirm|Fidelity Brokerage Serv
+AdvisoryPlatform|Fidelity/Separate Account Network/Municipal 1-10 Year Ladder
+SmaStrategy|Laddered Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 171------
+AssetManager|
+TampRIAPlatform|Fidelity Brokerage Serv
+SponsorFirm|Fidelity Brokerage Serv
+AdvisoryPlatform|Fidelity/Separate Account Network/Municipal 1-20 Year Ladder
+SmaStrategy|Laddered Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 174------
+AssetManager|
+TampRIAPlatform|Fidelity Brokerage Serv
+SponsorFirm|Fidelity Brokerage Serv
+AdvisoryPlatform|Fidelity/Separate Account Network/Municipal 1-10 Year Ladder
+SmaStrategy|Laddered Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 175------
+AssetManager|
+TampRIAPlatform|Fidelity Brokerage Serv
+SponsorFirm|Fidelity Brokerage Serv
+AdvisoryPlatform|Fidelity/Separate Account Network/Municipal 1-20 Year Ladder
+SmaStrategy|Laddered Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 176------
+AssetManager|
+TampRIAPlatform|Fidelity Brokerage Serv
+SponsorFirm|Fidelity Brokerage Serv
+AdvisoryPlatform|Fidelity/Separate Account Network/Municipal 1-10 Year Ladder
+SmaStrategy|Laddered Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 205------
+AssetManager|
+TampRIAPlatform|TD Ameritrade
+SponsorFirm|TD Ameritrade
+AdvisoryPlatform|TD Ameritrade/Separate Account Exchange Program(DC)/Municipal 1-10 Year Ladder
+SmaStrategy|Laddered Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 223------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Private Advisory Network/Municipal 1-10 Year Ladder
+SmaStrategy|Laddered Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 224------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Private Advisory Network/Municipal 1-10 Year Ladder
+SmaStrategy|Laddered Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 226------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Masters/Municipal 1-10 Year Ladder
+SmaStrategy|Laddered Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 228------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Masters/Municipal 1-10 Year Ladder
+SmaStrategy|Laddered Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 229------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/DMA/Municipal 1-10 Year Ladder
+SmaStrategy|Laddered Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 230------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Masters/Municipal 1-10 Year Ladder
+SmaStrategy|Laddered Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 232------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Access/Large Cap Value
+SmaStrategy|Large Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 233------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Access/Large Cap Value
+SmaStrategy|Large Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 234------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Access/Large Cap Value
+SmaStrategy|Large Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 235------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Access/Large Cap Value
+SmaStrategy|Large Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 236------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Access/Large Cap Value
+SmaStrategy|Large Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 237------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Access/Large Cap Value
+SmaStrategy|Large Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 238------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Access/Large Cap Value
+SmaStrategy|Large Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 239------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Access/Large Cap Value
+SmaStrategy|Large Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 241------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Access/Large Cap Value
+SmaStrategy|Large Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 246------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Large Cap Value
+SmaStrategy|Large Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 247------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Large Cap Value
+SmaStrategy|Large Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 249------
+AssetManager|
+TampRIAPlatform|Lockwood Financial Svcs., Inc.
+SponsorFirm|Lockwood Financial Svcs., Inc.
+AdvisoryPlatform|Lockwood/Managed Account Command/Large Cap Value
+SmaStrategy|Large Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 250------
+AssetManager|
+TampRIAPlatform|Lockwood Financial Svcs., Inc.
+SponsorFirm|Lockwood Financial Svcs., Inc.
+AdvisoryPlatform|Lockwood/Managed Account Command/Large Cap Value
+SmaStrategy|Large Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 252------
+AssetManager|
+TampRIAPlatform|Lockwood Financial Svcs., Inc.
+SponsorFirm|Lockwood Financial Svcs., Inc.
+AdvisoryPlatform|Lockwood/Managed Account Command/Large Cap Value
+SmaStrategy|Large Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 253------
+AssetManager|
+TampRIAPlatform|Lockwood Financial Svcs., Inc.
+SponsorFirm|Lockwood Financial Svcs., Inc.
+AdvisoryPlatform|Lockwood/Lockwood Sponsored Program/Large Cap Value
+SmaStrategy|Large Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 254------
+AssetManager|
+TampRIAPlatform|Lockwood Financial Svcs., Inc.
+SponsorFirm|Lockwood Financial Svcs., Inc.
+AdvisoryPlatform|Lockwood/Managed Account Command/Large Cap Value
+SmaStrategy|Large Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 255------
+AssetManager|
+TampRIAPlatform|Lockwood Financial Svcs., Inc.
+SponsorFirm|Lockwood Financial Svcs., Inc.
+AdvisoryPlatform|Lockwood/Managed Account Command/Large Cap Value
+SmaStrategy|Large Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 272------
+AssetManager|
+TampRIAPlatform|Raymond James & Associates Inc.
+SponsorFirm|Raymond James & Associates Inc.
+AdvisoryPlatform|Raymond James/Consulting Services/Large Cap Value
+SmaStrategy|Large Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 274------
+AssetManager|
+TampRIAPlatform|Raymond James & Associates Inc.
+SponsorFirm|Raymond James & Associates Inc.
+AdvisoryPlatform|Raymond James/Consulting Services/Large Cap Value
+SmaStrategy|Large Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 278------
+AssetManager|
+TampRIAPlatform|UBS Financial Services Inc.
+SponsorFirm|UBS Financial Services Inc.
+AdvisoryPlatform|UBS/Access/Large Cap Value
+SmaStrategy|Large Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 282------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors PCG
+SponsorFirm|Wells Fargo Advisors PCG
+AdvisoryPlatform|Prudential/3rd Party/Large Cap Value
+SmaStrategy|Large Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 283------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors PCG
+SponsorFirm|Wells Fargo Advisors PCG
+AdvisoryPlatform|Wells Fargo Advisors/DMA/Large Cap Value
+SmaStrategy|Large Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 284------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors PCG
+SponsorFirm|Wells Fargo Advisors PCG
+AdvisoryPlatform|Wells Fargo Advisors/DMA/Large Cap Value
+SmaStrategy|Large Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 285------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors PCG
+SponsorFirm|Wells Fargo Advisors PCG
+AdvisoryPlatform|Wells Fargo Advisors/DMA/Large Cap Value
+SmaStrategy|Large Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 287------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Private Advisory Network/Large Cap Value
+SmaStrategy|Large Cap Value
+SmaProductType|Dual Contract
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 288------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Private Advisory Network/Large Cap Value
+SmaStrategy|Large Cap Value
+SmaProductType|Dual Contract
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 292------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Marketplace/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 293------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Marketplace/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 294------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Marketplace/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 296------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Access/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 297------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Access/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 298------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Access/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 302------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 303------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 304------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 305------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 306------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 307------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 308------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 309------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 310------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 311------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 312------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 314------
+AssetManager|
+TampRIAPlatform|Fidelity Brokerage Serv
+SponsorFirm|Fidelity Brokerage Serv
+AdvisoryPlatform|Fidelity/Separate Account Network/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 315------
+AssetManager|
+TampRIAPlatform|Fidelity Brokerage Serv
+SponsorFirm|Fidelity Brokerage Serv
+AdvisoryPlatform|Fidelity/Separate Account Network/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 316------
+AssetManager|
+TampRIAPlatform|Fidelity Brokerage Serv
+SponsorFirm|Fidelity Brokerage Serv
+AdvisoryPlatform|Fidelity/Separate Account Network/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 317------
+AssetManager|
+TampRIAPlatform|Fidelity Brokerage Serv
+SponsorFirm|Fidelity Brokerage Serv
+AdvisoryPlatform|Fidelity/Separate Account Network/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 318------
+AssetManager|
+TampRIAPlatform|Fidelity Brokerage Serv
+SponsorFirm|Fidelity Brokerage Serv
+AdvisoryPlatform|Fidelity/Separate Account Network/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 319------
+AssetManager|
+TampRIAPlatform|Fidelity Brokerage Serv
+SponsorFirm|Fidelity Brokerage Serv
+AdvisoryPlatform|Fidelity/Separate Account Network/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 324------
+AssetManager|
+TampRIAPlatform|Lockwood Financial Svcs., Inc.
+SponsorFirm|Lockwood Financial Svcs., Inc.
+AdvisoryPlatform|Lockwood/Managed Account Command/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 325------
+AssetManager|
+TampRIAPlatform|Lockwood Financial Svcs., Inc.
+SponsorFirm|Lockwood Financial Svcs., Inc.
+AdvisoryPlatform|Lockwood/Managed Account Command/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 326------
+AssetManager|
+TampRIAPlatform|Lockwood Financial Svcs., Inc.
+SponsorFirm|Lockwood Financial Svcs., Inc.
+AdvisoryPlatform|Lockwood/Managed Account Command/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 329------
+AssetManager|
+TampRIAPlatform|Lockwood Financial Svcs., Inc.
+SponsorFirm|Lockwood Financial Svcs., Inc.
+AdvisoryPlatform|Lockwood/Lockwood Sponsored Program/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 332------
+AssetManager|
+TampRIAPlatform|LPL Independent Advisor Services
+SponsorFirm|LPL Independent Advisor Services
+AdvisoryPlatform|LPL/Manager Select/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 346------
+AssetManager|
+TampRIAPlatform|Morgan Stanley Wealth Management
+SponsorFirm|Morgan Stanley Wealth Management
+AdvisoryPlatform|Morgan Stanley/Select UMA/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 349------
+AssetManager|
+TampRIAPlatform|Raymond James & Associates Inc.
+SponsorFirm|Raymond James & Associates Inc.
+AdvisoryPlatform|Raymond James/Consulting Services/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 351------
+AssetManager|
+TampRIAPlatform|RBC Capital Markets
+SponsorFirm|RBC Capital Markets
+AdvisoryPlatform|RBC Dain/Managed Account Program/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 356------
+AssetManager|
+TampRIAPlatform|TD Ameritrade
+SponsorFirm|TD Ameritrade
+AdvisoryPlatform|TD Ameritrade/Separate Account Exchange Program(DC)/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 363------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors PCG
+SponsorFirm|Wells Fargo Advisors PCG
+AdvisoryPlatform|Wells Fargo Advisors/Masters/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 364------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors PCG
+SponsorFirm|Wells Fargo Advisors PCG
+AdvisoryPlatform|Wells Fargo Advisors/Masters/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 366------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Private Advisory Network/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 367------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Private Advisory Network/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 370------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Masters/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 371------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Masters/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 372------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/DMA/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 373------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/DMA/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 374------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Masters/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 375------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/DMA/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 376------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Masters/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 377------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/DMA/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 378------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Masters/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 379------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Masters/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 381------
+AssetManager|
+TampRIAPlatform|Wells Fargo Clearing Services, LLC
+SponsorFirm|Wells Fargo Clearing Services, LLC
+AdvisoryPlatform|Wells Fargo Advisors/Masters/Long (National) Muni
+SmaStrategy|Long Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 384------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Access/Multi Cap Value
+SmaStrategy|Multi Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 387------
+AssetManager|
+TampRIAPlatform|Merrill Lynch
+SponsorFirm|Merrill Lynch
+AdvisoryPlatform|Merrill Lynch/MAA Consults/Multi Cap Value
+SmaStrategy|Multi Cap Value
+SmaProductType|Model Delivery
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 390------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Marketplace/Short Municipal
+SmaStrategy|Short Duration Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 391------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Marketplace/Short Municipal
+SmaStrategy|Short Duration Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 392------
+AssetManager|
+TampRIAPlatform|Charles Schwab Investment Management, Inc.
+SponsorFirm|Charles Schwab Investment Management, Inc.
+AdvisoryPlatform|Charles Schwab/Marketplace/Short Municipal
+SmaStrategy|Short Duration Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 394------
+AssetManager|
+TampRIAPlatform|Envestnet Asset Management, Inc.
+SponsorFirm|Envestnet Asset Management, Inc.
+AdvisoryPlatform|Envestnet/Separate Account Program/Short Municipal
+SmaStrategy|Short Duration Municipal
+SmaProductType|Traditional
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 396------
+AssetManager|
+TampRIAPlatform|Fidelity Brokerage Serv
+SponsorFirm|Fidelity Brokerage Serv
+AdvisoryPlatform|Fidelity/Separate Account Network/Short Municipal
+SmaStrategy|Short Duration Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 398------
+AssetManager|
+TampRIAPlatform|Lockwood Financial Svcs., Inc.
+SponsorFirm|Lockwood Financial Svcs., Inc.
+AdvisoryPlatform|Lockwood/Managed Account Direct(DC)/Short Municipal
+SmaStrategy|Short Duration Municipal
+SmaProductType|Dual Contract
+ManagerClass|Tax Free Fixed Income
+-----------
+----- Skipping Duplicate Row 406------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/DMA/SMID Cap Value
+SmaStrategy|Smid Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 407------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Masters/SMID Cap Value
+SmaStrategy|Smid Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 408------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/DMA/SMID Cap Value
+SmaStrategy|Smid Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 409------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Masters/SMID Cap Value
+SmaStrategy|Smid Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 410------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/DMA/SMID Cap Value
+SmaStrategy|Smid Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 411------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Masters/SMID Cap Value
+SmaStrategy|Smid Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 412------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/DMA/SMID Cap Value
+SmaStrategy|Smid Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 413------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/DMA/SMID Cap Value
+SmaStrategy|Smid Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 414------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/DMA/SMID Cap Value
+SmaStrategy|Smid Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 415------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/DMA/SMID Cap Value
+SmaStrategy|Smid Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 416------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Masters/SMID Cap Value
+SmaStrategy|Smid Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 417------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/DMA/SMID Cap Value
+SmaStrategy|Smid Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 418------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Masters/SMID Cap Value
+SmaStrategy|Smid Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 419------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/DMA/SMID Cap Value
+SmaStrategy|Smid Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 420------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Masters/SMID Cap Value
+SmaStrategy|Smid Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 421------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/DMA/SMID Cap Value
+SmaStrategy|Smid Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 422------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Masters/SMID Cap Value
+SmaStrategy|Smid Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 423------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/DMA/SMID Cap Value
+SmaStrategy|Smid Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+----- Skipping Duplicate Row 424------
+AssetManager|
+TampRIAPlatform|Wells Fargo Advisors WBS
+SponsorFirm|Wells Fargo Advisors WBS
+AdvisoryPlatform|Wells Fargo Advisors/Masters/SMID Cap Value
+SmaStrategy|Smid Cap Value
+SmaProductType|Traditional
+ManagerClass|U.S. Equity
+-----------
+ProcessOfferingsDataSingleRow: Rows Processed 423
+ProcessOfferingsDataSingleRow: Rows Added 216
+ProcessOfferingsDataSingleRow: BlankLines 0
+ProcessOfferingsDataSingleRow: Duplicates 206
+ProcessOfferingsDataSingleRow: C:\A_Development\visual studio 2017\Projects\DoverSMA\DoverAMFs\OAFF_lord.csv finished

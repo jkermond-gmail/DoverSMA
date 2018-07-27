@@ -31,7 +31,7 @@ namespace DoverSmaEngine
         private SqlConnection mSqlConn3 = null;
         private string mConnectionString = "";
 
-        private string mFilepath = @"C:\A_Dover\Dev\AMFs";
+        private string mFilepath = @"C:\A_Development\visual studio 2017\Projects\DoverSMA\DoverAMFs";
         
         // (OAFF_) Offering and Flows Files 
         // (SARF_) Strategies and Returns Files
@@ -60,6 +60,8 @@ namespace DoverSmaEngine
         private string mOAFF_nuve = @"OAFF_nuve.csv";
         private string mOAFF_rena = @"OAFF_rena.csv";
         private string mSARF_rena = @"SARF_rena.csv";
+        private string mOAFF_lord = @"OAFF_lord.csv";
+        private string mSARF_lord = @"SARF_lord.csv";
         //        private string mOAFF_ = @"OAFF_.csv";
         //        private string mSARF_ = @"SARF_.csv";
 
@@ -206,6 +208,9 @@ namespace DoverSmaEngine
                 case "Renaissance":
                     ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_rena));
                     break;
+                case "Lord Abbett":
+                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_lord));
+                    break;
             }
         }
 
@@ -252,6 +257,10 @@ namespace DoverSmaEngine
                 case "Renaissance":
                     ProcessFlowsDataSingleRow(Path.Combine(mFilepath, mOAFF_rena));
                     break;
+                case "Lord Abbett":
+                    ProcessFlowsDataSingleRow(Path.Combine(mFilepath, mOAFF_lord));
+                    break;
+
             }
         }
 
@@ -364,6 +373,7 @@ namespace DoverSmaEngine
             int currentRowCount = 1; // Since csv file has a header set row to 1, data starts in row 2
             int addCount = 0;
             int blankLineCount = 0;
+            int duplicateCount = 0;
 
             LogHelper.WriteLine(logFuncName + filePath + " started");
 
@@ -480,12 +490,15 @@ namespace DoverSmaEngine
                         }
                         else if (iCount > 0)
                         {
-                            LogHelper.WriteLine("----- Skipping Row " + (currentRowCount) + "------");
+                            duplicateCount += 1;
+                            int counterOffset = 1;
+                            LogHelper.WriteLine("----- Skipping Duplicate Row " + (currentRowCount + counterOffset) + "------");
 
                             foreach (DataColumn column in dt.Columns)
                             {
                                 if (column.ColumnName.Equals("AssetManager") || column.ColumnName.Equals("SponsorFirm") || column.ColumnName.Equals("AdvisoryPlatform")
-                                    || column.ColumnName.Equals("SmaStrategy") || column.ColumnName.Equals("SmaProductType"))
+                                    || column.ColumnName.Equals("SmaStrategy") || column.ColumnName.Equals("SmaProductType") || column.ColumnName.Equals("ManagerClass")
+                                    || column.ColumnName.Equals("TampRIAPlatform"))
                                     LogHelper.WriteLine(column.ColumnName.ToString() + "|" + row[column].ToString());
                             }
                             LogHelper.WriteLine("-----------");
@@ -507,6 +520,7 @@ namespace DoverSmaEngine
             LogHelper.WriteLine(logFuncName + "Rows Processed " + currentRowCount);
             LogHelper.WriteLine(logFuncName + "Rows Added " + addCount);
             LogHelper.WriteLine(logFuncName + "BlankLines " + blankLineCount);
+            LogHelper.WriteLine(logFuncName + "Duplicates " + duplicateCount);
             LogHelper.WriteLine(logFuncName + filePath + " finished");
         }
 
