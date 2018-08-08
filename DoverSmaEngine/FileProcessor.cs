@@ -32,36 +32,37 @@ namespace DoverSmaEngine
         private string mConnectionString = "";
 
         private string mFilepath = @"C:\A_Development\visual studio 2017\Projects\DoverSMA\DoverAMFs";
-        
+
         // (OAFF_) Offering and Flows Files 
         // (SARF_) Strategies and Returns Files
-        private string mOAFF_legg = @"OAFF_legg.csv";
-        private string mSARF_legg = @"SARF_legg.csv";
-        private string mOAFF_prin = @"OAFF_prin.csv";
-        private string mSARF_prin = @"SARF_prin.csv";
+
         private string mOAFF_alli = @"OAFF_alli.csv";
         private string mSARF_alli = @"SARF_alli.csv";
-        private string mOAFF_dela = @"OAFF_dela.csv";
-        private string mSARF_dela = @"SARF_dela.csv";
-        private string mOAFF_gwnk = @"OAFF_gwnk.csv";
-        private string mSARF_gwnk = @"SARF_gwnk.csv";
+        private string mOAFF_anch = @"OAFF_anch.csv";
+        private string mSARF_anch = @"SARF_anch.csv";
         private string mOAFF_bran = @"OAFF_bran.csv";
         private string mSARF_bran = @"SARF_bran.csv";
         private string mOAFF_cong = @"OAFF_cong.csv";
         private string mSARF_cong = @"SARF_cong.csv";
+        private string mOAFF_dela = @"OAFF_dela.csv";
+        private string mSARF_dela = @"SARF_dela.csv";
         private string mOAFF_fran = @"OAFF_fran.csv";
         private string mSARF_fran = @"SARF_fran.csv";
+        private string mOAFF_gwnk = @"OAFF_gwnk.csv";
+        private string mSARF_gwnk = @"SARF_gwnk.csv";
         private string mOAFF_inve = @"OAFF_inve.csv";
         private string mSARF_inve = @"SARF_inve.csv";
         private string mOAFF_laza = @"OAFF_laza.csv";
         private string mSARF_laza = @"SARF_laza.csv";
-        private string mOAFF_anch = @"OAFF_anch.csv";
-        private string mSARF_anch = @"SARF_anch.csv";
-        private string mOAFF_nuve = @"OAFF_nuve.csv";
-        private string mOAFF_rena = @"OAFF_rena.csv";
-        private string mSARF_rena = @"SARF_rena.csv";
+        private string mOAFF_legg = @"OAFF_legg.csv";
+        private string mSARF_legg = @"SARF_legg.csv";
         private string mOAFF_lord = @"OAFF_lord.csv";
         private string mSARF_lord = @"SARF_lord.csv";
+        private string mOAFF_nuve = @"OAFF_nuve.csv";
+        private string mOAFF_prin = @"OAFF_prin.csv";
+        private string mSARF_prin = @"SARF_prin.csv";
+        private string mOAFF_rena = @"OAFF_rena.csv";
+        private string mSARF_rena = @"SARF_rena.csv";
 
         //        private string mOAFF_ = @"OAFF_.csv";
         //        private string mSARF_ = @"SARF_.csv";
@@ -170,20 +171,11 @@ namespace DoverSmaEngine
         {
             switch (Manager)
             {
-                case "Legg":
-                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_legg));
-                    break;
-                case "Principal":
-                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_prin));
-                    break;
                 case "Allianz":
                     ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_alli));
                     break;
-                case "Delaware":
-                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_dela));
-                    break;
-                case "GW&K":
-                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_gwnk));
+                case "Anchor":
+                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_anch));
                     break;
                 case "Brandes":
                     ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_bran));
@@ -194,20 +186,30 @@ namespace DoverSmaEngine
                 case "Franklin Templeton":
                     ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_fran));
                     break;
+                case "GW&K":
+                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_gwnk));
+                    break;
                 case "Invesco":
                     ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_inve));
                     break;
                 case "Lazard":
                     ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_laza));
                     break;
-                case "Anchor":
-                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_anch));
+                case "Legg":
+                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_legg));
                     break;
-                case "Nuveen":
-                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_nuve));
+                case "Principal":
+                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_prin));
                     break;
                 case "Renaissance":
                     ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_rena));
+                    break;
+                ///////////////
+                case "Delaware":
+                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_dela));
+                    break;
+                case "Nuveen":
+                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_nuve));
                     break;
                 case "Lord Abbett":
                     ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_lord));
@@ -249,9 +251,9 @@ namespace DoverSmaEngine
                 case "Lazard":
                     ProcessFlowsDataSingleRow(Path.Combine(mFilepath, mOAFF_laza));
                     break;
-                case "Anchor":
-                    ProcessFlowsDataSingleRow(Path.Combine(mFilepath, mOAFF_anch));
-                    break;
+                //case "Anchor":
+                //    ProcessFlowsDataSingleRow(Path.Combine(mFilepath, mOAFF_anch));
+                //    break;
                 case "Nuveen":
                     ProcessFlowsDataSingleRowNuveen(Path.Combine(mFilepath, mOAFF_nuve));
                     break;
@@ -521,6 +523,13 @@ namespace DoverSmaEngine
                 if (valueParsed.Length > 0)
                     blankLine = false;
 
+                colName = "AdvisoryPlatformCode";
+                valueParsed = ParseColumn(row, colName);
+                if (currentRowCount == 2) cmd.Parameters.Add("@" + colName, SqlDbType.VarChar);
+                cmd.Parameters["@" + colName].Value = valueParsed;
+                if (valueParsed.Length > 0)
+                    blankLine = false;
+
                 colName = "SmaStrategy";
                 valueParsed = ParseColumn(row, colName);
                 if (currentRowCount == 2) cmd.Parameters.Add("@" + colName, SqlDbType.VarChar);
@@ -529,6 +538,13 @@ namespace DoverSmaEngine
                     blankLine = false;
 
                 colName = "SmaProductType";
+                valueParsed = ParseColumn(row, colName);
+                if (currentRowCount == 2) cmd.Parameters.Add("@" + colName, SqlDbType.VarChar);
+                cmd.Parameters["@" + colName].Value = valueParsed;
+                if (valueParsed.Length > 0)
+                    blankLine = false;
+
+                colName = "SmaProductTypeCode";
                 valueParsed = ParseColumn(row, colName);
                 if (currentRowCount == 2) cmd.Parameters.Add("@" + colName, SqlDbType.VarChar);
                 cmd.Parameters["@" + colName].Value = valueParsed;
@@ -554,8 +570,8 @@ namespace DoverSmaEngine
                     try
                     {
                         sqlSelect = "select count(*) from" + tableName;
-                        sqlWhere = @"where AssetManagerCode = @AssetManagerCode and SponsorFirm = @SponsorFirm  and AdvisoryPlatform = @AdvisoryPlatform  and SmaStrategy = @SmaStrategy and 
-                        SmaProductType = @SmaProductType and TampRIAPlatform = @TampRIAPlatform and ManagerClass = @ManagerClass";
+                        sqlWhere = @"where AssetManagerCode = @AssetManagerCode and SponsorFirm = @SponsorFirm  and AdvisoryPlatform = @AdvisoryPlatform  and AdvisoryPlatformCode = @AdvisoryPlatformCode and SmaStrategy = @SmaStrategy and 
+                        SmaProductType = @SmaProductType and SmaProductTypeCode = @SmaProductTypeCode and TampRIAPlatform = @TampRIAPlatform and ManagerClass = @ManagerClass";
 
                         cmd.CommandText = sqlSelect + sqlWhere;
                         int iCount = (int)cmd.ExecuteScalar();
@@ -599,9 +615,9 @@ namespace DoverSmaEngine
                         {
                             cmd.CommandText =
                             "insert into " + tableName +
-                                "(AssetManagerCode, SponsorFirm, AdvisoryPlatform, SmaStrategy, SmaProductType, TampRIAPlatform, ManagerClass, SmaOfferingKeyId," +
+                                "(AssetManagerCode, SponsorFirm, AdvisoryPlatform, AdvisoryPlatformCode, SmaStrategy, SmaProductType, SmaProductTypeCode, TampRIAPlatform, ManagerClass, SmaOfferingKeyId," +
                                 " SponsorFirmId, MorningstarStrategyId, MorningstarClass, MorningstarClassId, TotalAccounts, CsvFileRow) " +
-                            "Values (@AssetManagerCode, @SponsorFirm, @AdvisoryPlatform, @SmaStrategy, @SmaProductType, @TampRIAPlatform, @ManagerClass, @SmaOfferingKeyId," +
+                            "Values (@AssetManagerCode, @SponsorFirm, @AdvisoryPlatform, @AdvisoryPlatformCode, @SmaStrategy, @SmaProductType, @SmaProductTypeCode, @TampRIAPlatform, @ManagerClass, @SmaOfferingKeyId," +
                                     " @SponsorFirmId, @MorningstarStrategyId, @MorningstarClass, @MorningstarClassId, @TotalAccounts, @CsvFileRow)";
                             cmd.ExecuteNonQuery();
                             addCount += 1;
@@ -650,7 +666,6 @@ namespace DoverSmaEngine
 
             CountOfferingsData(assetManagerCode);
             CountFlowsData(assetManagerCode);
-
         }
 
 

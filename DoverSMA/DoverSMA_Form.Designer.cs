@@ -83,22 +83,19 @@
             "Anchor",
             "Brandes",
             "Congress",
-            "Delaware",
             "Franklin Templeton",
             "GW&K",
             "Invesco",
             "Lazard",
             "Legg",
-            "Lord Abbett",
-            "Nuveen",
             "Principal",
             "Renaissance",
             "",
+            "Delaware",
+            "Lord Abbett",
+            "Nuveen",
             "",
-            "",
-            "",
-            "",
-            ""});
+            "Renaissance"});
             this.ListBoxManagers.Location = new System.Drawing.Point(12, 12);
             this.ListBoxManagers.Name = "ListBoxManagers";
             this.ListBoxManagers.Size = new System.Drawing.Size(120, 95);
