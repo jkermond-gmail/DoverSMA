@@ -464,8 +464,7 @@ namespace DoverSmaEngine
             }
         }
 
-
-
+        
         #region ProcessOfferings
 
         public void ProcessOfferingsDataSingleRow(string filePath)
