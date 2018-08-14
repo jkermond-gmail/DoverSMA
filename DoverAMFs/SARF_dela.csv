@@ -1,0 +1,19 @@
+AssetManager,SmaStrategy,MorningstarStrategyId,MorningstarClass,MorningstarClassId,ManagerClass,InceptionDate,1Q 2016,2Q 2016,3Q 2016,4Q 2016,1Q 2017,2Q 2017,3Q 2017,4Q 2017,1Q 2018,1Q 2018      1-Year,1Q 2018         3-Year
+Delaware,Focus Non-US,FOUSA06MOM,Foreign Large Value,FV,,06/30/05,-0.0103,-0.0089,0.0746,-0.0042,0.0438,0.0731,0.0518,0.022,-0.029,,
+Delaware,International ADR,SAUSA001LV,Foreign Large Value,FV,,01/02/97,0.0061,0.0109,0.0374,-0.0241,0.0772,0.0393,0.0462,0.0382,-0.0144,,
+Delaware,Large Cap Growth,SAUSA005E0,Large Cap Growth,LG,,05/02/05,-0.0598,-0.0166,0.0775,-0.0394,0.0742,0.0663,0.0892,0.0316,0.0148,,
+Delaware,Large Cap Value,SAUSA001KK,Large Cap Value,LV,,08/31/94,0.0171,0.0939,0.0013,0.0375,0.0309,0.0004,0.0471,0.0562,-0.0088,,
+Delaware,Smid Cap Growth Focus,,Small Cap Growth,SG,,,0.0159,0.0053,0.0663,0.0024,0.0385,0.037,0.0657,0.054,0.0929,,
+Delaware,Small Cap Value,SAUSA001KL,Small Cap Value,SV,,01/02/01,0.0393,0.0424,0.0719,0.1363,0.0271,0.0059,0.037,0.052,-0.027,,
+Delaware,Small Cap Core ,,Small Cap Blend,SB,,,-0.0083,0.0349,0.0725,0.11,0.0163,0.036,0.0658,0.0297,-0.0065,,
+Delaware,"Mid Cap Growth
+",,Mid Cap Growth,MG,,,-0.0831,0.0139,0.0241,-0.0575,0.0924,0.0422,0.0406,0.0938,0.0704,,
+Delaware,Multi Cap Growth,,Multi Cap Growth,AG,,,-0.0615,0.0157,0.1394,-0.0211,0.0616,0.0307,0.056,0.0928,0.0312,,
+Delaware,Small Cap Growth,,Small Cap Growth,SG,,,-0.0937,0.0052,0.1547,-0.0873,0.0418,0.05,0.0355,0.1752,0.0425,,
+Delaware,Agg US Gov,FOUSA08NNW,Intermediate Government,GI,,04/01/96,0.0291,0.019,0.0025,-0.0368,0.0069,0.0121,0.0056,0.0015,-0.0113,,
+Delaware,Interm Agg US Gov,FOUSA08NNX,Intermediate Government,GI,,01/04/93,0.0224,0.0121,0.0024,-0.0238,0.0057,0.0083,0.0059,-0.0011,-0.0076,,
+Delaware,Low Duration US Gov,FOUSA08NNY,Short Government,GS,,08/01/91,0.0097,0.0049,0.0016,-0.0074,0.0039,0.0034,0.0038,-0.0007,-0.0009,,
+Delaware,Intermediate (1 - 10) California Municipal Bond,,Muni California Intermediate,MF,,,,,,,,0.0119,0.0065,-0.0053,-0.0052,,
+Delaware,Intermediate (1 - 10) National Municipal Bond,,Muni National Intermediate,MI,,,,,,,,0.0129,0.0056,-0.0041,-0.0075,,
+Delaware,"Short (1 - 5)  
+California Municipal Bond",,Muni Single State Short,SL,,,,,,,,,,,0.0011,,

@@ -182,6 +182,9 @@ namespace DoverSmaEngine
                 case "Congress":
                     ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_cong));
                     break;
+                case "Delaware":
+                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_dela));
+                    break;
                 case "Franklin Templeton":
                     ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_fran));
                     break;
@@ -197,6 +200,9 @@ namespace DoverSmaEngine
                 case "Legg":
                     ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_legg));
                     break;
+                case "Nuveen":
+                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_nuve));
+                    break;
                 case "Principal":
                     ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_prin));
                     break;
@@ -204,12 +210,6 @@ namespace DoverSmaEngine
                     ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_rena));
                     break;
                 ///////////////
-                case "Delaware":
-                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_dela));
-                    break;
-                case "Nuveen":
-                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_nuve));
-                    break;
                 case "Lord Abbett":
                     ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_lord));
                     break;
@@ -220,6 +220,7 @@ namespace DoverSmaEngine
         {
             switch (Manager)
             {
+                /*
                 case "Legg":
                     ProcessFlowsDataSingleRow(Path.Combine(mFilepath, mOAFF_legg));
                     break;
@@ -253,15 +254,18 @@ namespace DoverSmaEngine
                 //case "Anchor":
                 //    ProcessFlowsDataSingleRow(Path.Combine(mFilepath, mOAFF_anch));
                 //    break;
+                */
                 case "Nuveen":
                     ProcessFlowsDataSingleRowNuveen(Path.Combine(mFilepath, mOAFF_nuve));
                     break;
+                /*
                 case "Renaissance":
                     ProcessFlowsDataSingleRow(Path.Combine(mFilepath, mOAFF_rena));
                     break;
                 case "Lord Abbett":
                     ProcessFlowsDataSingleRow(Path.Combine(mFilepath, mOAFF_lord));
                     break;
+                */
 
             }
         }
@@ -280,6 +284,7 @@ namespace DoverSmaEngine
                     ProcessStrategiesData(Path.Combine(mFilepath, mSARF_alli)); 
                     break;
                 case "Delaware":
+                    ProcessStrategiesData(Path.Combine(mFilepath, mSARF_dela));
                     break;
                 case "GW&K":
                     ProcessStrategiesData(Path.Combine(mFilepath, mSARF_gwnk)); 
@@ -323,6 +328,7 @@ namespace DoverSmaEngine
                     ProcessReturnsData(Path.Combine(mFilepath, mSARF_alli));
                     break;
                 case "Delaware":
+                    ProcessReturnsData(Path.Combine(mFilepath, mSARF_dela));
                     break;
                 case "GW&K":
                     ProcessReturnsData(Path.Combine(mFilepath, mSARF_gwnk));
@@ -1139,8 +1145,12 @@ namespace DoverSmaEngine
         {
             SqlCommand cmd1 = null;
             SqlCommand cmd2 = null;
+            SqlCommand cmd3 = null;
             string sqlSelect = "";
             string sqlWhere = "";
+            string sqlSelect2 = "";
+            string sqlWhere2 = "";
+
             string valueParsed = "";
             string colName = "";
             string logFuncName = "ProcessFlowsDataSingleRow: ";
@@ -1148,6 +1158,8 @@ namespace DoverSmaEngine
 
             int currentRowCount = 1; // Since csv file has a header set row to 1, data starts in row 2
             int addCount = 0;
+            int updateCount = 0;
+
             CultureInfo provider = CultureInfo.InvariantCulture;
 
             LogHelper.WriteLine(logFuncName + filePath + " started");
@@ -1155,8 +1167,8 @@ namespace DoverSmaEngine
             DataTable dt = ReadCsvIntoTable(filePath);
 
             sqlSelect = @"select SmaOfferingId from SmaOfferings ";
-            sqlWhere = @"where AssetManagerCode = @AssetManagerCode and SponsorFirm = @SponsorFirm  and AdvisoryPlatform = @AdvisoryPlatform  and SmaStrategy = @SmaStrategy and " +
-                        "SmaProductType = @SmaProductType and TampRIAPlatform = @TampRIAPlatform";
+            sqlWhere = @"where AssetManagerCode = @AssetManagerCode and SponsorFirm = @SponsorFirm /* and AdvisoryPlatform = @AdvisoryPlatform */  and SmaStrategy = @SmaStrategy and " +
+                        "SmaProductType = @SmaProductType /*and TampRIAPlatform = @TampRIAPlatform */";
 
             cmd1 = new SqlCommand
             {
@@ -1167,6 +1179,11 @@ namespace DoverSmaEngine
             cmd2 = new SqlCommand
             {
                 Connection = mSqlConn2
+            };
+
+            cmd3 = new SqlCommand
+            {
+                Connection = mSqlConn3
             };
 
 
@@ -1182,11 +1199,12 @@ namespace DoverSmaEngine
                 if (currentRowCount == 2) cmd1.Parameters.Add("@" + colName, SqlDbType.VarChar);
                 cmd1.Parameters["@" + colName].Value = valueParsed;
 
+                /*
                 colName = "AdvisoryPlatform";
                 valueParsed = ParseColumn(row, colName);
                 if (currentRowCount == 2) cmd1.Parameters.Add("@" + colName, SqlDbType.VarChar);
                 cmd1.Parameters["@" + colName].Value = valueParsed;
-
+                */
                 colName = "SmaStrategy";
                 valueParsed = ParseColumn(row, colName);
                 if (currentRowCount == 2) cmd1.Parameters.Add("@" + colName, SqlDbType.VarChar);
@@ -1197,11 +1215,12 @@ namespace DoverSmaEngine
                 if (currentRowCount == 2) cmd1.Parameters.Add("@" + colName, SqlDbType.VarChar);
                 cmd1.Parameters["@" + colName].Value = valueParsed;
 
+                /*
                 colName = "TampRIAPlatform";
                 valueParsed = ParseColumn(row, colName);
                 if (currentRowCount == 2) cmd1.Parameters.Add("@" + colName, SqlDbType.VarChar);
                 cmd1.Parameters["@" + colName].Value = valueParsed;
-
+                */
                 try
                 {
                     SqlDataReader dr = null;
@@ -1219,9 +1238,19 @@ namespace DoverSmaEngine
                                 cmd2.Parameters["@AssetManagerCode"].Value = assetManagerCode;
                                 cmd2.Parameters.Add("@SmaOfferingId", SqlDbType.Int);
                                 cmd2.Parameters.Add("@FlowDate", SqlDbType.Date);
+
+                                cmd3.Parameters.Add("@AssetManagerCode", SqlDbType.VarChar);
+                                cmd3.Parameters["@AssetManagerCode"].Value = assetManagerCode;
+                                cmd3.Parameters.Add("@SmaOfferingId", SqlDbType.Int);
+                                cmd3.Parameters.Add("@FlowDate", SqlDbType.Date);
+
                                 cmd2.Parameters.Add("@Assets", SqlDbType.VarChar);
+                                cmd2.Parameters.Add("@GrossFlows", SqlDbType.VarChar);
+                                cmd2.Parameters.Add("@Redemptions", SqlDbType.VarChar);
+                                
                             }
                             cmd2.Parameters["@SmaOfferingId"].Value = SmaOfferingId;
+                            cmd3.Parameters["@SmaOfferingId"].Value = SmaOfferingId;
 
                             colName = "FlowDate";
                             valueParsed = ParseColumn(row, colName);
@@ -1252,6 +1281,7 @@ namespace DoverSmaEngine
                                     DateTime result = DateTime.ParseExact(sFlowDate, format, provider);
                                     Console.WriteLine("{0} converts to {1}.", sFlowDate, result.ToString());
                                     cmd2.Parameters["@FlowDate"].Value = result.ToString();
+                                    cmd3.Parameters["@FlowDate"].Value = result.ToString();
                                 }
                                 catch (FormatException)
                                 {
@@ -1259,25 +1289,134 @@ namespace DoverSmaEngine
                                 }
                             }
 
+                            // Check if a row has been added
+                            cmd3.CommandText = @"
+                                    select * from SmaFlows where SmaOfferingId = @SmaOfferingId and AssetManagerCode = @AssetManagerCode and FlowDate = @FlowDate
+                                    ";
+                            bool insert = false;
+                            bool update = false;
+                            string assets = "";
+                            string redemptions = "";
+                            string grossFlows = "";
+                            string originalAssets = "";
+                            string originalGrossFlows = "";
+                            string originalRedemptions = "";
+
+
+                            SqlDataReader dr3 = null;
+
+                            dr3 = cmd3.ExecuteReader();
+                            if (dr3.HasRows)
+                            {
+                                update = true;
+                                dr3.Read();
+                                originalAssets = dr3["Assets"].ToString();
+                                originalGrossFlows = dr3["GrossFlows"].ToString();
+                                originalRedemptions = dr3["Redemptions"].ToString();
+                            }
+                            else
+                            {
+                                insert = true;
+                                cmd2.Parameters["@Assets"].Value = "";
+                                cmd2.Parameters["@GrossFlows"].Value = "";
+                                cmd2.Parameters["@Redemptions"].Value = "";
+                            }
+                            dr3.Close();
+
+                            colName = "TradeClass";
+                            string tradeClass = ParseColumn(row, colName);
+
+                            string sqlColName = "";
+
                             colName = "Assets";
                             valueParsed = ParseColumn(row, colName);
-                            cmd2.Parameters["@Assets"].Value = valueParsed;
 
-                            cmd2.CommandText =
-                                "insert into SmaFlows " +
-                                    "(AssetManagerCode, SmaOfferingId, FlowDate, Assets) " +
-                                "Values (@AssetManagerCode, @SmaOfferingId, @FlowDate, @Assets)";
-                            try
+                            if (tradeClass.Equals("AUM"))
                             {
-                                cmd2.ExecuteNonQuery();
+                                sqlColName = "Assets";
+                                if (originalAssets.Length > 0)
+                                {
+                                    assets = Convert.ToString(Convert.ToDouble(originalAssets) + Convert.ToDouble(valueParsed));
+                                }
+                                else
+                                {
+                                    assets = valueParsed;
+                                }
+                                redemptions = originalRedemptions;
+                                grossFlows = originalGrossFlows;
                             }
-                            catch (SqlException ex)
+                            else if (tradeClass.Equals("R"))
                             {
-                                LogHelper.WriteLine(logFuncName + ex.Message + " line number: " + currentRowCount);
+                                sqlColName = "Redemptions";
+                                if (originalRedemptions.Length > 0)
+                                {
+                                    redemptions = Convert.ToString(Convert.ToDouble(originalRedemptions) + Convert.ToDouble(valueParsed));
+                                }
+                                else
+                                {
+                                    redemptions = valueParsed;
+                                }
+                                assets = originalAssets;
+                                grossFlows = originalGrossFlows;
                             }
-                            finally
+                            else if (tradeClass.Equals("S"))
                             {
-                                addCount += 1;
+                                sqlColName = "GrossFlows";
+                                if (originalGrossFlows.Length > 0)
+                                {
+                                    grossFlows = Convert.ToString(Convert.ToDouble(originalGrossFlows) + Convert.ToDouble(valueParsed));
+                                }
+                                else
+                                {
+                                    grossFlows = valueParsed;
+                                }
+                                assets = originalAssets;
+                                redemptions = originalRedemptions;
+                            }
+
+                            if (insert.Equals(true))
+                            {
+                                cmd2.Parameters["@" + sqlColName].Value = valueParsed;
+                                cmd2.CommandText =
+                                    "insert into SmaFlows " +
+                                        "(AssetManagerCode, SmaOfferingId, FlowDate, Assets, GrossFlows, Redemptions) " +
+                                    "Values (@AssetManagerCode, @SmaOfferingId, @FlowDate, @Assets, @GrossFlows, @Redemptions)";
+                                try
+                                {
+                                    cmd2.ExecuteNonQuery();
+                                }
+                                catch (SqlException ex)
+                                {
+                                    LogHelper.WriteLine(logFuncName + ex.Message + " line number: " + currentRowCount);
+                                }
+                                finally
+                                {
+                                    addCount += 1;
+                                }
+                            }
+                            else if (update.Equals(true))
+                            {
+                                cmd2.Parameters["@Assets"].Value = assets;
+                                cmd2.Parameters["@GrossFlows"].Value = grossFlows;
+                                cmd2.Parameters["@Redemptions"].Value = redemptions;
+                                cmd2.CommandText = @"
+                                        Update SmaFlows
+                                        Set Assets = @Assets, GrossFlows = @GrossFlows, Redemptions = @Redemptions
+                                        where SmaOfferingId = @SmaOfferingId and AssetManagerCode = @AssetManagerCode and FlowDate = @FlowDate
+                                        ";
+                                try
+                                {
+                                    cmd2.ExecuteNonQuery();
+                                }
+                                catch (SqlException ex)
+                                {
+                                    LogHelper.WriteLine(logFuncName + ex.Message + " line number: " + currentRowCount);
+                                }
+                                finally
+                                {
+                                    updateCount += 1;
+                                }
+
                             }
                         }
                     }
@@ -1354,8 +1493,6 @@ namespace DoverSmaEngine
             {
                 Connection = mSqlConn3
             };
-
-
 
             foreach (DataRow row in dt.Rows)
             {
