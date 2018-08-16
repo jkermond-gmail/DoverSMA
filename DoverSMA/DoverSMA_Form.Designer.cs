@@ -33,6 +33,7 @@
             this.BtnProcessSmaStrategies = new System.Windows.Forms.Button();
             this.BtnProcessSmaReturns = new System.Windows.Forms.Button();
             this.ListBoxManagers = new System.Windows.Forms.ListBox();
+            this.btnConvertFlows = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnProcessSmaOfferings
@@ -100,11 +101,22 @@
             this.ListBoxManagers.TabIndex = 4;
             this.ListBoxManagers.SelectedIndexChanged += new System.EventHandler(this.ListBoxManagers_SelectedIndexChanged);
             // 
+            // btnConvertFlows
+            // 
+            this.btnConvertFlows.Location = new System.Drawing.Point(13, 266);
+            this.btnConvertFlows.Name = "btnConvertFlows";
+            this.btnConvertFlows.Size = new System.Drawing.Size(166, 23);
+            this.btnConvertFlows.TabIndex = 5;
+            this.btnConvertFlows.Text = "ConvertFlows";
+            this.btnConvertFlows.UseVisualStyleBackColor = true;
+            this.btnConvertFlows.Click += new System.EventHandler(this.btnConvertFlows_Click);
+            // 
             // DoverSMA_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnConvertFlows);
             this.Controls.Add(this.ListBoxManagers);
             this.Controls.Add(this.BtnProcessSmaReturns);
             this.Controls.Add(this.BtnProcessSmaStrategies);
@@ -123,5 +135,6 @@
         private System.Windows.Forms.Button BtnProcessSmaStrategies;
         private System.Windows.Forms.Button BtnProcessSmaReturns;
         private System.Windows.Forms.ListBox ListBoxManagers;
+        private System.Windows.Forms.Button btnConvertFlows;
     }
 }

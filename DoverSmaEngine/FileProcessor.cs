@@ -359,6 +359,8 @@ namespace DoverSmaEngine
         }
         #endregion ProcessManager
 
+        #region OfferingsFlowsHelperFunctions
+
         private string AssetManagerCode( string filePath)
         {
             int startPos = filePath.IndexOf(".csv") - 4;
@@ -470,7 +472,117 @@ namespace DoverSmaEngine
             }
         }
 
-        
+        private decimal ConvertStringToDecimalOld(string decimalString, decimal defaultReturnValue)
+        {
+            decimal result;
+            if (decimal.TryParse(decimalString.Trim(), out result))
+            {
+                return result;
+            }
+
+            return defaultReturnValue;
+        }
+
+        private decimal ConvertStringToDecimal(string stringVal)
+        {
+            decimal decimalVal = 0;
+
+            try
+            {
+                decimalVal = System.Convert.ToDecimal(stringVal);
+                //System.Console.WriteLine(
+                //    "The string as a decimal is {0}.", decimalVal);
+            }
+            catch (System.OverflowException)
+            {
+                System.Console.WriteLine(
+                    "The conversion from string to decimal overflowed |" + stringVal);
+            }
+            catch (System.FormatException)
+            {
+                System.Console.WriteLine(
+                    "The string is not formatted as a decimal |" + stringVal);
+            }
+            catch (System.ArgumentNullException)
+            {
+                System.Console.WriteLine(
+                    "The string is null.");
+            }
+
+            // Decimal to string conversion will not overflow.
+            stringVal = System.Convert.ToString(decimalVal);
+            //System.Console.WriteLine(
+            //    "The decimal as a string is {0}.", stringVal);
+            return (decimalVal);
+        }
+
+        public void CopyFlowsVarcharDataToDecimal(string colName)
+        {
+            SqlCommand cmd = null;
+            SqlCommand cmd2 = null;
+            string logFuncName = "CountFlowsData: ";
+            
+            int updateCount = 0;
+
+            try
+            {
+                cmd = new SqlCommand
+                {
+                    Connection = mSqlConn1,
+                    CommandText = "select SmaOfferingId, AssetManagerCode, FlowDate, " + colName + ", " + colName + "D from SmaFlows where isnumeric(" + colName + ")=1"
+                    //  and SmaFlowId = '234526' 
+                };
+
+                cmd2 = new SqlCommand
+                {
+                    Connection = mSqlConn2,
+                    CommandText = "update SmaFlows set " + colName + "D = @" + colName + "D where SmaOfferingId = @SmaOfferingId and AssetManagerCode = @AssetManagerCode and FlowDate = @FlowDate"
+                };
+
+                cmd2.Parameters.Add("@SmaOfferingId", SqlDbType.Int);
+                cmd2.Parameters.Add("@AssetManagerCode", SqlDbType.VarChar);
+                cmd2.Parameters.Add("@FlowDate", SqlDbType.Date);
+                cmd2.Parameters.Add("@" + colName + "D", SqlDbType.Decimal);
+
+                SqlDataReader dr = null;
+
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        Int32 SmaOfferingId = Convert.ToInt32(dr["SmaOfferingId"].ToString());
+                        string AssetManagerCode = dr["AssetManagerCode"].ToString();
+                        string FlowDate = dr["FlowDate"].ToString();
+                        string colVal = dr[colName].ToString();
+                        decimal defaultValue = 0m;
+                        decimal colValD = ConvertStringToDecimalOld(colVal, defaultValue);
+                        colValD = ConvertStringToDecimal(colVal);
+                        cmd2.Parameters["@SmaOfferingId"].Value = SmaOfferingId;
+                        cmd2.Parameters["@AssetManagerCode"].Value = AssetManagerCode;
+                        cmd2.Parameters["@FlowDate"].Value = FlowDate;
+                        cmd2.Parameters["@" + colName + "D"].Value = colValD;
+                        //cmd2.Parameters["@AssetsD"].Precision = 14;
+                        //cmd2.Parameters["@AssetsD"].Scale = 8;
+
+                        cmd2.ExecuteNonQuery();
+                        updateCount += 1;
+                    }
+                }
+                dr.Close();
+            }
+            catch (SqlException ex)
+            {
+                LogHelper.WriteLine(logFuncName + " " + colName + " " + ex.Message);
+            }
+            finally
+            {
+                LogHelper.WriteLine(logFuncName + "Rows Updated " + updateCount + " " + colName);
+            }
+        }
+
+        #endregion OfferingsFlowsHelperFunctions
+
         #region ProcessOfferings
 
         public void ProcessOfferingsDataSingleRow(string filePath)
@@ -1148,8 +1260,8 @@ namespace DoverSmaEngine
             SqlCommand cmd3 = null;
             string sqlSelect = "";
             string sqlWhere = "";
-            string sqlSelect2 = "";
-            string sqlWhere2 = "";
+            //string sqlSelect2 = "";
+            //string sqlWhere2 = "";
 
             string valueParsed = "";
             string colName = "";

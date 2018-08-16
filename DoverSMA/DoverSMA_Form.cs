@@ -53,5 +53,16 @@ namespace DoverSMA
         {
             mSelectedManager = ListBoxManagers.SelectedItem.ToString();
         }
+
+        private void btnConvertFlows_Click(object sender, EventArgs e)
+        {
+            mSmaFileProcessor.CopyFlowsVarcharDataToDecimal("Assets");
+            mSmaFileProcessor.CopyFlowsVarcharDataToDecimal("GrossFlows");
+            mSmaFileProcessor.CopyFlowsVarcharDataToDecimal("Redemptions");
+            mSmaFileProcessor.CopyFlowsVarcharDataToDecimal("NetFlows");
+            mSmaFileProcessor.CopyFlowsVarcharDataToDecimal("DerivedFlows");
+        }
+
     }
 }
+

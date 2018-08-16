@@ -1,11 +1,11 @@
 USE [master]
 GO
 
-/****** Object:  Database [DoverSma]    Script Date: 8/8/2018 6:27:02 PM ******/
+/****** Object:  Database [DoverSma]    Script Date: 8/16/2018 6:39:44 PM ******/
 CREATE DATABASE [DoverSma]
  CONTAINMENT = NONE
  ON  PRIMARY 
-( NAME = N'DoverSma', FILENAME = N'C:\A_Development\SQL\DoverSma\Db\DoverSma.mdf' , SIZE = 12288KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+( NAME = N'DoverSma', FILENAME = N'C:\A_Development\SQL\DoverSma\Db\DoverSma.mdf' , SIZE = 18432KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
  LOG ON 
 ( NAME = N'DoverSma_log', FILENAME = N'C:\A_Development\SQL\DoverSma\Db\DoverSma_log.ldf' , SIZE = 39296KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
 GO
