@@ -200,6 +200,9 @@ namespace DoverSmaEngine
                 case "Legg":
                     ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_legg));
                     break;
+                case "Lord Abbett":
+                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_lord));
+                    break;
                 case "Nuveen":
                     ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_nuve));
                     break;
@@ -208,10 +211,6 @@ namespace DoverSmaEngine
                     break;
                 case "Renaissance":
                     ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_rena));
-                    break;
-                ///////////////
-                case "Lord Abbett":
-                    ProcessOfferingsDataSingleRow(Path.Combine(mFilepath, mOAFF_lord));
                     break;
             }
         }
@@ -310,7 +309,9 @@ namespace DoverSmaEngine
                 case "Renaissance":
                     ProcessStrategiesData(Path.Combine(mFilepath, mSARF_rena));
                     break;
-
+                case "Lord Abbett":
+                    ProcessStrategiesData(Path.Combine(mFilepath, mSARF_lord));
+                    break;
             }
         }
 
@@ -354,6 +355,10 @@ namespace DoverSmaEngine
                 case "Renaissance":
                     ProcessReturnsData(Path.Combine(mFilepath, mSARF_rena));
                     break;
+                case "Lord Abbett":
+                    ProcessReturnsData(Path.Combine(mFilepath, mSARF_lord));
+                    break;
+
 
             }
         }
