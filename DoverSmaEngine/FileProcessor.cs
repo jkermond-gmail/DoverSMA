@@ -364,7 +364,7 @@ namespace DoverSmaEngine
         }
         #endregion ProcessManager
 
-        #region OfferingsFlowsHelperFunctions
+        #region OfferingsFlowsDataFunctions
 
         private string AssetManagerCode( string filePath)
         {
@@ -476,6 +476,9 @@ namespace DoverSmaEngine
                 LogHelper.WriteLine(logFuncName + "Rows Added " + iCount + " " + assetManagerCode);
             }
         }
+        #endregion OfferingsFlowsDataFunctions
+
+        #region StringToDecimalFunctions
 
         private decimal ConvertStringToDecimalOld(string decimalString, decimal defaultReturnValue)
         {
@@ -567,6 +570,7 @@ namespace DoverSmaEngine
                         cmd2.Parameters["@AssetManagerCode"].Value = AssetManagerCode;
                         cmd2.Parameters["@FlowDate"].Value = FlowDate;
                         cmd2.Parameters["@" + colName + "D"].Value = colValD;
+                        // I don't think these are needed below:
                         //cmd2.Parameters["@AssetsD"].Precision = 14;
                         //cmd2.Parameters["@AssetsD"].Scale = 8;
 
@@ -586,7 +590,84 @@ namespace DoverSmaEngine
             }
         }
 
-        #endregion OfferingsFlowsHelperFunctions
+        #endregion StringToDecimalFunctions
+
+        #region CalculateNetFlowsFunctions
+
+        public void CalculateNetFlows()
+        {
+            SqlCommand cmd = null;
+            SqlCommand cmd2 = null;
+            string logFuncName = "CalculateNetFlows: ";
+
+            int updateCount = 0;
+            int rowCount = 0;
+
+            try
+            {
+                cmd = new SqlCommand
+                {
+                    Connection = mSqlConn1,
+                    CommandText = @"
+                        SELECT [SmaOfferings].[SmaOfferingId]
+                              ,[SmaOfferingKeyId]
+	                          ,[SmaOfferings].[AssetManagerCode]
+	                          ,[FlowDate]
+                              ,[SmaOfferings].[AssetManagerCode]
+                              ,[MorningstarStrategyID]
+	                          ,[AssetsD]
+	                          ,[GrossFlowsD]
+	                          ,[RedemptionsD]
+	                          ,[NetFlowsD]
+	                          ,[DerivedFlowsD]
+                        FROM [DoverSma].[dbo].[SmaOfferings]
+                        inner join SmaFlows on SmaOfferings.SmaOfferingId = SmaFlows.SmaOfferingId
+                        order by SmaOfferings.AssetManagerCode, SmaOfferings.SmaOfferingId, SmaFlows.SmaFlowId, SmaFlows.FlowDate
+                    "
+                };
+
+                cmd2 = new SqlCommand
+                {
+                    Connection = mSqlConn2,
+                    CommandText = "update "
+                };
+
+                cmd2.Parameters.Add("@SmaOfferingId", SqlDbType.Int);
+                cmd2.Parameters.Add("@AssetManagerCode", SqlDbType.VarChar);
+                cmd2.Parameters.Add("@FlowDate", SqlDbType.Date);
+
+                SqlDataReader dr = null;
+
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        rowCount += 1;
+                        Int32 SmaOfferingId = Convert.ToInt32(dr["SmaOfferingId"].ToString());
+                        string AssetManagerCode = dr["AssetManagerCode"].ToString();
+                        string FlowDate = dr["FlowDate"].ToString();
+
+                        //cmd2.ExecuteNonQuery();
+                        //updateCount += 1;
+                    }
+                }
+                dr.Close();
+            }
+            catch (SqlException ex)
+            {
+                LogHelper.WriteLine(logFuncName + " " + ex.Message);
+            }
+            finally
+            {
+                LogHelper.WriteLine(logFuncName + "Rows processed " + rowCount);
+                LogHelper.WriteLine(logFuncName + "Rows Updated " + updateCount );
+            }
+        }
+
+
+
+        #endregion CalculateNetFlowsFunctions
 
         #region ProcessOfferings
 
@@ -942,7 +1023,6 @@ namespace DoverSmaEngine
         }
 
         #endregion ProcessOfferings
-
 
         #region ProcessFlows
 
@@ -1959,7 +2039,6 @@ namespace DoverSmaEngine
         }
 
         #endregion ProcessStrategies
-
 
         #region ProcessReturns
 

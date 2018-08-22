@@ -34,6 +34,7 @@
             this.BtnProcessSmaReturns = new System.Windows.Forms.Button();
             this.ListBoxManagers = new System.Windows.Forms.ListBox();
             this.btnConvertFlows = new System.Windows.Forms.Button();
+            this.btnCalculateNetFlows = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnProcessSmaOfferings
@@ -111,11 +112,22 @@
             this.btnConvertFlows.UseVisualStyleBackColor = true;
             this.btnConvertFlows.Click += new System.EventHandler(this.btnConvertFlows_Click);
             // 
+            // btnCalculateNetFlows
+            // 
+            this.btnCalculateNetFlows.Location = new System.Drawing.Point(12, 308);
+            this.btnCalculateNetFlows.Name = "btnCalculateNetFlows";
+            this.btnCalculateNetFlows.Size = new System.Drawing.Size(167, 23);
+            this.btnCalculateNetFlows.TabIndex = 6;
+            this.btnCalculateNetFlows.Text = "CalculateNetFlows()";
+            this.btnCalculateNetFlows.UseVisualStyleBackColor = true;
+            this.btnCalculateNetFlows.Click += new System.EventHandler(this.btnCalculateNetFlows_Click);
+            // 
             // DoverSMA_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnCalculateNetFlows);
             this.Controls.Add(this.btnConvertFlows);
             this.Controls.Add(this.ListBoxManagers);
             this.Controls.Add(this.BtnProcessSmaReturns);
@@ -136,5 +148,6 @@
         private System.Windows.Forms.Button BtnProcessSmaReturns;
         private System.Windows.Forms.ListBox ListBoxManagers;
         private System.Windows.Forms.Button btnConvertFlows;
+        private System.Windows.Forms.Button btnCalculateNetFlows;
     }
 }

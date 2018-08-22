@@ -63,6 +63,10 @@ namespace DoverSMA
             mSmaFileProcessor.CopyFlowsVarcharDataToDecimal("DerivedFlows");
         }
 
+        private void btnCalculateNetFlows_Click(object sender, EventArgs e)
+        {
+            mSmaFileProcessor.CalculateNetFlows();
+        }
     }
 }
 
