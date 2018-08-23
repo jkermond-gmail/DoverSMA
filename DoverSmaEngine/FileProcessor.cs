@@ -594,6 +594,18 @@ namespace DoverSmaEngine
 
         #region CalculateNetFlowsFunctions
 
+        protected decimal ConvertNullDecinalToZero(object value)
+        {
+            decimal zero = 0;
+
+            if (value.Equals(DBNull.Value))
+                return (zero);
+            else
+                return((decimal)value);
+        }
+
+
+
         public void CalculateNetFlows()
         {
             SqlCommand cmd = null;
@@ -629,12 +641,17 @@ namespace DoverSmaEngine
                 cmd2 = new SqlCommand
                 {
                     Connection = mSqlConn2,
-                    CommandText = "update "
+                    CommandText = @"
+                        update SmaFlows set DoverDerivedFlowsD = @DoverDerivedFlowsD, FinalNetFlowsD = @FinalNetFlowsD, PerformanceImpactD = @PerformanceImpactD
+                        where SmaOfferingId = @SmaOfferingId and AssetManagerCode = @AssetManagerCode and FlowDate = @FlowDate"
                 };
 
                 cmd2.Parameters.Add("@SmaOfferingId", SqlDbType.Int);
                 cmd2.Parameters.Add("@AssetManagerCode", SqlDbType.VarChar);
                 cmd2.Parameters.Add("@FlowDate", SqlDbType.Date);
+                cmd2.Parameters.Add("@DoverDerivedFlowsD", SqlDbType.Decimal);
+                cmd2.Parameters.Add("@FinalNetFlowsD", SqlDbType.Decimal);
+                cmd2.Parameters.Add("@PerformanceImpactD", SqlDbType.Decimal);
 
                 SqlDataReader dr = null;
 
@@ -647,9 +664,30 @@ namespace DoverSmaEngine
                         Int32 SmaOfferingId = Convert.ToInt32(dr["SmaOfferingId"].ToString());
                         string AssetManagerCode = dr["AssetManagerCode"].ToString();
                         string FlowDate = dr["FlowDate"].ToString();
+                        decimal AssetsD = ConvertNullDecinalToZero(dr["AssetsD"]);
+                        decimal NetFlowsD  = ConvertNullDecinalToZero(dr["NetFlowsD"]);
+                        decimal DerivedFlowsD = ConvertNullDecinalToZero(dr["DerivedFlowsD"]);
+                        decimal DoverDerivedFlowsD = 123.123M;
 
-                        //cmd2.ExecuteNonQuery();
-                        //updateCount += 1;
+                        cmd2.Parameters["@SmaOfferingId"].Value = SmaOfferingId;
+                        cmd2.Parameters["@AssetManagerCode"].Value = AssetManagerCode;
+                        cmd2.Parameters["@FlowDate"].Value = FlowDate;
+                        cmd2.Parameters["@DoverDerivedFlowsD"].Value = DBNull.Value;
+                        cmd2.Parameters["@FinalNetFlowsD"].Value = DBNull.Value;
+                        cmd2.Parameters["@PerformanceImpactD"].Value = DBNull.Value;
+
+                        if (DerivedFlowsD.Equals(0) == false)
+                            cmd2.Parameters["@FinalNetFlowsD"].Value = DerivedFlowsD;
+                        else if (NetFlowsD.Equals(0) == false)
+                            cmd2.Parameters["@FinalNetFlowsD"].Value = NetFlowsD;
+                        else
+                        {
+                            // Calculate the Dover Derived Flow
+                            // Final Net Flow is the calculated Dover Derived Flow
+                            cmd2.Parameters["@FinalNetFlowsD"].Value = DoverDerivedFlowsD;
+                        }
+                        cmd2.ExecuteNonQuery();
+                        updateCount += 1;
                     }
                 }
                 dr.Close();
