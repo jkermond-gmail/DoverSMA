@@ -35,6 +35,7 @@
             this.ListBoxManagers = new System.Windows.Forms.ListBox();
             this.btnConvertFlows = new System.Windows.Forms.Button();
             this.btnCalculateNetFlows = new System.Windows.Forms.Button();
+            this.btnConvertReturns = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnProcessSmaOfferings
@@ -114,7 +115,7 @@
             // 
             // btnCalculateNetFlows
             // 
-            this.btnCalculateNetFlows.Location = new System.Drawing.Point(12, 308);
+            this.btnCalculateNetFlows.Location = new System.Drawing.Point(12, 337);
             this.btnCalculateNetFlows.Name = "btnCalculateNetFlows";
             this.btnCalculateNetFlows.Size = new System.Drawing.Size(167, 23);
             this.btnCalculateNetFlows.TabIndex = 6;
@@ -122,11 +123,22 @@
             this.btnCalculateNetFlows.UseVisualStyleBackColor = true;
             this.btnCalculateNetFlows.Click += new System.EventHandler(this.btnCalculateNetFlows_Click);
             // 
+            // btnConvertReturns
+            // 
+            this.btnConvertReturns.Location = new System.Drawing.Point(13, 295);
+            this.btnConvertReturns.Name = "btnConvertReturns";
+            this.btnConvertReturns.Size = new System.Drawing.Size(166, 23);
+            this.btnConvertReturns.TabIndex = 7;
+            this.btnConvertReturns.Text = "Convert Returns";
+            this.btnConvertReturns.UseVisualStyleBackColor = true;
+            this.btnConvertReturns.Click += new System.EventHandler(this.btnConvertReturns_Click);
+            // 
             // DoverSMA_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnConvertReturns);
             this.Controls.Add(this.btnCalculateNetFlows);
             this.Controls.Add(this.btnConvertFlows);
             this.Controls.Add(this.ListBoxManagers);
@@ -149,5 +161,6 @@
         private System.Windows.Forms.ListBox ListBoxManagers;
         private System.Windows.Forms.Button btnConvertFlows;
         private System.Windows.Forms.Button btnCalculateNetFlows;
+        private System.Windows.Forms.Button btnConvertReturns;
     }
 }

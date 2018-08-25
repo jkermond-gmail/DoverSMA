@@ -590,6 +590,86 @@ namespace DoverSmaEngine
             }
         }
 
+        public void CopyReturnsVarcharDataToDecimal()
+        {
+            SqlCommand cmd = null;
+            SqlCommand cmd2 = null;
+            string logFuncName = "CopyReturnsVarcharDataToDecimal: ";
+
+            int updateCount = 0;
+
+            try
+            {
+                cmd = new SqlCommand
+                {
+                    Connection = mSqlConn1,
+                    CommandText =  @"
+                        SELECT [SmaReturnId]
+                        ,[SmaStrategyId]
+                        ,[AssetManagerCode]
+                        ,[ReturnType]
+                        ,[ReturnDate]
+                        ,[ReturnValue]
+                        FROM[DoverSma].[dbo].[SmaReturns]
+                    "
+                };
+
+                cmd2 = new SqlCommand
+                {
+                    Connection = mSqlConn2,
+                    CommandText = @"
+                        UPDATE SmaReturns
+                        SET ReturnValueD = @ReturnValueD
+                        WHERE 
+                        SmaStrategyId = @SmaStrategyId and
+                        AssetManagerCode = @AssetManagerCode and
+                        ReturnType = @ReturnType and
+                        ReturnDate = @ReturnDate
+                        "
+                };
+
+                cmd2.Parameters.Add("@SmaStrategyId", SqlDbType.Int);
+                cmd2.Parameters.Add("@AssetManagerCode", SqlDbType.VarChar);
+                cmd2.Parameters.Add("@ReturnType", SqlDbType.VarChar);
+                cmd2.Parameters.Add("@ReturnDate", SqlDbType.Date);
+                cmd2.Parameters.Add("@ReturnValueD", SqlDbType.Decimal);
+
+                SqlDataReader dr = null;
+
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        Int32 SmaStrategyId = Convert.ToInt32(dr["SmaStrategyId"].ToString());
+                        string AssetManagerCode = dr["AssetManagerCode"].ToString();
+                        string ReturnType = dr["ReturnType"].ToString();
+                        string ReturnDate = dr["ReturnDate"].ToString();
+                        string ReturnValue = dr["ReturnValue"].ToString();
+                        decimal ReturnValueD = ConvertStringToDecimal(ReturnValue);
+                        cmd2.Parameters["@SmaStrategyId"].Value = SmaStrategyId;
+                        cmd2.Parameters["@AssetManagerCode"].Value = AssetManagerCode;
+                        cmd2.Parameters["@ReturnType"].Value = ReturnType;
+                        cmd2.Parameters["@ReturnDate"].Value = ReturnDate;
+                        cmd2.Parameters["@ReturnValueD"].Value = ReturnValueD;
+
+                        cmd2.ExecuteNonQuery();
+                        updateCount += 1;
+                    }
+                }
+                dr.Close();
+            }
+            catch (SqlException ex)
+            {
+                LogHelper.WriteLine(logFuncName + " " + ex.Message);
+            }
+            finally
+            {
+                LogHelper.WriteLine(logFuncName + "Rows Updated " + updateCount );
+            }
+        }
+
+
         #endregion StringToDecimalFunctions
 
         #region CalculateNetFlowsFunctions
@@ -604,7 +684,238 @@ namespace DoverSmaEngine
                 return((decimal)value);
         }
 
+        private string CalculatePrevEndOfQtrDate( string sDate)
+        {
+            //CalculatePrevEndOfQtrDate("12/31/2016");
+            //CalculatePrevEndOfQtrDate("9/30/2016");
+            //CalculatePrevEndOfQtrDate("6/30/2016");
+            //CalculatePrevEndOfQtrDate("3/31/2016");
 
+            string str = sDate.Split(' ')[0].Trim();
+            DateTime date = DateTime.ParseExact(str, "M/dd/yyyy", CultureInfo.InvariantCulture);
+
+            int currQtrMonth = date.Month;
+            //int currQtrDay = date.Day;
+            int currQtrYear = date.Year;
+
+            int prevQtrMonth = 0;
+            int prevQtrDay = 0;
+            int prevQtrYear = currQtrYear;
+
+            switch (currQtrMonth)
+            {
+                case 3:
+                    prevQtrMonth = 12;
+                    prevQtrDay = 31;
+                    prevQtrYear = currQtrYear - 1;
+                    break;
+                case 6:
+                    prevQtrMonth = 3;
+                    prevQtrDay = 31;
+                    prevQtrYear = currQtrYear;
+                    break;
+                case 9:
+                    prevQtrMonth = 6;
+                    prevQtrDay = 30;
+                    prevQtrYear = currQtrYear;
+                    break;
+                case 12:
+                    prevQtrMonth = 9;
+                    prevQtrDay = 30;
+                    prevQtrYear = currQtrYear;
+                    break;
+            }
+
+            DateTime prevEndOfQtrDate = new DateTime(prevQtrYear, prevQtrMonth, prevQtrDay);
+
+            return (prevEndOfQtrDate.ToString("MM/dd/yyyy"));
+
+        }
+
+        private decimal GetPreviousQtrsAssets(int SmaOfferingId, string AssetManagerCode, string sFlowDate)
+        {
+            string sPrevFlowDate = CalculatePrevEndOfQtrDate(sFlowDate);
+
+            SqlCommand cmd = null;
+            string logFuncName = "GetPreviousQtrsAssets: ";
+            decimal assetsD = 0;
+
+            try
+            {
+                cmd = new SqlCommand
+                {
+                    // note that this routine uses mSqlConn3 as 1 and 2 are in use by the calling function
+                    Connection = mSqlConn3,
+                    CommandText = @"
+                        SELECT [AssetsD]
+                        FROM [DoverSma].[dbo].[SmaFlows]
+                        WHERE SmaOfferingId = @SmaOfferingId and AssetManagerCode = @AssetManagerCode and FlowDate = @FlowDate
+                    "
+                };
+
+                cmd.Parameters.Add("@SmaOfferingId", SqlDbType.Int);
+                cmd.Parameters.Add("@AssetManagerCode", SqlDbType.VarChar);
+                cmd.Parameters.Add("@FlowDate", SqlDbType.Date);
+                cmd.Parameters["@SmaOfferingId"].Value = SmaOfferingId;
+                cmd.Parameters["@AssetManagerCode"].Value = AssetManagerCode;
+                cmd.Parameters["@FlowDate"].Value = sPrevFlowDate;
+
+                SqlDataReader dr = null;
+
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    dr.Read();
+                    {
+                        var tmp = dr["AssetsD"];
+                        if (dr["AssetsD"].Equals(DBNull.Value))
+                            assetsD = 0;
+                        else
+                            assetsD = Convert.ToDecimal(dr["AssetsD"].ToString());
+                    }
+                }
+                else 
+                {
+                    LogHelper.WriteLine(logFuncName + "No Prev Qtr AssetsD row" );
+
+                }
+                dr.Close();
+            }
+            catch (SqlException ex)
+            {
+                LogHelper.WriteLine(logFuncName + " " + ex.Message);
+            }
+            finally
+            {
+                LogHelper.WriteLine(logFuncName + " AssetsD " + assetsD);
+            }
+            return (assetsD);
+        }
+
+        private decimal GetReturn(string AssetManagerCode, string MorningstarStrategyId, string sReturnDate)
+        {
+            SqlCommand cmd = null;
+            SqlCommand cmd2 = null;
+            string logFuncName = "GetReturn: ";
+            decimal ReturnD = 0;
+
+            try
+            {
+                cmd = new SqlCommand
+                {
+                    // note that this routine uses mSqlConn3 as 1 and 2 are in use by the calling function
+                    Connection = mSqlConn3,
+                    CommandText = @"
+                        SELECT [SmaStrategyId]
+                        FROM [DoverSma].[dbo].[SmaStrategies]
+                        WHERE AssetManagerCode = @AssetManagerCode and MorningstarStrategyId = @MorningstarStrategyId
+                    "
+                };
+
+                cmd.Parameters.Add("@AssetManagerCode", SqlDbType.VarChar);
+                cmd.Parameters.Add("@MorningstarStrategyId", SqlDbType.VarChar);
+                cmd.Parameters["@AssetManagerCode"].Value = AssetManagerCode;
+                cmd.Parameters["@MorningstarStrategyId"].Value = MorningstarStrategyId;
+
+                SqlDataReader dr = null;
+                Int32 SmaStrategyId = 0;
+
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    dr.Read();
+                    {
+                        SmaStrategyId = Convert.ToInt32(dr["SmaStrategyId"].ToString());
+                    }
+                }
+                else
+                {
+                    LogHelper.WriteLine(logFuncName + "No StrategyId");
+
+                }
+                dr.Close();
+
+                if (SmaStrategyId > 0)
+                {
+                    try
+                    {
+                        cmd2 = new SqlCommand
+                        {
+                            // note that this routine uses mSqlConn3 as 1 and 2 are in use by the calling function
+                            Connection = mSqlConn3,
+                            CommandText = @"
+                                SELECT[ReturnValueD]
+                                FROM [DoverSma].[dbo].[SmaReturns]
+                                WHERE 
+                                    SmaStrategyId = @SmaStrategyId and 
+                                    AssetManagerCode = @AssetManagerCode and
+                                    ReturnType = @ReturnType and
+                                    ReturnDate = @ReturnDate
+                            "
+                        };
+
+                        cmd2.Parameters.Add("@SmaStrategyId", SqlDbType.Int);
+                        cmd2.Parameters.Add("@AssetManagerCode", SqlDbType.VarChar);
+                        cmd2.Parameters.Add("@ReturnType", SqlDbType.VarChar);
+                        cmd2.Parameters.Add("@ReturnDate", SqlDbType.Date);
+
+                        cmd2.Parameters["@SmaStrategyId"].Value = SmaStrategyId;
+                        cmd2.Parameters["@AssetManagerCode"].Value = AssetManagerCode;
+                        cmd2.Parameters["@ReturnType"].Value = "Quarterly";
+                        cmd2.Parameters["@ReturnDate"].Value = sReturnDate;
+
+                        dr = null;
+
+                        dr = cmd2.ExecuteReader();
+                        if (dr.HasRows)
+                        {
+                            dr.Read();
+                            {
+                                var tmp = dr["ReturnValueD"];
+                                if (dr["ReturnValueD"].Equals(DBNull.Value))
+                                    ReturnD = 0;
+                                else
+                                    ReturnD = Convert.ToDecimal(dr["ReturnValueD"].ToString());
+                            }
+                        }
+                        else
+                        {
+                            LogHelper.WriteLine(logFuncName + "No Returns");
+
+                        }
+                        dr.Close();
+                    }
+                    catch (SqlException ex)
+                    {
+                        LogHelper.WriteLine(logFuncName + " " + ex.Message);
+                    }
+                    finally
+                    {
+                        LogHelper.WriteLine(logFuncName + " ReturnD " + ReturnD);
+                    }
+
+                }
+                dr.Close();
+            }
+            catch (SqlException ex)
+            {
+                LogHelper.WriteLine(logFuncName + " " + ex.Message);
+            }
+            finally
+            {
+                LogHelper.WriteLine(logFuncName + " ReturnD " + ReturnD);
+            }
+            return (ReturnD);
+        }
+
+
+        private decimal CalculateDoverDerivedFlows(int SmaOfferingId, string AssetManagerCode, string MorningstarStrategyId, string sFlowDate)
+        {
+            decimal prevAssets = GetPreviousQtrsAssets(SmaOfferingId, AssetManagerCode, sFlowDate);
+            decimal returnValue = GetReturn(AssetManagerCode, MorningstarStrategyId, sFlowDate);
+
+            return (0);
+        }
 
         public void CalculateNetFlows()
         {
@@ -625,7 +936,6 @@ namespace DoverSmaEngine
                               ,[SmaOfferingKeyId]
 	                          ,[SmaOfferings].[AssetManagerCode]
 	                          ,[FlowDate]
-                              ,[SmaOfferings].[AssetManagerCode]
                               ,[MorningstarStrategyID]
 	                          ,[AssetsD]
 	                          ,[GrossFlowsD]
@@ -664,6 +974,7 @@ namespace DoverSmaEngine
                         Int32 SmaOfferingId = Convert.ToInt32(dr["SmaOfferingId"].ToString());
                         string AssetManagerCode = dr["AssetManagerCode"].ToString();
                         string FlowDate = dr["FlowDate"].ToString();
+                        string MorningstarStrategyId = dr["MorningstarStrategyId"].ToString();
                         decimal AssetsD = ConvertNullDecinalToZero(dr["AssetsD"]);
                         decimal NetFlowsD  = ConvertNullDecinalToZero(dr["NetFlowsD"]);
                         decimal DerivedFlowsD = ConvertNullDecinalToZero(dr["DerivedFlowsD"]);
@@ -682,11 +993,13 @@ namespace DoverSmaEngine
                             cmd2.Parameters["@FinalNetFlowsD"].Value = NetFlowsD;
                         else
                         {
+                            CalculateDoverDerivedFlows(SmaOfferingId, AssetManagerCode, MorningstarStrategyId, FlowDate);
                             // Calculate the Dover Derived Flow
                             // Final Net Flow is the calculated Dover Derived Flow
                             cmd2.Parameters["@FinalNetFlowsD"].Value = DoverDerivedFlowsD;
                         }
-                        cmd2.ExecuteNonQuery();
+                        // put this call back next
+                        //cmd2.ExecuteNonQuery();
                         updateCount += 1;
                     }
                 }
