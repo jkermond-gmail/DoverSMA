@@ -909,10 +909,13 @@ namespace DoverSmaEngine
         }
 
 
-        private decimal CalculateDoverDerivedFlows(int SmaOfferingId, string AssetManagerCode, string MorningstarStrategyId, string sFlowDate)
+        private decimal CalculateDoverDerivedFlows(int SmaOfferingId, string AssetManagerCode, string MorningstarStrategyId, string sFlowDate, decimal Assets)
         {
-            decimal prevAssets = GetPreviousQtrsAssets(SmaOfferingId, AssetManagerCode, sFlowDate);
-            decimal returnValue = GetReturn(AssetManagerCode, MorningstarStrategyId, sFlowDate);
+            decimal prevQtrAssets = GetPreviousQtrsAssets(SmaOfferingId, AssetManagerCode, sFlowDate);
+            decimal returnValue = GetReturn(AssetManagerCode, MorningstarStrategyId, sFlowDate);           
+            decimal performanceImpact = ((Assets + prevQtrAssets) / 2) * (returnValue / 100);
+            decimal doverDerivedFlows = (Assets - prevQtrAssets) - performanceImpact;
+
 
             return (0);
         }
@@ -975,10 +978,9 @@ namespace DoverSmaEngine
                         string AssetManagerCode = dr["AssetManagerCode"].ToString();
                         string FlowDate = dr["FlowDate"].ToString();
                         string MorningstarStrategyId = dr["MorningstarStrategyId"].ToString();
-                        decimal AssetsD = ConvertNullDecinalToZero(dr["AssetsD"]);
-                        decimal NetFlowsD  = ConvertNullDecinalToZero(dr["NetFlowsD"]);
-                        decimal DerivedFlowsD = ConvertNullDecinalToZero(dr["DerivedFlowsD"]);
-                        decimal DoverDerivedFlowsD = 123.123M;
+                        decimal assetsD = ConvertNullDecinalToZero(dr["AssetsD"]);
+                        decimal netFlowsD  = ConvertNullDecinalToZero(dr["NetFlowsD"]);
+                        decimal derivedFlowsD = ConvertNullDecinalToZero(dr["DerivedFlowsD"]);
 
                         cmd2.Parameters["@SmaOfferingId"].Value = SmaOfferingId;
                         cmd2.Parameters["@AssetManagerCode"].Value = AssetManagerCode;
@@ -987,19 +989,31 @@ namespace DoverSmaEngine
                         cmd2.Parameters["@FinalNetFlowsD"].Value = DBNull.Value;
                         cmd2.Parameters["@PerformanceImpactD"].Value = DBNull.Value;
 
-                        if (DerivedFlowsD.Equals(0) == false)
-                            cmd2.Parameters["@FinalNetFlowsD"].Value = DerivedFlowsD;
-                        else if (NetFlowsD.Equals(0) == false)
-                            cmd2.Parameters["@FinalNetFlowsD"].Value = NetFlowsD;
+                        if (derivedFlowsD.Equals(0) == false)
+                            cmd2.Parameters["@FinalNetFlowsD"].Value = derivedFlowsD;
+                        else if (netFlowsD.Equals(0) == false)
+                            cmd2.Parameters["@FinalNetFlowsD"].Value = netFlowsD;
                         else
                         {
-                            CalculateDoverDerivedFlows(SmaOfferingId, AssetManagerCode, MorningstarStrategyId, FlowDate);
-                            // Calculate the Dover Derived Flow
-                            // Final Net Flow is the calculated Dover Derived Flow
-                            cmd2.Parameters["@FinalNetFlowsD"].Value = DoverDerivedFlowsD;
+                            //CalculateDoverDerivedFlows(SmaOfferingId, AssetManagerCode, MorningstarStrategyId, FlowDate, assetsD);
+                            decimal prevQtrAssets = GetPreviousQtrsAssets(SmaOfferingId, AssetManagerCode, FlowDate);
+                            decimal performanceImpact = 0M;
+                            decimal doverDerivedFlows = 0M;
+                            if (prevQtrAssets.Equals(0M) == false)
+                            { 
+                                decimal returnValue = GetReturn(AssetManagerCode, MorningstarStrategyId, FlowDate);
+                                if (returnValue.Equals(0M) == false)
+                                {
+                                    performanceImpact = ((assetsD + prevQtrAssets) / 2) * (returnValue / 100);
+                                    doverDerivedFlows = (assetsD - prevQtrAssets) - performanceImpact;
+                                }
+                            }
+
+                            cmd2.Parameters["@DoverDerivedFlowsD"].Value = doverDerivedFlows;
+                            cmd2.Parameters["@PerformanceImpactD"].Value = performanceImpact;
+                            cmd2.Parameters["@FinalNetFlowsD"].Value = doverDerivedFlows;
                         }
-                        // put this call back next
-                        //cmd2.ExecuteNonQuery();
+                        cmd2.ExecuteNonQuery();
                         updateCount += 1;
                     }
                 }
