@@ -72,6 +72,11 @@ namespace DoverSMA
         {
             mSmaFileProcessor.CopyReturnsVarcharDataToDecimal();
         }
+
+        private void BtnUpdateSmaOfferings_Click(object sender, EventArgs e)
+        {
+            mSmaFileProcessor.ProcessOfferingsDataUpdates();
+        }
     }
 }
 

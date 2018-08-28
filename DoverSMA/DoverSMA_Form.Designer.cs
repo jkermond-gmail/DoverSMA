@@ -36,6 +36,7 @@
             this.btnConvertFlows = new System.Windows.Forms.Button();
             this.btnCalculateNetFlows = new System.Windows.Forms.Button();
             this.btnConvertReturns = new System.Windows.Forms.Button();
+            this.BtnUpdateSmaOfferings = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnProcessSmaOfferings
@@ -133,11 +134,22 @@
             this.btnConvertReturns.UseVisualStyleBackColor = true;
             this.btnConvertReturns.Click += new System.EventHandler(this.btnConvertReturns_Click);
             // 
+            // BtnUpdateSmaOfferings
+            // 
+            this.BtnUpdateSmaOfferings.Location = new System.Drawing.Point(213, 134);
+            this.BtnUpdateSmaOfferings.Name = "BtnUpdateSmaOfferings";
+            this.BtnUpdateSmaOfferings.Size = new System.Drawing.Size(167, 23);
+            this.BtnUpdateSmaOfferings.TabIndex = 8;
+            this.BtnUpdateSmaOfferings.Text = "Process SMA Offerings";
+            this.BtnUpdateSmaOfferings.UseVisualStyleBackColor = true;
+            this.BtnUpdateSmaOfferings.Click += new System.EventHandler(this.BtnUpdateSmaOfferings_Click);
+            // 
             // DoverSMA_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BtnUpdateSmaOfferings);
             this.Controls.Add(this.btnConvertReturns);
             this.Controls.Add(this.btnCalculateNetFlows);
             this.Controls.Add(this.btnConvertFlows);
@@ -162,5 +174,6 @@
         private System.Windows.Forms.Button btnConvertFlows;
         private System.Windows.Forms.Button btnCalculateNetFlows;
         private System.Windows.Forms.Button btnConvertReturns;
+        private System.Windows.Forms.Button BtnUpdateSmaOfferings;
     }
 }

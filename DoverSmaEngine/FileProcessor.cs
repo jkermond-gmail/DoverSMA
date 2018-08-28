@@ -995,11 +995,10 @@ namespace DoverSmaEngine
                             cmd2.Parameters["@FinalNetFlowsD"].Value = netFlowsD;
                         else
                         {
-                            //CalculateDoverDerivedFlows(SmaOfferingId, AssetManagerCode, MorningstarStrategyId, FlowDate, assetsD);
                             decimal prevQtrAssets = GetPreviousQtrsAssets(SmaOfferingId, AssetManagerCode, FlowDate);
                             decimal performanceImpact = 0M;
                             decimal doverDerivedFlows = 0M;
-                            if (prevQtrAssets.Equals(0M) == false)
+                            if ((assetsD.Equals(0M) == false) && (prevQtrAssets.Equals(0M) == false))
                             { 
                                 decimal returnValue = GetReturn(AssetManagerCode, MorningstarStrategyId, FlowDate);
                                 if (returnValue.Equals(0M) == false)
@@ -1149,7 +1148,17 @@ namespace DoverSmaEngine
                         cmd.Parameters["@" + colName].Value = smaOfferingKeyId;
                         //cmd.Parameters["@" + colName].Value = Convert.ToInt32(smaOfferingKeyId.ToString()); 
 
+                        colName = "SponsorFirmCode";
+                        valueParsed = ParseColumn(row, colName);
+                        if (addCount == 0) cmd.Parameters.Add("@" + colName, SqlDbType.VarChar);
+                        cmd.Parameters["@" + colName].Value = valueParsed;
+
                         colName = "SponsorFirmId";
+                        valueParsed = ParseColumn(row, colName);
+                        if (addCount == 0) cmd.Parameters.Add("@" + colName, SqlDbType.VarChar);
+                        cmd.Parameters["@" + colName].Value = valueParsed;
+
+                        colName = "DoverSponsorFirmId";
                         valueParsed = ParseColumn(row, colName);
                         if (addCount == 0) cmd.Parameters.Add("@" + colName, SqlDbType.VarChar);
                         cmd.Parameters["@" + colName].Value = valueParsed;
@@ -1183,9 +1192,9 @@ namespace DoverSmaEngine
                             cmd.CommandText =
                             "insert into " + tableName +
                                 "(AssetManagerCode, SponsorFirm, AdvisoryPlatform, AdvisoryPlatformCode, SmaStrategy, SmaProductType, SmaProductTypeCode, TampRIAPlatform, ManagerClass, SmaOfferingKeyId," +
-                                " SponsorFirmId, MorningstarStrategyId, MorningstarClass, MorningstarClassId, TotalAccounts, CsvFileRow) " +
+                                " SponsorFirmCode, SponsorFirmId, DoverSponsorFirmId, MorningstarStrategyId, MorningstarClass, MorningstarClassId, TotalAccounts, CsvFileRow) " +
                             "Values (@AssetManagerCode, @SponsorFirm, @AdvisoryPlatform, @AdvisoryPlatformCode, @SmaStrategy, @SmaProductType, @SmaProductTypeCode, @TampRIAPlatform, @ManagerClass, @SmaOfferingKeyId," +
-                                    " @SponsorFirmId, @MorningstarStrategyId, @MorningstarClass, @MorningstarClassId, @TotalAccounts, @CsvFileRow)";
+                                    " @SponsorFirmCode, @SponsorFirmId, @DoverSponsorFirmId, @MorningstarStrategyId, @MorningstarClass, @MorningstarClassId, @TotalAccounts, @CsvFileRow)";
                             cmd.ExecuteNonQuery();
                             addCount += 1;
                         }
@@ -1233,6 +1242,95 @@ namespace DoverSmaEngine
 
             CountOfferingsData(assetManagerCode);
             CountFlowsData(assetManagerCode);
+        }
+
+        public void ProcessOfferingsDataUpdates()
+        {
+            SqlCommand cmd = null;
+            string sqlSelect = "";
+            string sqlWhere = "";
+            string valueParsed = "";
+            string colName = "";
+            string logFuncName = "ProcessOfferingsDataUpdates: ";
+            string filePath = Path.Combine(mFilepath, "DoverDBUpdates20180827.csv");
+
+            int currentRowCount = 1; // Since csv file has a header set row to 1, data starts in row 2
+            int addCount = 0;
+            int updateCount = 0;
+
+            int blankLineCount = 0;
+            int duplicateCount = 0;
+
+            LogHelper.WriteLine(logFuncName + filePath + " started");
+
+            DataTable dt = ReadCsvIntoTable(filePath);
+
+            cmd = new SqlCommand
+            {
+                Connection = mSqlConn1,
+                CommandText = sqlSelect + sqlWhere
+            };
+
+            foreach (DataRow row in dt.Rows)
+            {
+                bool blankLine = true;
+                currentRowCount += 1;
+                colName = "SmaOfferingId";
+                valueParsed = ParseColumn(row, colName);
+                if (currentRowCount == 2)
+                {
+                    cmd.Parameters.Add("@" + colName, SqlDbType.Int);
+                    cmd.Parameters.Add("@SponsorFirmCode", SqlDbType.VarChar);
+                    cmd.Parameters.Add("@DoverSponsorFirmId", SqlDbType.VarChar);
+                }
+                cmd.Parameters["@" + colName].Value = valueParsed;
+                if (valueParsed.Length > 0)
+                    blankLine = false;
+
+                colName = "SponsorFirmCode";
+                cmd.Parameters["@" + colName].Value = ParseColumn(row, colName);
+                colName = "DoverSponsorFirmId";
+                cmd.Parameters["@" + colName].Value = ParseColumn(row, colName);
+
+                if (blankLine == false)
+                {
+                    try
+                    {
+                        sqlSelect = "select count(*) from SmaOfferings ";
+                        sqlWhere = @"where SmaOfferingId = @SmaOfferingId";
+
+                        cmd.CommandText = sqlSelect + sqlWhere;
+                        int iCount = (int)cmd.ExecuteScalar();
+
+                        if (iCount > 0)
+                        {
+                            sqlSelect = "update SmaOfferings set SponsorFirmCode = @SponsorFirmCode, DoverSponsorFirmId = @DoverSponsorFirmId ";
+                            sqlWhere = @"where SmaOfferingId = @SmaOfferingId";
+                            cmd.CommandText = sqlSelect + sqlWhere;
+                            cmd.ExecuteNonQuery();
+                            updateCount += 1;
+                        }
+
+                    }
+                    catch (SqlException ex)
+                    {
+                        LogHelper.WriteLine(logFuncName + ex.Message + " line number: " + currentRowCount);
+                    }
+                    finally
+                    {
+                    }
+                }
+                else
+                {
+                    blankLineCount += 1;
+                }
+            }
+            LogHelper.WriteLine(logFuncName + "Rows Processed " + currentRowCount);
+            LogHelper.WriteLine(logFuncName + "Rows Added " + addCount);
+            LogHelper.WriteLine(logFuncName + "BlankLines " + blankLineCount);
+            LogHelper.WriteLine(logFuncName + "Duplicates " + duplicateCount);
+            LogHelper.WriteLine(logFuncName + filePath + " finished");
+
         }
 
 
