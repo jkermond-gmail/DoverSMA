@@ -1330,7 +1330,88 @@ namespace DoverSmaEngine
             LogHelper.WriteLine(logFuncName + "BlankLines " + blankLineCount);
             LogHelper.WriteLine(logFuncName + "Duplicates " + duplicateCount);
             LogHelper.WriteLine(logFuncName + filePath + " finished");
+        }
 
+        public void ProcessOfferingsDataUpdatesByColumn( string updateColName, SqlDbType sqlDbType )
+        {
+            SqlCommand cmd = null;
+            string sqlSelect = "";
+            string sqlWhere = "";
+            string valueParsed = "";
+            string colName = "";
+            string logFuncName = "ProcessOfferingsDataUpdatesByColumn: ";
+            string filePath = Path.Combine(mFilepath, "DoverDBUpdates20180905.csv");
+
+            int currentRowCount = 1; // Since csv file has a header set row to 1, data starts in row 2
+            int updateCount = 0;
+            int blankLineCount = 0;
+
+            LogHelper.WriteLine(logFuncName + filePath + " started for column: " + updateColName);
+
+            DataTable dt = ReadCsvIntoTable(filePath);
+
+            cmd = new SqlCommand
+            {
+                Connection = mSqlConn1,
+                CommandText = sqlSelect + sqlWhere
+            };
+
+            foreach (DataRow row in dt.Rows)
+            {
+                bool blankLine = true;
+                currentRowCount += 1;
+                colName = "SmaOfferingId";
+                valueParsed = ParseColumn(row, colName);
+                if (currentRowCount == 2)
+                {
+                    cmd.Parameters.Add("@" + colName, SqlDbType.Int);
+                    cmd.Parameters.Add("@" + updateColName, sqlDbType);
+                }
+                cmd.Parameters["@" + colName].Value = valueParsed;
+                if (valueParsed.Length > 0)
+                    blankLine = false;
+
+                string updateValue = ParseColumn(row, updateColName + "Update");
+
+                if( (blankLine == false) && (updateValue.Length > 0) )
+                {
+                    try
+                    {
+                        cmd.Parameters["@" + updateColName].Value = updateValue;
+
+                        sqlSelect = "select count(*) from SmaOfferings ";
+                        sqlWhere = @"where SmaOfferingId = @SmaOfferingId";
+
+                        cmd.CommandText = sqlSelect + sqlWhere;
+                        int iCount = (int)cmd.ExecuteScalar();
+
+                        if (iCount > 0)
+                        {
+                            sqlSelect = "update SmaOfferings set " + updateColName + " = @" + updateColName + " ";
+                            sqlWhere = "where SmaOfferingId = @SmaOfferingId";
+                            cmd.CommandText = sqlSelect + sqlWhere;
+                            cmd.ExecuteNonQuery();
+                            updateCount += 1;
+                        }
+
+                    }
+                    catch (SqlException ex)
+                    {
+                        LogHelper.WriteLine(logFuncName + ex.Message + " line number: " + currentRowCount);
+                    }
+                    finally
+                    {
+                    }
+                }
+                else
+                {
+                    blankLineCount += 1;
+                }
+            }
+            LogHelper.WriteLine(logFuncName + "Rows Processed " + currentRowCount);
+            LogHelper.WriteLine(logFuncName + "Rows Updateded " + updateCount);
+            LogHelper.WriteLine(logFuncName + "BlankLines " + blankLineCount);
+            LogHelper.WriteLine(logFuncName + filePath + " finished");
         }
 
 

@@ -75,7 +75,13 @@ namespace DoverSMA
 
         private void BtnUpdateSmaOfferings_Click(object sender, EventArgs e)
         {
-            mSmaFileProcessor.ProcessOfferingsDataUpdates();
+            //mSmaFileProcessor.ProcessOfferingsDataUpdates();
+            mSmaFileProcessor.ProcessOfferingsDataUpdatesByColumn("MorningstarClassId", SqlDbType.VarChar);
+            mSmaFileProcessor.ProcessOfferingsDataUpdatesByColumn("LadderCode", SqlDbType.VarChar);
+            mSmaFileProcessor.ProcessOfferingsDataUpdatesByColumn("SmidCode", SqlDbType.VarChar);
+            mSmaFileProcessor.ProcessOfferingsDataUpdatesByColumn("EsgCode", SqlDbType.VarChar);
+            mSmaFileProcessor.ProcessOfferingsDataUpdatesByColumn("SmartBetaCode", SqlDbType.VarChar);
+
         }
     }
 }
