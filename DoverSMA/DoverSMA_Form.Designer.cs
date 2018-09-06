@@ -37,6 +37,7 @@
             this.btnCalculateNetFlows = new System.Windows.Forms.Button();
             this.btnConvertReturns = new System.Windows.Forms.Button();
             this.BtnUpdateSmaOfferings = new System.Windows.Forms.Button();
+            this.BtnCalculateProductTypeMetrics = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnProcessSmaOfferings
@@ -136,19 +137,30 @@
             // 
             // BtnUpdateSmaOfferings
             // 
-            this.BtnUpdateSmaOfferings.Location = new System.Drawing.Point(213, 134);
+            this.BtnUpdateSmaOfferings.Location = new System.Drawing.Point(13, 366);
             this.BtnUpdateSmaOfferings.Name = "BtnUpdateSmaOfferings";
             this.BtnUpdateSmaOfferings.Size = new System.Drawing.Size(167, 23);
             this.BtnUpdateSmaOfferings.TabIndex = 8;
-            this.BtnUpdateSmaOfferings.Text = "Process SMA Offerings";
+            this.BtnUpdateSmaOfferings.Text = "Update SMA Offerings";
             this.BtnUpdateSmaOfferings.UseVisualStyleBackColor = true;
             this.BtnUpdateSmaOfferings.Click += new System.EventHandler(this.BtnUpdateSmaOfferings_Click);
+            // 
+            // BtnCalculateProductTypeMetrics
+            // 
+            this.BtnCalculateProductTypeMetrics.Location = new System.Drawing.Point(199, 134);
+            this.BtnCalculateProductTypeMetrics.Name = "BtnCalculateProductTypeMetrics";
+            this.BtnCalculateProductTypeMetrics.Size = new System.Drawing.Size(185, 23);
+            this.BtnCalculateProductTypeMetrics.TabIndex = 9;
+            this.BtnCalculateProductTypeMetrics.Text = "BtnCalculateProductTypeMetrics";
+            this.BtnCalculateProductTypeMetrics.UseVisualStyleBackColor = true;
+            this.BtnCalculateProductTypeMetrics.Click += new System.EventHandler(this.BtnCalculateProductTypeMetrics_Click);
             // 
             // DoverSMA_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BtnCalculateProductTypeMetrics);
             this.Controls.Add(this.BtnUpdateSmaOfferings);
             this.Controls.Add(this.btnConvertReturns);
             this.Controls.Add(this.btnCalculateNetFlows);
@@ -175,5 +187,6 @@
         private System.Windows.Forms.Button btnCalculateNetFlows;
         private System.Windows.Forms.Button btnConvertReturns;
         private System.Windows.Forms.Button BtnUpdateSmaOfferings;
+        private System.Windows.Forms.Button BtnCalculateProductTypeMetrics;
     }
 }

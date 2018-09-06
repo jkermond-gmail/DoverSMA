@@ -17,6 +17,7 @@ namespace DoverSMA
     public partial class DoverSMA_Form : Form
     {
         private FileProcessor mSmaFileProcessor = null;
+        private Metrics mSmaMetrics = null;
         private string mSelectedManager = "";
 
         public DoverSMA_Form()
@@ -25,6 +26,7 @@ namespace DoverSMA
             bool deleteExisting = false;
             LogHelper.StartLog("DoverSmaLog.txt", @"C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\", deleteExisting);
             mSmaFileProcessor = new FileProcessor();
+            mSmaMetrics = new Metrics();
             ListBoxManagers.SetSelected(0, true);
         }
 
@@ -82,6 +84,11 @@ namespace DoverSMA
             mSmaFileProcessor.ProcessOfferingsDataUpdatesByColumn("EsgCode", SqlDbType.VarChar);
             mSmaFileProcessor.ProcessOfferingsDataUpdatesByColumn("SmartBetaCode", SqlDbType.VarChar);
 
+        }
+
+        private void BtnCalculateProductTypeMetrics_Click(object sender, EventArgs e)
+        {
+            mSmaMetrics.CalculateProductTypeMetrics("03/31/2016", "03/31/2018");
         }
     }
 }

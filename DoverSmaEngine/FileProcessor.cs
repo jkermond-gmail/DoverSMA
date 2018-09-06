@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 using System.Data;
 using System.Data.SqlClient;
@@ -480,49 +476,6 @@ namespace DoverSmaEngine
 
         #region StringToDecimalFunctions
 
-        private decimal ConvertStringToDecimalOld(string decimalString, decimal defaultReturnValue)
-        {
-            decimal result;
-            if (decimal.TryParse(decimalString.Trim(), out result))
-            {
-                return result;
-            }
-
-            return defaultReturnValue;
-        }
-
-        private decimal ConvertStringToDecimal(string stringVal)
-        {
-            decimal decimalVal = 0;
-
-            try
-            {
-                decimalVal = System.Convert.ToDecimal(stringVal);
-                //System.Console.WriteLine(
-                //    "The string as a decimal is {0}.", decimalVal);
-            }
-            catch (System.OverflowException)
-            {
-                System.Console.WriteLine(
-                    "The conversion from string to decimal overflowed |" + stringVal);
-            }
-            catch (System.FormatException)
-            {
-                System.Console.WriteLine(
-                    "The string is not formatted as a decimal |" + stringVal);
-            }
-            catch (System.ArgumentNullException)
-            {
-                System.Console.WriteLine(
-                    "The string is null.");
-            }
-
-            // Decimal to string conversion will not overflow.
-            stringVal = System.Convert.ToString(decimalVal);
-            //System.Console.WriteLine(
-            //    "The decimal as a string is {0}.", stringVal);
-            return (decimalVal);
-        }
 
         public void CopyFlowsVarcharDataToDecimal(string colName)
         {
@@ -563,9 +516,9 @@ namespace DoverSmaEngine
                         string AssetManagerCode = dr["AssetManagerCode"].ToString();
                         string FlowDate = dr["FlowDate"].ToString();
                         string colVal = dr[colName].ToString();
-                        decimal defaultValue = 0m;
-                        decimal colValD = ConvertStringToDecimalOld(colVal, defaultValue);
-                        colValD = ConvertStringToDecimal(colVal);
+                        //decimal defaultValue = 0m;
+                        //decimal colValD = Utils.ConvertStringToDecimalOld(colVal, defaultValue);
+                        decimal colValD = Utils.ConvertStringToDecimal(colVal);
                         cmd2.Parameters["@SmaOfferingId"].Value = SmaOfferingId;
                         cmd2.Parameters["@AssetManagerCode"].Value = AssetManagerCode;
                         cmd2.Parameters["@FlowDate"].Value = FlowDate;
@@ -646,7 +599,7 @@ namespace DoverSmaEngine
                         string ReturnType = dr["ReturnType"].ToString();
                         string ReturnDate = dr["ReturnDate"].ToString();
                         string ReturnValue = dr["ReturnValue"].ToString();
-                        decimal ReturnValueD = ConvertStringToDecimal(ReturnValue);
+                        decimal ReturnValueD = Utils.ConvertStringToDecimal(ReturnValue);
                         cmd2.Parameters["@SmaStrategyId"].Value = SmaStrategyId;
                         cmd2.Parameters["@AssetManagerCode"].Value = AssetManagerCode;
                         cmd2.Parameters["@ReturnType"].Value = ReturnType;
@@ -684,57 +637,10 @@ namespace DoverSmaEngine
                 return((decimal)value);
         }
 
-        private string CalculatePrevEndOfQtrDate( string sDate)
-        {
-            //CalculatePrevEndOfQtrDate("12/31/2016");
-            //CalculatePrevEndOfQtrDate("9/30/2016");
-            //CalculatePrevEndOfQtrDate("6/30/2016");
-            //CalculatePrevEndOfQtrDate("3/31/2016");
-
-            string str = sDate.Split(' ')[0].Trim();
-            DateTime date = DateTime.ParseExact(str, "M/dd/yyyy", CultureInfo.InvariantCulture);
-
-            int currQtrMonth = date.Month;
-            //int currQtrDay = date.Day;
-            int currQtrYear = date.Year;
-
-            int prevQtrMonth = 0;
-            int prevQtrDay = 0;
-            int prevQtrYear = currQtrYear;
-
-            switch (currQtrMonth)
-            {
-                case 3:
-                    prevQtrMonth = 12;
-                    prevQtrDay = 31;
-                    prevQtrYear = currQtrYear - 1;
-                    break;
-                case 6:
-                    prevQtrMonth = 3;
-                    prevQtrDay = 31;
-                    prevQtrYear = currQtrYear;
-                    break;
-                case 9:
-                    prevQtrMonth = 6;
-                    prevQtrDay = 30;
-                    prevQtrYear = currQtrYear;
-                    break;
-                case 12:
-                    prevQtrMonth = 9;
-                    prevQtrDay = 30;
-                    prevQtrYear = currQtrYear;
-                    break;
-            }
-
-            DateTime prevEndOfQtrDate = new DateTime(prevQtrYear, prevQtrMonth, prevQtrDay);
-
-            return (prevEndOfQtrDate.ToString("MM/dd/yyyy"));
-
-        }
 
         private decimal GetPreviousQtrsAssets(int SmaOfferingId, string AssetManagerCode, string sFlowDate)
         {
-            string sPrevFlowDate = CalculatePrevEndOfQtrDate(sFlowDate);
+            string sPrevFlowDate = Utils.CalculatePrevEndOfQtrDate(sFlowDate);
 
             SqlCommand cmd = null;
             string logFuncName = "GetPreviousQtrsAssets: ";
@@ -928,6 +834,12 @@ namespace DoverSmaEngine
 
             int updateCount = 0;
             int rowCount = 0;
+            int derivedFlowsCount = 0;
+            int netFlowsCount = 0;
+            int calcFinalNetCount = 0;
+            int assetsZeroCount = 0;
+            int prevAssetsZeroCount = 0;
+            int returnValueZeroCount = 0;
 
             try
             {
@@ -990,17 +902,35 @@ namespace DoverSmaEngine
                         cmd2.Parameters["@PerformanceImpactD"].Value = DBNull.Value;
 
                         if (derivedFlowsD.Equals(0) == false)
+                        {
                             cmd2.Parameters["@FinalNetFlowsD"].Value = derivedFlowsD;
+                            derivedFlowsCount += 1;
+                        }
                         else if (netFlowsD.Equals(0) == false)
+                        { 
                             cmd2.Parameters["@FinalNetFlowsD"].Value = netFlowsD;
+                            netFlowsCount += 1;
+                        }
                         else
                         {
+                            calcFinalNetCount += 1;
                             decimal prevQtrAssets = GetPreviousQtrsAssets(SmaOfferingId, AssetManagerCode, FlowDate);
                             decimal performanceImpact = 0M;
                             decimal doverDerivedFlows = 0M;
+
+                            if (assetsD.Equals(0M) == true)
+                                assetsZeroCount += 1;
+
+                            if (prevQtrAssets.Equals(0M) == true)
+                                prevAssetsZeroCount += 1;
+
+
                             if ((assetsD.Equals(0M) == false) && (prevQtrAssets.Equals(0M) == false))
-                            { 
+                            {
                                 decimal returnValue = GetReturn(AssetManagerCode, MorningstarStrategyId, FlowDate);
+                                if (returnValue.Equals(0M) == true)
+                                    returnValueZeroCount += 1;
+
                                 if (returnValue.Equals(0M) == false)
                                 {
                                     performanceImpact = ((assetsD + prevQtrAssets) / 2) * (returnValue / 100);
@@ -1026,6 +956,13 @@ namespace DoverSmaEngine
             {
                 LogHelper.WriteLine(logFuncName + "Rows processed " + rowCount);
                 LogHelper.WriteLine(logFuncName + "Rows Updated " + updateCount );
+                LogHelper.WriteLine(logFuncName + "derivedFlowsCount " + derivedFlowsCount);
+                LogHelper.WriteLine(logFuncName + "netFlowsCount " + netFlowsCount);
+                LogHelper.WriteLine(logFuncName + "calcFinalNetCount " + calcFinalNetCount);
+                LogHelper.WriteLine(logFuncName + "assetsZeroCount " + assetsZeroCount);
+                LogHelper.WriteLine(logFuncName + "prevAssetsZeroCount " + prevAssetsZeroCount);
+                LogHelper.WriteLine(logFuncName + "returnValueZeroCount " + returnValueZeroCount);
+
             }
         }
 
