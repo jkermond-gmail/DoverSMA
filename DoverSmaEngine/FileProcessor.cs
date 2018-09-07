@@ -682,8 +682,7 @@ namespace DoverSmaEngine
                 }
                 else 
                 {
-                    LogHelper.WriteLine(logFuncName + "No Prev Qtr AssetsD row" );
-
+                    //LogHelper.WriteLine(logFuncName + "No Prev Qtr AssetsD row" );
                 }
                 dr.Close();
             }
@@ -693,7 +692,7 @@ namespace DoverSmaEngine
             }
             finally
             {
-                LogHelper.WriteLine(logFuncName + " AssetsD " + assetsD);
+                //LogHelper.WriteLine(logFuncName + " AssetsD " + assetsD);
             }
             return (assetsD);
         }
@@ -736,7 +735,7 @@ namespace DoverSmaEngine
                 }
                 else
                 {
-                    LogHelper.WriteLine(logFuncName + "No StrategyId");
+                    //LogHelper.WriteLine(logFuncName + "No StrategyId");
 
                 }
                 dr.Close();
@@ -786,8 +785,7 @@ namespace DoverSmaEngine
                         }
                         else
                         {
-                            LogHelper.WriteLine(logFuncName + "No Returns");
-
+                            //LogHelper.WriteLine(logFuncName + "No Returns");
                         }
                         dr.Close();
                     }
@@ -797,7 +795,7 @@ namespace DoverSmaEngine
                     }
                     finally
                     {
-                        LogHelper.WriteLine(logFuncName + " ReturnD " + ReturnD);
+                        //LogHelper.WriteLine(logFuncName + " ReturnD " + ReturnD);
                     }
 
                 }
@@ -809,21 +807,9 @@ namespace DoverSmaEngine
             }
             finally
             {
-                LogHelper.WriteLine(logFuncName + " ReturnD " + ReturnD);
+                //LogHelper.WriteLine(logFuncName + " ReturnD " + ReturnD);
             }
             return (ReturnD);
-        }
-
-
-        private decimal CalculateDoverDerivedFlows(int SmaOfferingId, string AssetManagerCode, string MorningstarStrategyId, string sFlowDate, decimal Assets)
-        {
-            decimal prevQtrAssets = GetPreviousQtrsAssets(SmaOfferingId, AssetManagerCode, sFlowDate);
-            decimal returnValue = GetReturn(AssetManagerCode, MorningstarStrategyId, sFlowDate);           
-            decimal performanceImpact = ((Assets + prevQtrAssets) / 2) * (returnValue / 100);
-            decimal doverDerivedFlows = (Assets - prevQtrAssets) - performanceImpact;
-
-
-            return (0);
         }
 
         public void CalculateNetFlows()
@@ -834,12 +820,21 @@ namespace DoverSmaEngine
 
             int updateCount = 0;
             int rowCount = 0;
-            int derivedFlowsCount = 0;
+            int assetsCount = 0;
+            int grossFlowsCount = 0;
+            int redemptionsCount = 0;
             int netFlowsCount = 0;
+            int derivedFlowsCount = 0;
+            int allValuesZero = 0;
             int calcFinalNetCount = 0;
             int assetsZeroCount = 0;
             int prevAssetsZeroCount = 0;
+            int assetsNotZeroCount = 0;
+            int prevAssetsNotZeroCount = 0;
+            int bothAssetsZeroCount = 0;
+            int bothAssetsNotZeroCount = 0;
             int returnValueZeroCount = 0;
+            int returnValueNotZeroCount = 0;
 
             try
             {
@@ -883,17 +878,21 @@ namespace DoverSmaEngine
                 dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
+                    bool update;
                     while (dr.Read())
                     {
+                        update = false;
                         rowCount += 1;
                         Int32 SmaOfferingId = Convert.ToInt32(dr["SmaOfferingId"].ToString());
                         string AssetManagerCode = dr["AssetManagerCode"].ToString();
                         string FlowDate = dr["FlowDate"].ToString();
                         string MorningstarStrategyId = dr["MorningstarStrategyId"].ToString();
                         decimal assetsD = ConvertNullDecinalToZero(dr["AssetsD"]);
+                        decimal grossFlowsD = ConvertNullDecinalToZero(dr["GrossFlowsD"]);
+                        decimal redemptionsD = ConvertNullDecinalToZero(dr["RedemptionsD"]);
                         decimal netFlowsD  = ConvertNullDecinalToZero(dr["NetFlowsD"]);
                         decimal derivedFlowsD = ConvertNullDecinalToZero(dr["DerivedFlowsD"]);
-
+                        
                         cmd2.Parameters["@SmaOfferingId"].Value = SmaOfferingId;
                         cmd2.Parameters["@AssetManagerCode"].Value = AssetManagerCode;
                         cmd2.Parameters["@FlowDate"].Value = FlowDate;
@@ -901,15 +900,28 @@ namespace DoverSmaEngine
                         cmd2.Parameters["@FinalNetFlowsD"].Value = DBNull.Value;
                         cmd2.Parameters["@PerformanceImpactD"].Value = DBNull.Value;
 
+                        if (assetsD.Equals(0) == false)
+                            assetsCount += 1;
+                        if (grossFlowsD.Equals(0) == false)
+                            grossFlowsCount += 1;
+                        if (redemptionsD.Equals(0) == false)
+                            redemptionsCount += 1;
+                        if (assetsD.Equals(0) && grossFlowsD.Equals(0) && redemptionsD.Equals(0) && netFlowsD.Equals(0) && derivedFlowsD.Equals(0))
+                            allValuesZero += 1;
+
                         if (derivedFlowsD.Equals(0) == false)
                         {
                             cmd2.Parameters["@FinalNetFlowsD"].Value = derivedFlowsD;
                             derivedFlowsCount += 1;
+                            //LogHelper.WriteLine(logFuncName + "using Derived Flows," + derivedFlowsD.ToString());
+                            update = true;
                         }
                         else if (netFlowsD.Equals(0) == false)
                         { 
                             cmd2.Parameters["@FinalNetFlowsD"].Value = netFlowsD;
                             netFlowsCount += 1;
+                            //LogHelper.WriteLine(logFuncName + "using     Net Flows," + netFlowsD.ToString());
+                            update = true;
                         }
                         else
                         {
@@ -920,30 +932,45 @@ namespace DoverSmaEngine
 
                             if (assetsD.Equals(0M) == true)
                                 assetsZeroCount += 1;
-
+                            else
+                                assetsNotZeroCount += 1;
                             if (prevQtrAssets.Equals(0M) == true)
                                 prevAssetsZeroCount += 1;
-
+                            else
+                                prevAssetsNotZeroCount += 1;
+                            if ((assetsD.Equals(0M) == true) && (prevQtrAssets.Equals(0M) == true))
+                                bothAssetsZeroCount += 1;
+                            else
+                                bothAssetsNotZeroCount += 1;
 
                             if ((assetsD.Equals(0M) == false) && (prevQtrAssets.Equals(0M) == false))
                             {
                                 decimal returnValue = GetReturn(AssetManagerCode, MorningstarStrategyId, FlowDate);
                                 if (returnValue.Equals(0M) == true)
+                                {
                                     returnValueZeroCount += 1;
+                                }
+                                else
+                                {
+                                    returnValueNotZeroCount += 1;
+                                }
 
                                 if (returnValue.Equals(0M) == false)
                                 {
                                     performanceImpact = ((assetsD + prevQtrAssets) / 2) * (returnValue / 100);
                                     doverDerivedFlows = (assetsD - prevQtrAssets) - performanceImpact;
+                                    update = true;
+                                    cmd2.Parameters["@DoverDerivedFlowsD"].Value = doverDerivedFlows;
+                                    cmd2.Parameters["@PerformanceImpactD"].Value = performanceImpact;
+                                    cmd2.Parameters["@FinalNetFlowsD"].Value = doverDerivedFlows;
                                 }
                             }
-
-                            cmd2.Parameters["@DoverDerivedFlowsD"].Value = doverDerivedFlows;
-                            cmd2.Parameters["@PerformanceImpactD"].Value = performanceImpact;
-                            cmd2.Parameters["@FinalNetFlowsD"].Value = doverDerivedFlows;
                         }
-                        cmd2.ExecuteNonQuery();
-                        updateCount += 1;
+                        if (update.Equals(true))
+                        {
+                            cmd2.ExecuteNonQuery();
+                            updateCount += 1;
+                        }
                     }
                 }
                 dr.Close();
@@ -955,14 +982,23 @@ namespace DoverSmaEngine
             finally
             {
                 LogHelper.WriteLine(logFuncName + "Rows processed " + rowCount);
-                LogHelper.WriteLine(logFuncName + "Rows Updated " + updateCount );
-                LogHelper.WriteLine(logFuncName + "derivedFlowsCount " + derivedFlowsCount);
+                LogHelper.WriteLine(logFuncName + "allValuesZero " + allValuesZero);
+                LogHelper.WriteLine(logFuncName + "SomeValuesNotZero " + (rowCount - allValuesZero));
+                LogHelper.WriteLine(logFuncName + "assetsCount " + assetsCount);
+                LogHelper.WriteLine(logFuncName + "grossFlowsCount " + grossFlowsCount);
+                LogHelper.WriteLine(logFuncName + "redemptionsCount " + redemptionsCount);
                 LogHelper.WriteLine(logFuncName + "netFlowsCount " + netFlowsCount);
+                LogHelper.WriteLine(logFuncName + "derivedFlowsCount " + derivedFlowsCount);
                 LogHelper.WriteLine(logFuncName + "calcFinalNetCount " + calcFinalNetCount);
                 LogHelper.WriteLine(logFuncName + "assetsZeroCount " + assetsZeroCount);
                 LogHelper.WriteLine(logFuncName + "prevAssetsZeroCount " + prevAssetsZeroCount);
+                LogHelper.WriteLine(logFuncName + "assetsNotZeroCount " + assetsNotZeroCount);
+                LogHelper.WriteLine(logFuncName + "prevAssetsNotZeroCount " + prevAssetsNotZeroCount);
+                LogHelper.WriteLine(logFuncName + "bothAssetsZeroCount " + bothAssetsZeroCount);
+                LogHelper.WriteLine(logFuncName + "bothAssetsNotZeroCount " + bothAssetsNotZeroCount);
                 LogHelper.WriteLine(logFuncName + "returnValueZeroCount " + returnValueZeroCount);
-
+                LogHelper.WriteLine(logFuncName + "returnValueNotZeroCount " + returnValueNotZeroCount);
+                LogHelper.WriteLine(logFuncName + "FinalnetFlows Rows Updated " + updateCount);
             }
         }
 
