@@ -1313,7 +1313,7 @@ namespace DoverSmaEngine
             string valueParsed = "";
             string colName = "";
             string logFuncName = "ProcessOfferingsDataUpdatesByColumn: ";
-            string filePath = Path.Combine(mFilepath, "DoverDBUpdates20180905.csv");
+            string filePath = Path.Combine(mFilepath, "DoverDBUpdates20180911.csv");
 
             int currentRowCount = 1; // Since csv file has a header set row to 1, data starts in row 2
             int updateCount = 0;
