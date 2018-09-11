@@ -134,13 +134,13 @@ namespace DoverUtilities
             }
             catch (System.FormatException)
             {
-                System.Console.WriteLine(
-                    "The string is not formatted as a decimal |" + stringVal);
+                //System.Console.WriteLine(
+                //    "The string is not formatted as a decimal |" + stringVal);
             }
             catch (System.ArgumentNullException)
             {
-                System.Console.WriteLine(
-                    "The string is null.");
+                //System.Console.WriteLine(
+                //    "The string is null.");
             }
 
             // Decimal to string conversion will not overflow.

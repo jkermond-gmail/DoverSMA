@@ -90,6 +90,11 @@ namespace DoverSMA
         {
             mSmaMetrics.CalculateProductTypeMetrics("03/31/2016", "03/31/2018");
         }
+
+        private void BtnCalculateMorningstarMetrics_Click(object sender, EventArgs e)
+        {
+            mSmaMetrics.CalculateMorningstarMetrics("03/31/2016", "03/31/2018");
+        }
     }
 }
 
