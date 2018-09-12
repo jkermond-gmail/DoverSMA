@@ -122,10 +122,9 @@ namespace DoverSmaEngine
                 {
                     Connection = mSqlConn3,
                     CommandText =
-                        "Update SmaFlows Set " + columnToUpdate + " = @" + columnToUpdate + " where SmaOfferingId in " +
+                        "Update SmaFlows Set " + columnToUpdate + " = @" + columnToUpdate + " where (" + columnToSum + " is not NULL) and (SmaOfferingId in " +
                         "(select SmaOfferingId from SmaOfferings " +
-                        " where DoverSponsorFirmId = @DoverSponsorFirmId and SmaProductTypeCode = @SmaProductTypeCode and MorningstarClassId = @MorningstarClassId)"
-
+                        " where DoverSponsorFirmId = @DoverSponsorFirmId and SmaProductTypeCode = @SmaProductTypeCode and MorningstarClassId = @MorningstarClassId))"
                 };
 
                 cmd2.Parameters.Add("@DoverSponsorFirmId", SqlDbType.VarChar);
