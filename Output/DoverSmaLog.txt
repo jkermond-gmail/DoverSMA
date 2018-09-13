@@ -1,0 +1,4 @@
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-13 09:35:26
+CalculateOpportunityMetricForDate:  03/31/2016 AssetsD Incorrect syntax near '@FlowDate'.
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-13 09:50:05
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-13 10:20:40

@@ -37,8 +37,7 @@
             this.btnCalculateNetFlows = new System.Windows.Forms.Button();
             this.btnConvertReturns = new System.Windows.Forms.Button();
             this.BtnUpdateSmaOfferings = new System.Windows.Forms.Button();
-            this.BtnCalculateProductTypeMetrics = new System.Windows.Forms.Button();
-            this.BtnCalculateMorningstarMetrics = new System.Windows.Forms.Button();
+            this.BtnCalculateOpportunityMetrics = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnProcessSmaOfferings
@@ -146,33 +145,22 @@
             this.BtnUpdateSmaOfferings.UseVisualStyleBackColor = true;
             this.BtnUpdateSmaOfferings.Click += new System.EventHandler(this.BtnUpdateSmaOfferings_Click);
             // 
-            // BtnCalculateProductTypeMetrics
+            // BtnCalculateOpportunityMetrics
             // 
-            this.BtnCalculateProductTypeMetrics.Location = new System.Drawing.Point(199, 134);
-            this.BtnCalculateProductTypeMetrics.Name = "BtnCalculateProductTypeMetrics";
-            this.BtnCalculateProductTypeMetrics.Size = new System.Drawing.Size(185, 23);
-            this.BtnCalculateProductTypeMetrics.TabIndex = 9;
-            this.BtnCalculateProductTypeMetrics.Text = "BtnCalculateProductTypeMetrics";
-            this.BtnCalculateProductTypeMetrics.UseVisualStyleBackColor = true;
-            this.BtnCalculateProductTypeMetrics.Click += new System.EventHandler(this.BtnCalculateProductTypeMetrics_Click);
-            // 
-            // BtnCalculateMorningstarMetrics
-            // 
-            this.BtnCalculateMorningstarMetrics.Location = new System.Drawing.Point(199, 163);
-            this.BtnCalculateMorningstarMetrics.Name = "BtnCalculateMorningstarMetrics";
-            this.BtnCalculateMorningstarMetrics.Size = new System.Drawing.Size(185, 23);
-            this.BtnCalculateMorningstarMetrics.TabIndex = 10;
-            this.BtnCalculateMorningstarMetrics.Text = "BtnCalculateMorningstarMetrics";
-            this.BtnCalculateMorningstarMetrics.UseVisualStyleBackColor = true;
-            this.BtnCalculateMorningstarMetrics.Click += new System.EventHandler(this.BtnCalculateMorningstarMetrics_Click);
+            this.BtnCalculateOpportunityMetrics.Location = new System.Drawing.Point(195, 134);
+            this.BtnCalculateOpportunityMetrics.Name = "BtnCalculateOpportunityMetrics";
+            this.BtnCalculateOpportunityMetrics.Size = new System.Drawing.Size(185, 23);
+            this.BtnCalculateOpportunityMetrics.TabIndex = 11;
+            this.BtnCalculateOpportunityMetrics.Text = "BtnCalculateOpportunityMetrics";
+            this.BtnCalculateOpportunityMetrics.UseVisualStyleBackColor = true;
+            this.BtnCalculateOpportunityMetrics.Click += new System.EventHandler(this.BtnCalculateOpportunityMetrics_Click);
             // 
             // DoverSMA_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.BtnCalculateMorningstarMetrics);
-            this.Controls.Add(this.BtnCalculateProductTypeMetrics);
+            this.Controls.Add(this.BtnCalculateOpportunityMetrics);
             this.Controls.Add(this.BtnUpdateSmaOfferings);
             this.Controls.Add(this.btnConvertReturns);
             this.Controls.Add(this.btnCalculateNetFlows);
@@ -199,7 +187,6 @@
         private System.Windows.Forms.Button btnCalculateNetFlows;
         private System.Windows.Forms.Button btnConvertReturns;
         private System.Windows.Forms.Button BtnUpdateSmaOfferings;
-        private System.Windows.Forms.Button BtnCalculateProductTypeMetrics;
-        private System.Windows.Forms.Button BtnCalculateMorningstarMetrics;
+        private System.Windows.Forms.Button BtnCalculateOpportunityMetrics;
     }
 }
