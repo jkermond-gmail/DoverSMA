@@ -74,11 +74,11 @@ namespace DoverSmaEngine
 
         }
 
-        public void CalculateAssetShareMetrics(string sStartDate, string sEndDate)
+        public void CalculateShareMetrics(string sStartDate, string sEndDate)
         {
             string sCurrentDate = sStartDate;
             bool moreDates = true;
-            string logFuncName = "CalculateAssetShareMetrics: ";
+            string logFuncName = "CalculateShareMetrics: ";
 
             LogHelper.WriteLine(logFuncName + " " + sStartDate + " to " + sEndDate);
 
@@ -86,11 +86,16 @@ namespace DoverSmaEngine
             {
                 LogHelper.WriteLine(logFuncName + " Processing " + sCurrentDate);
 
-                CalculateAssetShareMetricsForDate( sCurrentDate, "OpProductTypeAssets", "AssetShareByProductType");
+                //CalculateShareMetricsForDate( sCurrentDate, "AssetsD", "OpProductTypeAssets", "AssetShareByProductType");
 
-                CalculateAssetShareMetricsForDate( sCurrentDate, "OpMorningstarClassAssets", "AssetShareByMorningstarClass");
+                //CalculateShareMetricsForDate( sCurrentDate, "AssetsD", "OpMorningstarClassAssets", "AssetShareByMorningstarClass");
 
-                CalculateAssetShareMetricsForDate( sCurrentDate, "OpSponsorAssets", "AssetShareBySponsor");
+                //CalculateShareMetricsForDate( sCurrentDate, "AssetsD", "OpSponsorAssets", "AssetShareBySponsor");
+
+                CalculateShareMetricsForDate(sCurrentDate, "FinalNetFlowsD", "OpProductTypeFinalNetFlows", "FinalNetShareByProductType");
+
+                CalculateShareMetricsForDate(sCurrentDate, "FinalNetFlowsD", "OpMorningstarClassFinalNetFlows", "FinalNetShareByMorningstarClass");
+
 
                 if (sCurrentDate.Equals(sEndDate))
                     moreDates = false;
@@ -116,9 +121,12 @@ namespace DoverSmaEngine
             {
                 LogHelper.WriteLine(logFuncName + " Processing " + sCurrentDate);
 
-                CalculateNumAssetsMetricsForDate("ProductType", sCurrentDate);
-                CalculateNumAssetsMetricsForDate("MorningstarClass", sCurrentDate);
-                CalculateNumAssetsMetricsForDate("Sponsor", sCurrentDate);
+                //CalculateNumAssetsMetricsForDate("ProductType", sCurrentDate);
+                //CalculateNumAssetsMetricsForDate("MorningstarClass", sCurrentDate);
+                //CalculateNumAssetsMetricsForDate("Sponsor", sCurrentDate);
+
+                CalculateNumAssetsMetricsForDate("ProductTypeFinalNet", sCurrentDate);
+                CalculateNumAssetsMetricsForDate("MorningstarClassFinalNet", sCurrentDate);
 
 
                 if (sCurrentDate.Equals(sEndDate))
@@ -144,11 +152,11 @@ namespace DoverSmaEngine
             {
                 LogHelper.WriteLine(logFuncName + " Processing " + sCurrentDate);
 
-                CalculateNumManagersMetricsForDate("ProductType", sCurrentDate);
-                CalculateNumManagersMetricsForDate("MorningstarClass", sCurrentDate);
-                CalculateNumManagersMetricsForDate("Sponsor", sCurrentDate);
-
-
+                //CalculateNumManagersMetricsForDate("ProductType", sCurrentDate);
+                //CalculateNumManagersMetricsForDate("MorningstarClass", sCurrentDate);
+                //CalculateNumManagersMetricsForDate("Sponsor", sCurrentDate);
+                CalculateNumManagersMetricsForDate("SponsorFinalNet", sCurrentDate);
+                
                 if (sCurrentDate.Equals(sEndDate))
                     moreDates = false;
                 else
@@ -162,11 +170,11 @@ namespace DoverSmaEngine
 
 
 
-        public void CalculateRankAssetsMetrics(string sStartDate, string sEndDate)
+        public void CalculateRankMetrics(string sStartDate, string sEndDate)
         {
             string sCurrentDate = sStartDate;
             bool moreDates = true;
-            string logFuncName = "CalculateRankAssetsMetrics: ";
+            string logFuncName = "CalculateRankMetrics: ";
 
             LogHelper.WriteLine(logFuncName + " " + sStartDate + " to " + sEndDate);
 
@@ -174,9 +182,11 @@ namespace DoverSmaEngine
             {
                 LogHelper.WriteLine(logFuncName + " Processing " + sCurrentDate);
 
-                CalculateRankAssetsMetricsForDate("ProductType", sCurrentDate);
-                CalculateRankAssetsMetricsForDate("MorningstarClass", sCurrentDate);
-                CalculateRankAssetsMetricsForDate("Sponsor", sCurrentDate);
+                //CalculateRankMetricsForDate("ProductType", sCurrentDate);
+                //CalculateRankMetricsForDate("MorningstarClass", sCurrentDate);
+                //CalculateRankMetricsForDate("Sponsor", sCurrentDate);
+                CalculateRankMetricsForDate("ProductTypeFinalNet", sCurrentDate);
+                CalculateRankMetricsForDate("MorningstarClassFinalNet", sCurrentDate);
 
                 if (sCurrentDate.Equals(sEndDate))
                     moreDates = false;
@@ -189,11 +199,11 @@ namespace DoverSmaEngine
 
         }
 
-        private void CalculateAssetShareMetricsForDate(string sEndOfQtrDate, string columnDenominator, string columnToUpdate)
+        private void CalculateShareMetricsForDate(string sEndOfQtrDate, string columnNumerator, string columnDenominator, string columnToUpdate)
         {
             SqlCommand cmd = null;
 
-            string logFuncName = "CalculateAssetShareMetricsForDate: ";
+            string logFuncName = "CalculateShareMetricsForDate: ";
 
             int updateCount = 0;
 
@@ -201,8 +211,8 @@ namespace DoverSmaEngine
             {
                 Connection = mSqlConn1,
                 CommandText = 
-                    "Update SmaFlows Set " + columnToUpdate + " = AssetsD/" + columnDenominator +
-                    " where (AssetsD > 0) and (" + columnDenominator + " > 0) and (FlowDate = @FlowDate) "
+                    "Update SmaFlows Set " + columnToUpdate + " = " + columnNumerator + "/" + columnDenominator +
+                    " where (" + columnNumerator + " > 0) and (" + columnDenominator + " > 0) and (FlowDate = @FlowDate) "
             };
 
             cmd.Parameters.Add("@FlowDate", SqlDbType.Date);
@@ -223,7 +233,7 @@ namespace DoverSmaEngine
         }
 
 
-        private void CalculateRankAssetsMetricsForDate(string opportunityType, string sEndOfQtrDate /*, string columnToUpdate */)
+        private void CalculateRankMetricsForDate(string opportunityType, string sEndOfQtrDate /*, string columnToUpdate */)
         {
             SqlCommand cmd = null;
             SqlCommand cmd2 = null;
@@ -231,7 +241,7 @@ namespace DoverSmaEngine
 
             int cmd1Count = 0;
 
-            string logFuncName = "CalculateNumAssetsMetricForDate: ";
+            string logFuncName = "CalculateRankMetricsForDate: ";
 
             string commandText1 = "";
             string commandText2 = "";
@@ -260,6 +270,27 @@ namespace DoverSmaEngine
                     commandText3 =
                         "Update SmaFlows Set RankAssetsByProductType = @Rank where SmaFlowId = @SmaFlowId ";
                     break;
+                case "ProductTypeFinalNet":
+                    commandText1 = @"
+                        SELECT distinct 
+                            [SponsorFirmCode]
+                            ,[SmaProductTypeCode]
+                            ,[MorningstarClassId]
+                        FROM [DoverSma].[dbo].[SmaOfferings]
+                        where SponsorFirmCode not in ('', 'tbd') and MorningstarClassId not in  ( '0', '', 'tbd')
+                        order by SponsorFirmCode, SmaProductTypeCode, MorningstarClassId
+                        ";
+                    commandText2 =
+                        "select SmaFlowId from SmaFlows where SmaOfferingId in " +
+                        "(select SmaOfferingId from SmaOfferings " +
+                        "where SponsorFirmCode = @SponsorFirmCode and SmaProductTypeCode = @SmaProductTypeCode " +
+                        "and MorningstarClassId = @MorningstarClassId) " +
+                        "and FlowDate = @FlowDate " +
+                        "and FinalNetShareByProductType > 0 " +
+                        "order by FinalNetShareByProductType desc";
+                    commandText3 =
+                        "Update SmaFlows Set RankFinalNetByProductType = @Rank where SmaFlowId = @SmaFlowId ";
+                    break;
                 case "MorningstarClass":
                     commandText1 = @"
                         SELECT distinct 
@@ -279,6 +310,26 @@ namespace DoverSmaEngine
                         "order by AssetShareByMorningstarClass desc";
                     commandText3 =
                         "Update SmaFlows Set RankAssetsByMorningstarClass = @Rank where SmaFlowId = @SmaFlowId ";
+                    break;
+                case "MorningstarClassFinalNet":
+                    commandText1 = @"
+                        SELECT distinct 
+                            [SponsorFirmCode]
+                            ,[MorningstarClassId]
+                        FROM [DoverSma].[dbo].[SmaOfferings]
+                        where SponsorFirmCode not in ('', 'tbd') and MorningstarClassId not in  ( '0', '', 'tbd')
+                        order by SponsorFirmCode, MorningstarClassId
+                        ";
+                    commandText2 =
+                        "select SmaFlowId from SmaFlows where SmaOfferingId in " +
+                        "(select SmaOfferingId from SmaOfferings " +
+                        "where SponsorFirmCode = @SponsorFirmCode " +
+                        "and MorningstarClassId = @MorningstarClassId) " +
+                        "and FlowDate = @FlowDate " +
+                        "and FinalNetShareByMorningstarClass > 0 " +
+                        "order by FinalNetShareByMorningstarClass desc";
+                    commandText3 =
+                        "Update SmaFlows Set RankFinalNetByMorningstarClass = @Rank where SmaFlowId = @SmaFlowId ";
                     break;
                 case "Sponsor":
                     commandText1 = @"
@@ -325,6 +376,7 @@ namespace DoverSmaEngine
                 switch (opportunityType)
                 {
                     case "ProductType":
+                    case "ProductTypeFinalNet":
                         cmd2.Parameters.Add("@SponsorFirmCode", SqlDbType.VarChar);
                         cmd2.Parameters.Add("@SmaProductTypeCode", SqlDbType.VarChar);
                         cmd2.Parameters.Add("@MorningstarClassId", SqlDbType.VarChar);
@@ -337,6 +389,7 @@ namespace DoverSmaEngine
                         cmd3.Parameters.Add("@SmaFlowId", SqlDbType.Int);
                         break;
                     case "MorningstarClass":
+                    case "MorningstarClassFinalNet":
                         cmd2.Parameters.Add("@SponsorFirmCode", SqlDbType.VarChar);
                         cmd2.Parameters.Add("@MorningstarClassId", SqlDbType.VarChar);
                         cmd2.Parameters.Add("@FlowDate", SqlDbType.Date);
@@ -374,6 +427,7 @@ namespace DoverSmaEngine
                         switch (opportunityType)
                         {
                             case "ProductType":
+                            case "ProductTypeFinalNet":
                                 SponsorFirmCode = dr["SponsorFirmCode"].ToString();
                                 SmaProductTypeCode = dr["SmaProductTypeCode"].ToString();
                                 MorningstarClassId = dr["MorningstarClassId"].ToString();
@@ -387,6 +441,7 @@ namespace DoverSmaEngine
                                 cmd3.Parameters["@FlowDate"].Value = sEndOfQtrDate;
                                 break;
                             case "MorningstarClass":
+                            case "MorningstarClassFinalNet":
                                 SponsorFirmCode = dr["SponsorFirmCode"].ToString();
                                 MorningstarClassId = dr["MorningstarClassId"].ToString();
                                 cmd2.Parameters["@SponsorFirmCode"].Value = SponsorFirmCode;
@@ -491,6 +546,31 @@ namespace DoverSmaEngine
                         "and FlowDate = @FlowDate " +
                         "and OpProductTypeAssets > 0";
                     break;
+                case "ProductTypeFinalNet":
+                    commandText1 = @"
+                        SELECT distinct 
+                            [SponsorFirmCode]
+                            ,[SmaProductTypeCode]
+                            ,[MorningstarClassId]
+                        FROM [DoverSma].[dbo].[SmaOfferings]
+                        where SponsorFirmCode not in ('', 'tbd') and MorningstarClassId not in  ( '0', '', 'tbd')
+                        order by SponsorFirmCode, SmaProductTypeCode, MorningstarClassId
+                        ";
+                    commandText2 =
+                        "select count(*) as TheCount from SmaFlows where SmaOfferingId in " +
+                        "(select SmaOfferingId from SmaOfferings " +
+                        "where SponsorFirmCode = @SponsorFirmCode and SmaProductTypeCode = @SmaProductTypeCode " +
+                        "and MorningstarClassId = @MorningstarClassId) " +
+                        "and FlowDate = @FlowDate " +
+                        "and OpProductTypeFinalNetFlows > 0";
+                    commandText3 =
+                        "Update SmaFlows Set NumFinalNetByProductType = @NumAssets where SmaOfferingId in " +
+                        "(select SmaOfferingId from SmaOfferings " +
+                        "where SponsorFirmCode = @SponsorFirmCode " +
+                        "and MorningstarClassId = @MorningstarClassId) " +
+                        "and FlowDate = @FlowDate " +
+                        "and OpProductTypeFinalNetFlows > 0";
+                    break;
                 case "MorningstarClass":
                     commandText1 = @"
                         SELECT distinct 
@@ -514,6 +594,30 @@ namespace DoverSmaEngine
                         "and MorningstarClassId = @MorningstarClassId) " +
                         "and FlowDate = @FlowDate " +
                         "and OpMorningstarClassAssets > 0";
+                    break;
+                case "MorningstarClassFinalNet":
+                    commandText1 = @"
+                        SELECT distinct 
+                            [SponsorFirmCode]
+                            ,[MorningstarClassId]
+                        FROM [DoverSma].[dbo].[SmaOfferings]
+                        where SponsorFirmCode not in ('', 'tbd') and MorningstarClassId not in  ( '0', '', 'tbd')
+                        order by SponsorFirmCode, MorningstarClassId
+                        ";
+                    commandText2 =
+                        "select count(*) as TheCount from SmaFlows where SmaOfferingId in " +
+                        "(select SmaOfferingId from SmaOfferings " +
+                        "where SponsorFirmCode = @SponsorFirmCode " +
+                        "and MorningstarClassId = @MorningstarClassId) " +
+                        "and FlowDate = @FlowDate " +
+                        "and OpMorningstarClassFinalNetFlows > 0";
+                    commandText3 =
+                        "Update SmaFlows Set NumFinalNetByMorningstarClass = @NumAssets where SmaOfferingId in " +
+                        "(select SmaOfferingId from SmaOfferings " +
+                        "where SponsorFirmCode = @SponsorFirmCode " +
+                        "and MorningstarClassId = @MorningstarClassId) " +
+                        "and FlowDate = @FlowDate " +
+                        "and OpMorningstarClassFinalNetFlows > 0";
                     break;
                 case "Sponsor":
                     commandText1 = @"
@@ -564,6 +668,7 @@ namespace DoverSmaEngine
                 switch (opportunityType)
                 {
                     case "ProductType":
+                    case "ProductTypeFinalNet":
                         cmd2.Parameters.Add("@SponsorFirmCode", SqlDbType.VarChar);
                         cmd2.Parameters.Add("@SmaProductTypeCode", SqlDbType.VarChar);
                         cmd2.Parameters.Add("@MorningstarClassId", SqlDbType.VarChar);
@@ -575,6 +680,7 @@ namespace DoverSmaEngine
                         cmd3.Parameters.Add("@NumAssets", SqlDbType.Int);
                         break;
                     case "MorningstarClass":
+                    case "MorningstarClassFinalNet":
                         cmd2.Parameters.Add("@SponsorFirmCode", SqlDbType.VarChar);
                         cmd2.Parameters.Add("@MorningstarClassId", SqlDbType.VarChar);
                         cmd2.Parameters.Add("@FlowDate", SqlDbType.Date);
@@ -609,6 +715,7 @@ namespace DoverSmaEngine
                         switch (opportunityType)
                         {
                             case "ProductType":
+                            case "ProductTypeFinalNet":
                                 SponsorFirmCode = dr["SponsorFirmCode"].ToString();
                                 SmaProductTypeCode = dr["SmaProductTypeCode"].ToString();
                                 MorningstarClassId = dr["MorningstarClassId"].ToString();
@@ -622,6 +729,7 @@ namespace DoverSmaEngine
                                 cmd3.Parameters["@FlowDate"].Value = sEndOfQtrDate;
                                 break;
                             case "MorningstarClass":
+                            case "MorningstarClassFinalNet":
                                 SponsorFirmCode = dr["SponsorFirmCode"].ToString();
                                 MorningstarClassId = dr["MorningstarClassId"].ToString();
                                 cmd2.Parameters["@SponsorFirmCode"].Value = SponsorFirmCode;
@@ -768,6 +876,27 @@ namespace DoverSmaEngine
                         "and FlowDate = @FlowDate " +
                         "and OpSponsorAssets > 0";
                     break;
+                case "SponsorFinalNet":
+                    commandText1 = @"
+                        SELECT distinct 
+                            [SponsorFirmCode]
+                        FROM [DoverSma].[dbo].[SmaOfferings]
+                        where SponsorFirmCode not in ('', 'tbd') and MorningstarClassId not in  ( '0', '', 'tbd')
+                        order by SponsorFirmCode
+                        ";
+                    commandText2 =
+                        "select count( distinct AssetManagerCode ) as TheCount from SmaFlows where SmaOfferingId in " +
+                        "(select SmaOfferingId from SmaOfferings " +
+                        "where SponsorFirmCode = @SponsorFirmCode) " +
+                        "and FlowDate = @FlowDate " +
+                        "and OpSponsorFinalNetFlows > 0"; ;
+                    commandText3 =
+                        "Update SmaFlows Set NumManagersBySponsorFinalNet = @NumManagers where SmaOfferingId in " +
+                        "(select SmaOfferingId from SmaOfferings " +
+                        "where SponsorFirmCode = @SponsorFirmCode) " +
+                        "and FlowDate = @FlowDate " +
+                        "and OpSponsorFinalNetFlows > 0";
+                    break;
             }
 
             int theCount = 0;
@@ -816,6 +945,7 @@ namespace DoverSmaEngine
                         cmd3.Parameters.Add("@NumManagers", SqlDbType.Int);
                         break;
                     case "Sponsor":
+                    case "SponsorFinalNet":
                         cmd2.Parameters.Add("@SponsorFirmCode", SqlDbType.VarChar);
                         cmd2.Parameters.Add("@FlowDate", SqlDbType.Date);
                         cmd3.Parameters.Add("@SponsorFirmCode", SqlDbType.VarChar);
@@ -864,6 +994,7 @@ namespace DoverSmaEngine
                                 cmd3.Parameters["@FlowDate"].Value = sEndOfQtrDate;
                                 break;
                             case "Sponsor":
+                            case "SponsorFinalNet":
                                 SponsorFirmCode = dr["SponsorFirmCode"].ToString();
                                 cmd2.Parameters["@SponsorFirmCode"].Value = SponsorFirmCode;
                                 cmd2.Parameters["@FlowDate"].Value = sEndOfQtrDate;
