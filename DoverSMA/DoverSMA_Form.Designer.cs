@@ -38,6 +38,7 @@
             this.btnConvertReturns = new System.Windows.Forms.Button();
             this.BtnUpdateSmaOfferings = new System.Windows.Forms.Button();
             this.BtnCalculateOpportunityMetrics = new System.Windows.Forms.Button();
+            this.BtnCalculateAssetShareMetrics = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnProcessSmaOfferings
@@ -155,11 +156,22 @@
             this.BtnCalculateOpportunityMetrics.UseVisualStyleBackColor = true;
             this.BtnCalculateOpportunityMetrics.Click += new System.EventHandler(this.BtnCalculateOpportunityMetrics_Click);
             // 
+            // BtnCalculateAssetShareMetrics
+            // 
+            this.BtnCalculateAssetShareMetrics.Location = new System.Drawing.Point(195, 163);
+            this.BtnCalculateAssetShareMetrics.Name = "BtnCalculateAssetShareMetrics";
+            this.BtnCalculateAssetShareMetrics.Size = new System.Drawing.Size(185, 23);
+            this.BtnCalculateAssetShareMetrics.TabIndex = 12;
+            this.BtnCalculateAssetShareMetrics.Text = "BtnCalculateAssetShareMetrics";
+            this.BtnCalculateAssetShareMetrics.UseVisualStyleBackColor = true;
+            this.BtnCalculateAssetShareMetrics.Click += new System.EventHandler(this.BtnCalculateAssetShareMetrics_Click);
+            // 
             // DoverSMA_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BtnCalculateAssetShareMetrics);
             this.Controls.Add(this.BtnCalculateOpportunityMetrics);
             this.Controls.Add(this.BtnUpdateSmaOfferings);
             this.Controls.Add(this.btnConvertReturns);
@@ -188,5 +200,6 @@
         private System.Windows.Forms.Button btnConvertReturns;
         private System.Windows.Forms.Button BtnUpdateSmaOfferings;
         private System.Windows.Forms.Button BtnCalculateOpportunityMetrics;
+        private System.Windows.Forms.Button BtnCalculateAssetShareMetrics;
     }
 }

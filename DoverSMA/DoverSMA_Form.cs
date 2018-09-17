@@ -91,6 +91,15 @@ namespace DoverSMA
         {
             mSmaMetrics.CalculateOpportunityMetrics("03/31/2016", "03/31/2018");
         }
+
+        private void BtnCalculateAssetShareMetrics_Click(object sender, EventArgs e)
+        {
+            //mSmaMetrics.CalculateAssetShareMetrics("03/31/2016", "03/31/2018");
+            //mSmaMetrics.CalculateNumAssetsMetrics("03/31/2016", "03/31/2018");
+            //mSmaMetrics.CalculateRankAssetsMetrics("03/31/2016", "03/31/2018");
+            mSmaMetrics.CalculateNumManagersMetrics("03/31/2016", "03/31/2018");
+
+        }
     }
 }
 
