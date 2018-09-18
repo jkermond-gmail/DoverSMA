@@ -95,7 +95,8 @@ namespace DoverSMA
         private void BtnCalculateAssetShareMetrics_Click(object sender, EventArgs e)
         {
             //mSmaMetrics.CalculateShareMetrics("03/31/2016", "03/31/2018");
-            mSmaMetrics.CalculateNumAssetsMetrics("03/31/2016", "03/31/2018");
+            //mSmaMetrics.CalculateNumAssetsMetrics("03/31/2016", "03/31/2018");
+            mSmaMetrics.CalculateManagerMetrics("03/31/2016", "03/31/2018");
             //mSmaMetrics.CalculateRankMetrics("03/31/2016", "03/31/2018");
             //mSmaMetrics.CalculateNumManagersMetrics("03/31/2016", "03/31/2018");
 

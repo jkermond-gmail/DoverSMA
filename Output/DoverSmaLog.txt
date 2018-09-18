@@ -1350,3 +1350,50 @@ CalculateNumAssetsMetrics:  Processing 09/30/2017
 CalculateNumAssetsMetrics:  Processing 12/31/2017
 CalculateNumAssetsMetrics:  Processing 03/31/2018
 CalculateNumAssetsMetrics:  done 03/31/2016 to 03/31/2018
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-18 16:40:55
+CalculateShareMetrics:  03/31/2016 to 03/31/2018
+CalculateShareMetrics:  Processing 03/31/2016
+CalculateShareMetrics:  Processing 06/30/2016
+CalculateShareMetrics:  Processing 09/30/2016
+CalculateShareMetrics:  Processing 12/31/2016
+CalculateShareMetrics:  Processing 03/31/2017
+CalculateShareMetrics:  Processing 06/30/2017
+CalculateShareMetrics:  Processing 09/30/2017
+CalculateShareMetrics:  Processing 12/31/2017
+CalculateShareMetrics:  Processing 03/31/2018
+CalculateShareMetrics:  done 03/31/2016 to 03/31/2018
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-18 17:09:16
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-18 17:11:26
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-18 17:12:43
+CalculateRankMetrics:  03/31/2016 to 03/31/2018
+CalculateRankMetrics:  Processing 03/31/2016
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-18 17:13:48
+CalculateRankMetrics:  03/31/2016 to 03/31/2018
+CalculateRankMetrics:  Processing 03/31/2016
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-18 17:14:42
+CalculateRankMetrics:  03/31/2016 to 03/31/2018
+CalculateRankMetrics:  Processing 03/31/2016
+CalculateRankMetrics:  Processing 06/30/2016
+CalculateRankMetrics:  Processing 09/30/2016
+CalculateRankMetrics:  Processing 12/31/2016
+CalculateRankMetrics:  Processing 03/31/2017
+CalculateRankMetrics:  Processing 06/30/2017
+CalculateRankMetrics:  Processing 09/30/2017
+CalculateRankMetrics:  Processing 12/31/2017
+CalculateRankMetrics:  Processing 03/31/2018
+CalculateRankMetrics:  done 03/31/2016 to 03/31/2018
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-18 17:37:21
+CalculateNumAssetsMetrics:  03/31/2016 to 03/31/2018
+CalculateNumAssetsMetrics:  Processing 03/31/2016
+CalculateNumAssetsMetrics:  Processing 06/30/2016
+CalculateNumAssetsMetrics:  Processing 09/30/2016
+CalculateNumAssetsMetrics:  Processing 12/31/2016
+CalculateNumAssetsMetrics:  Processing 03/31/2017
+CalculateNumAssetsMetrics:  Processing 06/30/2017
+CalculateNumAssetsMetrics:  Processing 09/30/2017
+CalculateNumAssetsMetrics:  Processing 12/31/2017
+CalculateNumAssetsMetrics:  Processing 03/31/2018
+CalculateNumAssetsMetrics:  done 03/31/2016 to 03/31/2018
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-18 19:04:27
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+CalculateManagerMetrics:  done 03/31/2016 to 03/31/2018
