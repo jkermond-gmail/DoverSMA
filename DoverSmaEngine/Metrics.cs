@@ -205,26 +205,27 @@ namespace DoverSmaEngine
         public void CalculateManagerMetrics(string sStartDate, string sEndDate)
         {
             string sCurrentDate = sStartDate;
-            //bool moreDates = true;
+            bool moreDates = true;
             string logFuncName = "CalculateManagerMetrics: ";
 
             LogHelper.WriteLine(logFuncName + " " + sStartDate + " to " + sEndDate);
 
-            CalculateManagerAmountMetrics("AssetsByManager");
-            CalculateManagerAmountMetrics("FinalNetByManager");
+            //CalculateManagerAmountMetrics("AssetsByManager");
+            //CalculateManagerAmountMetrics("FinalNetByManager");
 
-            //do
-            //{
-            //    LogHelper.WriteLine(logFuncName + " Processing " + sCurrentDate);
+            do
+            {
+                LogHelper.WriteLine(logFuncName + " Processing " + sCurrentDate);
 
-            //    CalculateManagerAmountMetricsForDate(sCurrentDate);
+                CalculateManagerShareMetricsForDate("AssetShareByManager", sCurrentDate);
+                CalculateManagerShareMetricsForDate("FinalNetShareByManager", sCurrentDate);
 
-            //    if (sCurrentDate.Equals(sEndDate))
-            //        moreDates = false;
-            //    else
-            //        sCurrentDate = Utils.CalculateNextEndOfQtrDate(sCurrentDate);
-            //}
-            //while (moreDates.Equals(true));
+                if (sCurrentDate.Equals(sEndDate))
+                    moreDates = false;
+                else
+                    sCurrentDate = Utils.CalculateNextEndOfQtrDate(sCurrentDate);
+            }
+            while (moreDates.Equals(true));
 
             LogHelper.WriteLine(logFuncName + " done " + sStartDate + " to " + sEndDate);
 
@@ -325,6 +326,128 @@ namespace DoverSmaEngine
 
                         }
 
+                    }
+                }
+                dr.Close();
+            }
+            catch (SqlException ex)
+            {
+                LogHelper.WriteLine(logFuncName + " " + ex.Message);
+            }
+            finally
+            {
+            }
+        }
+
+
+        private void CalculateManagerShareMetricsForDate(string columnToUpdate, string sEndOfQtrDate)
+        {
+            SqlCommand cmd = null;
+            SqlCommand cmd2 = null;
+
+            string logFuncName = "CalculateManagerAmountMetricsForDate: ";
+
+            string commandText1 = "";
+            string commandText2 = "";
+
+            switch (columnToUpdate)
+            {
+                case "AssetShareByManager":
+                    commandText1 = @"
+                     select distinct AssetManagerCode, FlowDate, AssetsByManager as Numerator, 
+                     Denominator = (select sum(AssetsByManager) 
+                     FROM [DoverSma].[dbo].[SmaFlows]
+                     where AssetsByManager is not null and FlowDate = @FlowDate)
+                     FROM [DoverSma].[dbo].[SmaFlows]
+                     where AssetsByManager is not null and FlowDate = @FlowDate
+                     order by AssetsByManager desc
+                     ";
+                    commandText2 = @"
+                    update SmaFlows set AssetShareByManager = @Share, RankAssetsByManager = @Rank
+                    where AssetManagerCode = @AssetManagerCode and FlowDate = @FlowDate 
+                    and AssetsByManager > 0
+                    ";
+                    break;
+
+                case "FinalNetShareByManager":
+                    commandText1 = @"
+                    select distinct AssetManagerCode, FlowDate, FinalNetByManager as Numerator, 
+                     Denominator = (select sum(FinalNetByManager)
+                     FROM[DoverSma].[dbo].[SmaFlows]
+                     where AssetsByManager is not null and FlowDate = @FlowDate)
+                     FROM[DoverSma].[dbo].[SmaFlows]
+                     where AssetsByManager is not null and FlowDate = @FlowDate
+                     ";
+                    commandText2 = @"
+                    update SmaFlows set FinalNetShareByManager = @Share, RankFinalNetByManager = @Rank
+                    where AssetManagerCode = @AssetManagerCode and FlowDate = @FlowDate 
+                    and FinalNetByManagerr > 0
+                    ";
+                break;
+            }
+            try
+            {
+                cmd = new SqlCommand
+                {
+                    Connection = mSqlConn1,
+                    CommandText = commandText1
+                };
+
+                cmd2 = new SqlCommand
+                {
+                    Connection = mSqlConn2,
+                    CommandText = commandText2
+                };
+
+                cmd.Parameters.Add("@FlowDate", SqlDbType.Date);
+                cmd2.Parameters.Add("@FlowDate", SqlDbType.Date);
+                cmd2.Parameters.Add("@AssetManagerCode", SqlDbType.VarChar);
+                cmd2.Parameters.Add("@Share", SqlDbType.Decimal);
+                cmd2.Parameters.Add("@Rank", SqlDbType.Int);
+
+
+                cmd.Parameters["@FlowDate"].Value = sEndOfQtrDate;
+                cmd2.Parameters["@FlowDate"].Value = sEndOfQtrDate;
+
+                SqlDataReader dr = null;
+                dr = cmd.ExecuteReader();
+                int rank = 0;
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        rank += 1;
+                        string assetManagerCode = "";
+                        decimal numerator = 0M;
+                        decimal denominator = 0M;
+                        decimal share = 0M;
+                        assetManagerCode = dr["AssetManagerCode"].ToString();
+                        cmd2.Parameters["@AssetManagerCode"].Value = assetManagerCode.ToString();
+
+                        string colVal = dr["Numerator"].ToString();
+                        numerator = Utils.ConvertStringToDecimal(colVal);
+                        colVal = dr["Denominator"].ToString();
+                        denominator = Utils.ConvertStringToDecimal(colVal);
+
+                        if (denominator > 0 || denominator < 0)
+                        {
+                            share = numerator / denominator;
+                            cmd2.Parameters["@Share"].Value = share.ToString();
+                            cmd2.Parameters["@Rank"].Value = rank.ToString();
+
+                            try
+                            {
+                                cmd2.ExecuteNonQuery();
+                            }
+                            catch (SqlException ex)
+                            {
+                                LogHelper.WriteLine(logFuncName + ex.Message);
+                            }
+                            finally
+                            {
+
+                            }
+                        }
                     }
                 }
                 dr.Close();
