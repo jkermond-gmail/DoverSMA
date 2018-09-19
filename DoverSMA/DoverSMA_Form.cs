@@ -78,8 +78,8 @@ namespace DoverSMA
         private void BtnUpdateSmaOfferings_Click(object sender, EventArgs e)
         {
             //mSmaFileProcessor.ProcessOfferingsDataUpdates();
-            mSmaFileProcessor.ProcessOfferingsDataUpdatesByColumn("SponsorFirmCode", SqlDbType.VarChar);
-            mSmaFileProcessor.ProcessOfferingsDataUpdatesByColumn("MorningstarClassId", SqlDbType.VarChar);
+            //mSmaFileProcessor.ProcessOfferingsDataUpdatesByColumn("SponsorFirmCode", SqlDbType.VarChar);
+            //mSmaFileProcessor.ProcessOfferingsDataUpdatesByColumn("MorningstarClassId", SqlDbType.VarChar);
             //mSmaFileProcessor.ProcessOfferingsDataUpdatesByColumn("LadderCode", SqlDbType.VarChar);
             //mSmaFileProcessor.ProcessOfferingsDataUpdatesByColumn("SmidCode", SqlDbType.VarChar);
             //mSmaFileProcessor.ProcessOfferingsDataUpdatesByColumn("EsgCode", SqlDbType.VarChar);
@@ -92,13 +92,14 @@ namespace DoverSMA
             mSmaMetrics.CalculateOpportunityMetrics("03/31/2016", "03/31/2018");
         }
 
-        private void BtnCalculateAssetShareMetrics_Click(object sender, EventArgs e)
+        private void BtnCalculateAllMetrics_Click(object sender, EventArgs e)
         {
-            //mSmaMetrics.CalculateShareMetrics("03/31/2016", "03/31/2018");
-            //mSmaMetrics.CalculateNumAssetsMetrics("03/31/2016", "03/31/2018");
+            mSmaMetrics.CalculateOpportunityMetrics("03/31/2016", "03/31/2018");
+            mSmaMetrics.CalculateShareMetrics("03/31/2016", "03/31/2018");
+            mSmaMetrics.CalculateNumAssetsMetrics("03/31/2016", "03/31/2018");
+            mSmaMetrics.CalculateRankMetrics("03/31/2016", "03/31/2018");
+            mSmaMetrics.CalculateNumManagersMetrics("03/31/2016", "03/31/2018");
             mSmaMetrics.CalculateManagerMetrics("03/31/2016", "03/31/2018");
-            //mSmaMetrics.CalculateRankMetrics("03/31/2016", "03/31/2018");
-            //mSmaMetrics.CalculateNumManagersMetrics("03/31/2016", "03/31/2018");
 
         }
     }

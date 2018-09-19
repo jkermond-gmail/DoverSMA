@@ -86,16 +86,11 @@ namespace DoverSmaEngine
             {
                 LogHelper.WriteLine(logFuncName + " Processing " + sCurrentDate);
 
-                //CalculateShareMetricsForDate( sCurrentDate, "AssetsD", "OpProductTypeAssets", "AssetShareByProductType");
-
-                //CalculateShareMetricsForDate( sCurrentDate, "AssetsD", "OpMorningstarClassAssets", "AssetShareByMorningstarClass");
-
-                //CalculateShareMetricsForDate( sCurrentDate, "AssetsD", "OpSponsorAssets", "AssetShareBySponsor");
-
-                //CalculateShareMetricsForDate(sCurrentDate, "FinalNetFlowsD", "OpProductTypeFinalNetFlows", "FinalNetShareByProductType");
-
-                //CalculateShareMetricsForDate(sCurrentDate, "FinalNetFlowsD", "OpMorningstarClassFinalNetFlows", "FinalNetShareByMorningstarClass");
-
+                CalculateShareMetricsForDate(sCurrentDate, "AssetsD", "OpProductTypeAssets", "AssetShareByProductType");
+                CalculateShareMetricsForDate(sCurrentDate, "AssetsD", "OpMorningstarClassAssets", "AssetShareByMorningstarClass");
+                CalculateShareMetricsForDate(sCurrentDate, "AssetsD", "OpSponsorAssets", "AssetShareBySponsor");
+                CalculateShareMetricsForDate(sCurrentDate, "FinalNetFlowsD", "OpProductTypeFinalNetFlows", "FinalNetShareByProductType");
+                CalculateShareMetricsForDate(sCurrentDate, "FinalNetFlowsD", "OpMorningstarClassFinalNetFlows", "FinalNetShareByMorningstarClass");
                 CalculateShareMetricsForDate(sCurrentDate, "FinalNetFlowsD", "OpSponsorFinalNetFlows", "FinalNetShareBySponsor");
 
                 if (sCurrentDate.Equals(sEndDate))
@@ -106,7 +101,6 @@ namespace DoverSmaEngine
             while (moreDates.Equals(true));
 
             LogHelper.WriteLine(logFuncName + " done " + sStartDate + " to " + sEndDate);
-
         }
 
 
@@ -122,14 +116,13 @@ namespace DoverSmaEngine
             {
                 LogHelper.WriteLine(logFuncName + " Processing " + sCurrentDate);
 
-                //CalculateNumAssetsMetricsForDate("ProductType", sCurrentDate);
-                //CalculateNumAssetsMetricsForDate("MorningstarClass", sCurrentDate);
-                //CalculateNumAssetsMetricsForDate("Sponsor", sCurrentDate);
+                CalculateNumAssetsMetricsForDate("ProductType", sCurrentDate);
+                CalculateNumAssetsMetricsForDate("MorningstarClass", sCurrentDate);
+                CalculateNumAssetsMetricsForDate("Sponsor", sCurrentDate);
 
-                //CalculateNumAssetsMetricsForDate("ProductTypeFinalNet", sCurrentDate);
-                //CalculateNumAssetsMetricsForDate("MorningstarClassFinalNet", sCurrentDate);
+                CalculateNumAssetsMetricsForDate("ProductTypeFinalNet", sCurrentDate);
+                CalculateNumAssetsMetricsForDate("MorningstarClassFinalNet", sCurrentDate);
                 CalculateNumAssetsMetricsForDate("SponsorFinalNet", sCurrentDate);
-
 
                 if (sCurrentDate.Equals(sEndDate))
                     moreDates = false;
@@ -154,9 +147,9 @@ namespace DoverSmaEngine
             {
                 LogHelper.WriteLine(logFuncName + " Processing " + sCurrentDate);
 
-                //CalculateNumManagersMetricsForDate("ProductType", sCurrentDate);
-                //CalculateNumManagersMetricsForDate("MorningstarClass", sCurrentDate);
-                //CalculateNumManagersMetricsForDate("Sponsor", sCurrentDate);
+                CalculateNumManagersMetricsForDate("ProductType", sCurrentDate);
+                CalculateNumManagersMetricsForDate("MorningstarClass", sCurrentDate);
+                CalculateNumManagersMetricsForDate("Sponsor", sCurrentDate);
                 CalculateNumManagersMetricsForDate("SponsorFinalNet", sCurrentDate);
                 
                 if (sCurrentDate.Equals(sEndDate))
@@ -171,7 +164,6 @@ namespace DoverSmaEngine
         }
 
 
-
         public void CalculateRankMetrics(string sStartDate, string sEndDate)
         {
             string sCurrentDate = sStartDate;
@@ -184,11 +176,11 @@ namespace DoverSmaEngine
             {
                 LogHelper.WriteLine(logFuncName + " Processing " + sCurrentDate);
 
-                //CalculateRankMetricsForDate("ProductType", sCurrentDate);
-                //CalculateRankMetricsForDate("MorningstarClass", sCurrentDate);
-                //CalculateRankMetricsForDate("Sponsor", sCurrentDate);
-                //CalculateRankMetricsForDate("ProductTypeFinalNet", sCurrentDate);
-                //CalculateRankMetricsForDate("MorningstarClassFinalNet", sCurrentDate);
+                CalculateRankMetricsForDate("ProductType", sCurrentDate);
+                CalculateRankMetricsForDate("MorningstarClass", sCurrentDate);
+                CalculateRankMetricsForDate("Sponsor", sCurrentDate);
+                CalculateRankMetricsForDate("ProductTypeFinalNet", sCurrentDate);
+                CalculateRankMetricsForDate("MorningstarClassFinalNet", sCurrentDate);
                 CalculateRankMetricsForDate("SponsorFinalNet", sCurrentDate);
 
                 if (sCurrentDate.Equals(sEndDate))
@@ -210,8 +202,8 @@ namespace DoverSmaEngine
 
             LogHelper.WriteLine(logFuncName + " " + sStartDate + " to " + sEndDate);
 
-            //CalculateManagerAmountMetrics("AssetsByManager");
-            //CalculateManagerAmountMetrics("FinalNetByManager");
+            CalculateManagerAmountMetrics("AssetsByManager");
+            CalculateManagerAmountMetrics("FinalNetByManager");
 
             do
             {
@@ -228,7 +220,6 @@ namespace DoverSmaEngine
             while (moreDates.Equals(true));
 
             LogHelper.WriteLine(logFuncName + " done " + sStartDate + " to " + sEndDate);
-
         }
 
 
@@ -237,7 +228,7 @@ namespace DoverSmaEngine
             SqlCommand cmd = null;
             SqlCommand cmd2 = null;
 
-            string logFuncName = "CalculateManagerAmountMetricsForDate: ";
+            string logFuncName = "CalculateManagerAmountMetrics: ";
 
             string commandText1 = "";
             string commandText2 = "";
@@ -325,7 +316,6 @@ namespace DoverSmaEngine
                         {
 
                         }
-
                     }
                 }
                 dr.Close();
@@ -336,6 +326,7 @@ namespace DoverSmaEngine
             }
             finally
             {
+                LogHelper.WriteLine(logFuncName + " done " + amountColumn);
             }
         }
 
@@ -345,7 +336,7 @@ namespace DoverSmaEngine
             SqlCommand cmd = null;
             SqlCommand cmd2 = null;
 
-            string logFuncName = "CalculateManagerAmountMetricsForDate: ";
+            string logFuncName = "CalculateManagerShareMetricsForDate: ";
 
             string commandText1 = "";
             string commandText2 = "";
@@ -381,7 +372,7 @@ namespace DoverSmaEngine
                     commandText2 = @"
                     update SmaFlows set FinalNetShareByManager = @Share, RankFinalNetByManager = @Rank
                     where AssetManagerCode = @AssetManagerCode and FlowDate = @FlowDate 
-                    and FinalNetByManagerr > 0
+                    and FinalNetByManager > 0
                     ";
                 break;
             }
@@ -458,6 +449,7 @@ namespace DoverSmaEngine
             }
             finally
             {
+                LogHelper.WriteLine(logFuncName + " done " + columnToUpdate + " " + sEndOfQtrDate);
             }
         }
 
@@ -492,6 +484,7 @@ namespace DoverSmaEngine
             finally
             {
                 updateCount += 1;
+                LogHelper.WriteLine(logFuncName + " done " + sEndOfQtrDate);
             }
         }
 
@@ -783,9 +776,8 @@ namespace DoverSmaEngine
             {
                 //LogHelper.WriteLine(logFuncName + "Rows Updated " + updateCount + " " + sEndOfQtrDate + " " + columnToSum);
                 //LogHelper.WriteLine(logFuncName + " cmd1Count " + cmd1Count + " cmd2Count " + cmd2Count);
+                LogHelper.WriteLine(logFuncName + " done " + sEndOfQtrDate);
             }
-
-
         }
 
         private void CalculateNumAssetsMetricsForDate(string opportunityType, string sEndOfQtrDate /*, string columnToUpdate */)
@@ -1093,6 +1085,7 @@ namespace DoverSmaEngine
             {
                 //LogHelper.WriteLine(logFuncName + "Rows Updated " + updateCount + " " + sEndOfQtrDate + " " + columnToSum);
                 //LogHelper.WriteLine(logFuncName + " cmd1Count " + cmd1Count + " cmd2Count " + cmd2Count);
+                LogHelper.WriteLine(logFuncName + " done " + sEndOfQtrDate);
             }
         }
 
@@ -1348,6 +1341,7 @@ namespace DoverSmaEngine
             {
                 //LogHelper.WriteLine(logFuncName + "Rows Updated " + updateCount + " " + sEndOfQtrDate + " " + columnToSum);
                 //LogHelper.WriteLine(logFuncName + " cmd1Count " + cmd1Count + " cmd2Count " + cmd2Count);
+                LogHelper.WriteLine(logFuncName + " done " + sEndOfQtrDate);
             }
         }
 
@@ -1489,8 +1483,6 @@ namespace DoverSmaEngine
                         break;
                 }
 
-
-
                 SqlDataReader dr = null;
                 SqlDataReader dr2 = null;
 
@@ -1577,9 +1569,8 @@ namespace DoverSmaEngine
             {
                 //LogHelper.WriteLine(logFuncName + "Rows Updated " + updateCount + " " + sEndOfQtrDate + " " + columnToSum);
                 //LogHelper.WriteLine(logFuncName + " cmd1Count " + cmd1Count + " cmd2Count " + cmd2Count);
+                LogHelper.WriteLine(logFuncName + " done " + sEndOfQtrDate);
             }
-
-
         }
     }
 }

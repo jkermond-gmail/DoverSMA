@@ -38,7 +38,7 @@
             this.btnConvertReturns = new System.Windows.Forms.Button();
             this.BtnUpdateSmaOfferings = new System.Windows.Forms.Button();
             this.BtnCalculateOpportunityMetrics = new System.Windows.Forms.Button();
-            this.BtnCalculateAssetShareMetrics = new System.Windows.Forms.Button();
+            this.BtnCalculateAllMetrics = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnProcessSmaOfferings
@@ -156,22 +156,22 @@
             this.BtnCalculateOpportunityMetrics.UseVisualStyleBackColor = true;
             this.BtnCalculateOpportunityMetrics.Click += new System.EventHandler(this.BtnCalculateOpportunityMetrics_Click);
             // 
-            // BtnCalculateAssetShareMetrics
+            // BtnCalculateAllMetrics
             // 
-            this.BtnCalculateAssetShareMetrics.Location = new System.Drawing.Point(195, 163);
-            this.BtnCalculateAssetShareMetrics.Name = "BtnCalculateAssetShareMetrics";
-            this.BtnCalculateAssetShareMetrics.Size = new System.Drawing.Size(185, 23);
-            this.BtnCalculateAssetShareMetrics.TabIndex = 12;
-            this.BtnCalculateAssetShareMetrics.Text = "BtnCalculateAssetShareMetrics";
-            this.BtnCalculateAssetShareMetrics.UseVisualStyleBackColor = true;
-            this.BtnCalculateAssetShareMetrics.Click += new System.EventHandler(this.BtnCalculateAssetShareMetrics_Click);
+            this.BtnCalculateAllMetrics.Location = new System.Drawing.Point(195, 163);
+            this.BtnCalculateAllMetrics.Name = "BtnCalculateAllMetrics";
+            this.BtnCalculateAllMetrics.Size = new System.Drawing.Size(185, 23);
+            this.BtnCalculateAllMetrics.TabIndex = 12;
+            this.BtnCalculateAllMetrics.Text = "BtnCalculateAllMetrics";
+            this.BtnCalculateAllMetrics.UseVisualStyleBackColor = true;
+            this.BtnCalculateAllMetrics.Click += new System.EventHandler(this.BtnCalculateAllMetrics_Click);
             // 
             // DoverSMA_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.BtnCalculateAssetShareMetrics);
+            this.Controls.Add(this.BtnCalculateAllMetrics);
             this.Controls.Add(this.BtnCalculateOpportunityMetrics);
             this.Controls.Add(this.BtnUpdateSmaOfferings);
             this.Controls.Add(this.btnConvertReturns);
@@ -200,6 +200,6 @@
         private System.Windows.Forms.Button btnConvertReturns;
         private System.Windows.Forms.Button BtnUpdateSmaOfferings;
         private System.Windows.Forms.Button BtnCalculateOpportunityMetrics;
-        private System.Windows.Forms.Button BtnCalculateAssetShareMetrics;
+        private System.Windows.Forms.Button BtnCalculateAllMetrics;
     }
 }
