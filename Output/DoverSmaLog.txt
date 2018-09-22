@@ -338,3 +338,79 @@ CalculateManagerMetrics:  Processing 03/31/2018
 CalculateManagerShareMetricsForDate:  done AssetShareByManager 03/31/2018
 CalculateManagerShareMetricsForDate:  done FinalNetShareByManager 03/31/2018
 CalculateManagerMetrics:  done 03/31/2016 to 03/31/2018
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-21 10:59:37
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+CalculateSponsorManagerAmountMetrics:  done AssetsBySponsorManager
+CalculateManagerMetrics:  done 03/31/2016 to 03/31/2018
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-21 13:11:13
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-21 13:13:07
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-21 13:13:49
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-21 13:14:44
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+CalculateSponsorManagerShareMetrics:  done AssetShareBySponsorManager
+CalculateManagerMetrics:  done 03/31/2016 to 03/31/2018
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-21 14:07:27
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-21 14:09:05
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-21 14:10:25
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-21 14:11:32
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-21 16:42:16
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+CalculateSponsorManagerShareMetrics:  done AssetShareBySponsorManager
+CalculateManagerMetrics:  done 03/31/2016 to 03/31/2018
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-21 17:15:19
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+CalculateSponsorManagerShareMetrics:  Operand data type varchar is invalid for sum operator.
+CalculateSponsorManagerShareMetrics:  done AssetShareBySponsorManager
+CalculateManagerMetrics:  done 03/31/2016 to 03/31/2018
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-21 17:16:19
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+CalculateSponsorManagerShareMetrics:  Operand data type varchar is invalid for sum operator.
+CalculateSponsorManagerShareMetrics:  done AssetShareBySponsorManager
+CalculateManagerMetrics:  done 03/31/2016 to 03/31/2018
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-21 17:16:53
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-21 17:18:24
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-21 17:19:57
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-21 17:21:02
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+CalculateSponsorManagerShareMetrics:  done AssetShareBySponsorManager
+CalculateManagerMetrics:  done 03/31/2016 to 03/31/2018
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-21 18:00:18
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+CalculateManagerMetrics:  Processing 03/31/2016
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-21 18:02:14
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+CalculateManagerMetrics:  Processing 03/31/2016
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-21 18:04:18
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+CalculateManagerMetrics:  Processing 03/31/2016
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-21 18:08:28
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+CalculateManagerMetrics:  Processing 03/31/2016
+CalculateSponsorManagerRankMetrics:  done RankAssetsBySponsorManager
+CalculateManagerMetrics:  Processing 06/30/2016
+CalculateSponsorManagerRankMetrics:  done RankAssetsBySponsorManager
+CalculateManagerMetrics:  Processing 09/30/2016
+CalculateSponsorManagerRankMetrics:  done RankAssetsBySponsorManager
+CalculateManagerMetrics:  Processing 12/31/2016
+CalculateSponsorManagerRankMetrics:  done RankAssetsBySponsorManager
+CalculateManagerMetrics:  Processing 03/31/2017
+CalculateSponsorManagerRankMetrics:  done RankAssetsBySponsorManager
+CalculateManagerMetrics:  Processing 06/30/2017
+CalculateSponsorManagerRankMetrics:  done RankAssetsBySponsorManager
+CalculateManagerMetrics:  Processing 09/30/2017
+CalculateSponsorManagerRankMetrics:  done RankAssetsBySponsorManager
+CalculateManagerMetrics:  Processing 12/31/2017
+CalculateSponsorManagerRankMetrics:  done RankAssetsBySponsorManager
+CalculateManagerMetrics:  Processing 03/31/2018
+CalculateSponsorManagerRankMetrics:  done RankAssetsBySponsorManager
+CalculateManagerMetrics:  done 03/31/2016 to 03/31/2018
