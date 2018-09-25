@@ -1,0 +1,51 @@
+﻿anch,,,,
+anch,Fixed Income,,,
+inve,Invesco Smart Beta Global Equity SMA,0,0,0
+inve,Invesco Smart Beta Income SMA,0,0,0
+inve,Invesco Smart Beta Income SMA,INVSMTINC,Smart Beta Income,0
+inve,Invesco Smart Beta U.S. Equity SMA,0,0,0
+inve,Invesco Smart Beta U.S. Equity SMA,INVSMTEQ,Smart Beta Equity,0
+dela,Multi Cap Growth Equity - All Cap Growth,,Multi Cap Growth,AG
+laza,U.S. Equity Ultra Concentrated,Not in M*,,all-cap
+lord,Multi Cap Value,LAMULTI,TBD,all-cap
+legg,CBI All Cap Value ESG Catholic SMA,-,-,allcap
+prin,SMA Edge All-Cap,PEDGEAC,US SA All Cap,allcap
+legg,LM Custom Balanced SMA,LMCUST,-,CUSTBAL
+legg,CBI Capital SMA,-,-,CUSTEQ
+legg,CBI Custom ESG SMA,CBICUST,-,CUSTEQ
+legg,CBI Custom SMA,CBICUST,-,CUSTEQ
+legg,CBI Opportunity SMA,,-,CUSTEQ
+legg,CBI Opportunity SMA,-,-,CUSTEQ
+legg,LM Custom MDA SMA,LMCUST,-,CUSTEQ
+legg,LM Custom SMA,LMCUST,-,CUSTEQ
+legg,LM MDA Trust SMA,-,-,CUSTEQ
+legg,WA Custom Income Muni SMA,-,-,CUSTMUNI
+legg,WA Muni Opportunities SMA,-,-,CUSTMUNI
+legg,WA Muni Trust SMA,-,-,CUSTMUNI
+nuve,SMA NWQ Mlt-Cap Opp,NUMLTCAP,Domestic All-Cap,DAC
+nuve,SMA NAM Uniq Muni,NUUNMUNI,Muni Duration Flexible,MZ
+inve,Invesco Global Core Equity ADR SMA,F00000U2JM,Global Equity - Unhedged,SW
+fran,Corp/Govt/Muni Blended,#N/A,,TBD
+laza,LCAS Global Diversified,Not in M*,,TBD
+lord,Balanced,LABALANCE,TBD,TBD
+lord,Limited Duration,LAMTDURA,TBD,TBD
+lord,Multi Cap Value,LAMULTI,TBD,TBD
+nuve,SMA NAM Cstm Handling,NUCUSTHDLG,Unknown,TBD
+nuve,SMA NAM Sector Cash,NUCASH,Unknown,TBD
+nuve,SMA NAM Sector Max Inc Bal,NUSECMAX,Unknown,TBD
+nuve,SMA NAM Sector Mutual Fund,NUSECMF,Unknown,TBD
+nuve,SMA NAM Sector Plus,NUSECPLUS,Unknown,TBD
+nuve,SMA NWQ Sector Bonds,NUSECBONDS,Unknown,TBD
+nuve,SMA NWQ Sector Max Inc Bal,NUMAXINC,Unknown,TBD
+nuve,SMA NWQ Sector Passive Plus,NUPASSPLUS,Unknown,TBD
+nuve,SMA NWQ Sector Plus Focused,NUPASSPLUSFOC,Unknown,TBD
+nuve,SMA NWQ Sector Plus Hi TE,NUPLUSHITE,Unknown,TBD
+nuve,SMA NWQ Sector Plus Mod TE,NUPLUSMODTE,Unknown,TBD
+nuve,SMA NWQ Sector Plus Pathfinder,NUPLUSPATH,Unknown,TBD
+nuve,SMA NWQ Sector Ultra Cons,NUULTCONS,Unknown,TBD
+prin,SMA Edge Small MidCap Dividend Income,F00000OSPA,DIVIDEND INOCME,TBD
+prin,SMA Edge Small MidCap Dividend Income with MLPs,F00000OSQN,DIVIDEND INOCME,TBD
+inve,Invesco Pinnacle Series: Smart Beta Income Portfolio,INVSMTBETALL,Smart Beta Allocation,WB
+inve,Invesco Pinnacle Series: Total Beta II Equity Portfolio,INVTOTBETA,Total Smart Beta,WB
+inve,Invesco Pinnacle Series: Total Beta II Income Portfolio,INVTOTBETA,Total Smart Beta,WB
+inve,Invesco Pinnacle Series: Total Beta Income Portfolio,INVTOTBETA,Total Smart Beta,WB

@@ -1,3 +1,4 @@
+use DoverSma
 SELECT distinct SponsorFirmCode, FlowDate, o.AssetManagerCode, AssetsBySponsorManager, AssetShareBySponsorManager, RankAssetsBySponsorManager
 FROM SmaOfferings o
 Inner join SmaFlows f on o.SmaOfferingId = f.SmaOfferingId

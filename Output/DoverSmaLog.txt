@@ -414,3 +414,165 @@ CalculateSponsorManagerRankMetrics:  done RankAssetsBySponsorManager
 CalculateManagerMetrics:  Processing 03/31/2018
 CalculateSponsorManagerRankMetrics:  done RankAssetsBySponsorManager
 CalculateManagerMetrics:  done 03/31/2016 to 03/31/2018
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-25 13:22:44
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+CalculateSponsorManagerAmountMetrics:  done FinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 03/31/2016
+CalculateManagerMetrics:  Processing 06/30/2016
+CalculateManagerMetrics:  Processing 09/30/2016
+CalculateManagerMetrics:  Processing 12/31/2016
+CalculateManagerMetrics:  Processing 03/31/2017
+CalculateManagerMetrics:  Processing 06/30/2017
+CalculateManagerMetrics:  Processing 09/30/2017
+CalculateManagerMetrics:  Processing 12/31/2017
+CalculateManagerMetrics:  Processing 03/31/2018
+CalculateManagerMetrics:  done 03/31/2016 to 03/31/2018
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-25 13:38:22
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+CalculateSponsorManagerShareMetrics:  done AssetShareBySponsorManager
+CalculateSponsorManagerShareMetrics:  done FinalNetShareBySponsorManager
+CalculateManagerMetrics:  Processing 03/31/2016
+CalculateManagerMetrics:  Processing 06/30/2016
+CalculateManagerMetrics:  Processing 09/30/2016
+CalculateManagerMetrics:  Processing 12/31/2016
+CalculateManagerMetrics:  Processing 03/31/2017
+CalculateManagerMetrics:  Processing 06/30/2017
+CalculateManagerMetrics:  Processing 09/30/2017
+CalculateManagerMetrics:  Processing 12/31/2017
+CalculateManagerMetrics:  Processing 03/31/2018
+CalculateManagerMetrics:  done 03/31/2016 to 03/31/2018
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-25 13:46:48
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+CalculateManagerMetrics:  Processing 03/31/2016
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 06/30/2016
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 09/30/2016
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 12/31/2016
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 03/31/2017
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 06/30/2017
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 09/30/2017
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 12/31/2017
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 03/31/2018
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  done 03/31/2016 to 03/31/2018
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-25 13:53:16
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+CalculateManagerMetrics:  Processing 03/31/2016
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 06/30/2016
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 09/30/2016
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 12/31/2016
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 03/31/2017
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 06/30/2017
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 09/30/2017
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 12/31/2017
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 03/31/2018
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  done 03/31/2016 to 03/31/2018
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-25 13:59:10
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+CalculateManagerMetrics:  Processing 03/31/2016
+CalculateSponsorManagerRankMetrics:  done RankAssetsBySponsorManager
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 06/30/2016
+CalculateSponsorManagerRankMetrics:  done RankAssetsBySponsorManager
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 09/30/2016
+CalculateSponsorManagerRankMetrics:  done RankAssetsBySponsorManager
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 12/31/2016
+CalculateSponsorManagerRankMetrics:  done RankAssetsBySponsorManager
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 03/31/2017
+CalculateSponsorManagerRankMetrics:  done RankAssetsBySponsorManager
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 06/30/2017
+CalculateSponsorManagerRankMetrics:  done RankAssetsBySponsorManager
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 09/30/2017
+CalculateSponsorManagerRankMetrics:  done RankAssetsBySponsorManager
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 12/31/2017
+CalculateSponsorManagerRankMetrics:  done RankAssetsBySponsorManager
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 03/31/2018
+CalculateSponsorManagerRankMetrics:  done RankAssetsBySponsorManager
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  done 03/31/2016 to 03/31/2018
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-25 14:12:15
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+CalculateManagerMetrics:  Processing 03/31/2016
+CalculateSponsorManagerRankMetrics:  done RankAssetsBySponsorManager
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 06/30/2016
+CalculateSponsorManagerRankMetrics:  done RankAssetsBySponsorManager
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 09/30/2016
+CalculateSponsorManagerRankMetrics:  done RankAssetsBySponsorManager
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 12/31/2016
+CalculateSponsorManagerRankMetrics:  done RankAssetsBySponsorManager
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 03/31/2017
+CalculateSponsorManagerRankMetrics:  done RankAssetsBySponsorManager
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 06/30/2017
+CalculateSponsorManagerRankMetrics:  done RankAssetsBySponsorManager
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 09/30/2017
+CalculateSponsorManagerRankMetrics:  done RankAssetsBySponsorManager
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 12/31/2017
+CalculateSponsorManagerRankMetrics:  done RankAssetsBySponsorManager
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 03/31/2018
+CalculateSponsorManagerRankMetrics:  done RankAssetsBySponsorManager
+CalculateSponsorManagerRankMetrics:  done RankFinalNetBySponsorManager
+CalculateManagerMetrics:  done 03/31/2016 to 03/31/2018
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-25 15:50:47
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+CalculateManagerMetrics:  Processing 03/31/2016
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-25 15:52:39
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+CalculateManagerMetrics:  Processing 03/31/2016
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-25 15:55:06
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+CalculateManagerMetrics:  Processing 03/31/2016
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-25 15:58:41
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+CalculateManagerMetrics:  Processing 03/31/2016
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-09-25 15:59:23
+CalculateManagerMetrics:  03/31/2016 to 03/31/2018
+CalculateManagerMetrics:  Processing 03/31/2016
+CalculateSponsorManagerNumMetrics:  done NumFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 06/30/2016
+CalculateSponsorManagerNumMetrics:  done NumFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 09/30/2016
+CalculateSponsorManagerNumMetrics:  done NumFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 12/31/2016
+CalculateSponsorManagerNumMetrics:  done NumFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 03/31/2017
+CalculateSponsorManagerNumMetrics:  done NumFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 06/30/2017
+CalculateSponsorManagerNumMetrics:  done NumFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 09/30/2017
+CalculateSponsorManagerNumMetrics:  done NumFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 12/31/2017
+CalculateSponsorManagerNumMetrics:  done NumFinalNetBySponsorManager
+CalculateManagerMetrics:  Processing 03/31/2018
+CalculateSponsorManagerNumMetrics:  done NumFinalNetBySponsorManager
+CalculateManagerMetrics:  done 03/31/2016 to 03/31/2018

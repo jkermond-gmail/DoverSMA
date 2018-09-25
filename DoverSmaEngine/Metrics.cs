@@ -205,7 +205,9 @@ namespace DoverSmaEngine
             //CalculateManagerAmountMetrics("AssetsByManager");
             //CalculateManagerAmountMetrics("FinalNetByManager");
             //CalculateSponsorManagerAmountMetrics("AssetsBySponsorManager");
+            //CalculateSponsorManagerAmountMetrics("FinalNetBySponsorManager");
             //CalculateSponsorManagerShareMetrics("AssetShareBySponsorManager");
+            //CalculateSponsorManagerShareMetrics("FinalNetShareBySponsorManager");
 
             do
             {
@@ -213,7 +215,10 @@ namespace DoverSmaEngine
 
                 //CalculateManagerShareMetricsForDate("AssetShareByManager", sCurrentDate);
                 //CalculateManagerShareMetricsForDate("FinalNetShareByManager", sCurrentDate);
-                CalculateSponsorManagerRankMetrics("RankAssetsBySponsorManager", sCurrentDate);
+                //CalculateSponsorManagerRankMetrics("RankAssetsBySponsorManager", sCurrentDate);
+                //CalculateSponsorManagerRankMetrics("RankFinalNetBySponsorManager", sCurrentDate);
+                //CalculateSponsorManagerNumMetrics("NumAssetsBySponsorManager", sCurrentDate);
+                CalculateSponsorManagerNumMetrics("NumFinalNetBySponsorManager", sCurrentDate);
 
                 if (sCurrentDate.Equals(sEndDate))
                     moreDates = false;
@@ -367,15 +372,21 @@ namespace DoverSmaEngine
 
                 case "FinalNetBySponsorManager":
                     commandText1 = @"
-                     select AssetManagerCode, FlowDate, sum(FinalNetFlowsD) as TheSum
-                     FROM [DoverSma].[dbo].[SmaFlows]
-                     group by AssetManagerCode, FlowDate
-                     order by AssetManagerCode, FlowDate asc
+                    SELECT distinct 
+                    [SponsorFirmCode], FlowDate, o.AssetManagerCode, sum(FinalNetFlowsD) as TheSum
+                    FROM [DoverSma].[dbo].[SmaOfferings] o
+                    Inner join SmaFlows f on o.SmaOfferingId = f.SmaOfferingId
+                    where SponsorFirmCode not in ('') and FinalNetFlowsD is not NULL
+                    group by [SponsorFirmCode], FlowDate, o.AssetManagerCode
+                    order by [SponsorFirmCode], FlowDate, o.AssetManagerCode
                     ";
                     commandText2 = @"
-                    update SmaFlows set FinalNetByManager = @Amount
-                    where AssetManagerCode = @AssetManagerCode and FlowDate = @FlowDate 
-                    and FinalNetFlowsD > 0
+                    update SmaFlows set FinalNetBySponsorManager = @Amount where SmaFlowId in 
+                    (SELECT 
+                    f.SmaFlowId
+                    FROM SmaOfferings o
+                    Inner join SmaFlows f on o.SmaOfferingId = f.SmaOfferingId
+                    where SponsorFirmCode = @SponsorFirmCode and f.AssetManagerCode = @AssetManagerCode and FlowDate = @FlowDate and FinalNetFlowsD is not NULL)
                     ";
                     break;
             }
@@ -465,14 +476,14 @@ namespace DoverSmaEngine
             {
                 case "AssetShareBySponsorManager":
                     commandText1 = @"
-                    SELECT distinct SponsorFirmCode, FlowDate, o.AssetManagerCode, AssetsBySponsorManager
+                    SELECT distinct SponsorFirmCode, FlowDate, o.AssetManagerCode, AssetsBySponsorManager as AmountBySponsorManager
                     FROM SmaOfferings o
                     Inner join SmaFlows f on o.SmaOfferingId = f.SmaOfferingId
                     where SponsorFirmCode not in ('')  and AssetsBySponsorManager > 0
                     order by SponsorFirmCode, FlowDate, o.AssetManagerCode
                     ";
                     commandText2 = @"
-                    SELECT sum(AssetsD) as AssetsBySponsor
+                    SELECT sum(AssetsD) as AmountBySponsor
                     FROM SmaOfferings o
                     Inner join SmaFlows f on o.SmaOfferingId = f.SmaOfferingId
                     where AssetsD > 0
@@ -488,17 +499,28 @@ namespace DoverSmaEngine
                     ";
                     break;
 
-                case "FinalNetBySponsorManager":
+                case "FinalNetShareBySponsorManager":
                     commandText1 = @"
-                     select AssetManagerCode, FlowDate, sum(FinalNetFlowsD) as TheSum
-                     FROM [DoverSma].[dbo].[SmaFlows]
-                     group by AssetManagerCode, FlowDate
-                     order by AssetManagerCode, FlowDate asc
+                    SELECT distinct SponsorFirmCode, FlowDate, o.AssetManagerCode, AssetsBySponsorManager as AmountBySponsorManager
+                    FROM SmaOfferings o
+                    Inner join SmaFlows f on o.SmaOfferingId = f.SmaOfferingId
+                    where SponsorFirmCode not in ('')  and FinalNetBySponsorManager is not NULL
+                    order by SponsorFirmCode, FlowDate, o.AssetManagerCode
                     ";
                     commandText2 = @"
-                    update SmaFlows set FinalNetByManager = @Amount
-                    where AssetManagerCode = @AssetManagerCode and FlowDate = @FlowDate 
-                    and FinalNetFlowsD > 0
+                    SELECT sum(FinalNetFlowsD) as AmountBySponsor
+                    FROM SmaOfferings o
+                    Inner join SmaFlows f on o.SmaOfferingId = f.SmaOfferingId
+                    where FinalNetFlowsD is not NULL
+                    and SponsorFirmCode = @SponsorFirmCode and FlowDate = @FlowDate
+                    ";
+                    commandText3 = @"
+                    update SmaFlows set FinalNetShareBySponsorManager = @Share where SmaFlowId in
+                    (SELECT f.SmaFlowId
+                    FROM SmaFlows f
+                    Inner join SmaOfferings o on o.SmaOfferingId = f.SmaOfferingId
+                    where SponsorFirmCode = @SponsorFirmCode and FlowDate = @FlowDate and f.AssetManagerCode = @AssetManagerCode
+                    and FinalNetBySponsorManager is not NULL)
                     ";
                     break;
             }
@@ -544,15 +566,15 @@ namespace DoverSmaEngine
                         decimal share = 0M;
                         string flowDate = "";
                         //int smaFlowId = 0;
-                        decimal assetsBySponsorManager = 0M;
-                        decimal assetsBySponsor = 0M;
+                        decimal amountBySponsorManager = 0M;
+                        decimal amountBySponsor = 0M;
 
                         sponsorFirmCode = dr["SponsorFirmCode"].ToString();
                         flowDate = dr["FlowDate"].ToString();
                         assetManagerCode = dr["AssetManagerCode"].ToString();
                         //smaFlowId = Convert.ToInt32(dr["SmaFlowId"].ToString());
-                        string colVal = dr["AssetsBySponsorManager"].ToString();
-                        assetsBySponsorManager = Utils.ConvertStringToDecimal(colVal);
+                        string colVal = dr["AmountBySponsorManager"].ToString();
+                        amountBySponsorManager = Utils.ConvertStringToDecimal(colVal);
 
                         share = 0;
                         cmd2.Parameters["@SponsorFirmCode"].Value = sponsorFirmCode.ToString();
@@ -566,12 +588,12 @@ namespace DoverSmaEngine
                             while (dr2.Read())
                             {
                                 rows2 += 1;
-                                colVal = dr2["AssetsBySponsor"].ToString();
-                                assetsBySponsor = Utils.ConvertStringToDecimal(colVal);
+                                colVal = dr2["AmountBySponsor"].ToString();
+                                amountBySponsor = Utils.ConvertStringToDecimal(colVal);
 
-                                if (assetsBySponsor > 0)
+                                if (amountBySponsor > 0)
                                 {
-                                    share = assetsBySponsorManager / assetsBySponsor;
+                                    share = amountBySponsorManager / amountBySponsor;
                                     cmd3.Parameters["@Share"].Value = share.ToString();
                                     cmd3.Parameters["@SponsorFirmCode"].Value = sponsorFirmCode.ToString();
                                     cmd3.Parameters["@FlowDate"].Value = flowDate.ToString();
@@ -621,11 +643,11 @@ namespace DoverSmaEngine
             {
                 case "RankAssetsBySponsorManager":
                     commandText1 = @"
-                        SELECT distinct SponsorFirmCode, FlowDate, o.AssetManagerCode, AssetsBySponsorManager, AssetShareBySponsorManager
+                        SELECT distinct SponsorFirmCode, FlowDate, o.AssetManagerCode, AssetsBySponsorManager
                         FROM SmaOfferings o
                         Inner join SmaFlows f on o.SmaOfferingId = f.SmaOfferingId
                         where SponsorFirmCode not in ('')  and AssetsBySponsorManager > 0 and FlowDate = @FlowDate
-                        order by SponsorFirmCode, FlowDate, AssetShareBySponsorManager desc
+                        order by SponsorFirmCode, FlowDate, AssetsBySponsorManager desc
                     ";
                     commandText2 = @"
                     update SmaFlows set RankAssetsBySponsorManager = @Rank where SmaFlowId in
@@ -637,17 +659,21 @@ namespace DoverSmaEngine
                     ";
                     break;
 
-                case "FinalNetBySponsorManager":
+                case "RankFinalNetBySponsorManager":
                     commandText1 = @"
-                     select AssetManagerCode, FlowDate, sum(FinalNetFlowsD) as TheSum
-                     FROM [DoverSma].[dbo].[SmaFlows]
-                     group by AssetManagerCode, FlowDate
-                     order by AssetManagerCode, FlowDate asc
+                        SELECT distinct SponsorFirmCode, FlowDate, o.AssetManagerCode, FinalNetBySponsorManager
+                        FROM SmaOfferings o
+                        Inner join SmaFlows f on o.SmaOfferingId = f.SmaOfferingId
+                        where SponsorFirmCode not in ('')  and FinalNetBySponsorManager is not NULL and FlowDate = @FlowDate
+                        order by SponsorFirmCode, FlowDate, FinalNetBySponsorManager desc
                     ";
                     commandText2 = @"
-                    update SmaFlows set FinalNetByManager = @Amount
-                    where AssetManagerCode = @AssetManagerCode and FlowDate = @FlowDate 
-                    and FinalNetFlowsD > 0
+                    update SmaFlows set RankFinalNetBySponsorManager = @Rank where SmaFlowId in
+                    (SELECT f.SmaFlowId
+                    FROM SmaFlows f
+                    Inner join SmaOfferings o on o.SmaOfferingId = f.SmaOfferingId
+                    where SponsorFirmCode = @SponsorFirmCode and FlowDate = @FlowDate and f.AssetManagerCode = @AssetManagerCode
+                    and FinalNetBySponsorManager is not NULL )
                     ";
                     break;
             }
@@ -715,6 +741,144 @@ namespace DoverSmaEngine
                         {
 
                         }
+                    }
+                }
+                dr.Close();
+            }
+            catch (SqlException ex)
+            {
+                LogHelper.WriteLine(logFuncName + " " + ex.Message);
+            }
+            finally
+            {
+                LogHelper.WriteLine(logFuncName + " done " + shareColumn);
+            }
+        }
+
+        private void CalculateSponsorManagerNumMetrics(string shareColumn, string sEndOfQtrDate)
+        {
+            SqlCommand cmd = null;
+            SqlCommand cmd2 = null;
+            SqlCommand cmd3 = null;
+
+            string logFuncName = "CalculateSponsorManagerNumMetrics: ";
+
+            string commandText1 = "";
+            string commandText2 = "";
+            string commandText3 = "";
+
+            switch (shareColumn)
+            {
+                /*
+                case "NumAssetsBySponsorManager":
+                    commandText1 = @"
+                     ";
+                    commandText2 = @"
+                     ";
+                    commandText3 = @"
+                     ";
+                    break;
+                    */
+                case "NumFinalNetBySponsorManager":
+
+                    commandText1 = @"
+                    select distinct SponsorFirmCode FROM SmaOfferings
+                    Inner join SmaFlows on SmaOfferings.SmaOfferingId = SmaFlows.SmaOfferingId
+                    where FlowDate = @FlowDate and FinalNetFlowsD is not null and SponsorFirmCode not in ('')
+                    order by SponsorFirmCode
+                    ";
+
+                    commandText2 = @"
+                    select count(*) As Num from
+                    (SELECT Distinct
+                    FlowDate, SmaOfferings.AssetManagerCode, SponsorFirmCode, RankFinalNetBySponsorManager
+                    FROM SmaOfferings
+                    Inner join SmaFlows on SmaOfferings.SmaOfferingId = SmaFlows.SmaOfferingId
+                    where SponsorFirmCode = @SponsorFirmCode and FlowDate = @FlowDate and RankFinalNetBySponsorManager > 0) as Num2
+                    ";
+
+                    commandText3 = @"
+                    update SmaFlows set NumFinalNetBySponsorManager = @Num where SmaFlowId in
+                    (SELECT f.SmaFlowId
+                    FROM SmaFlows f
+                    Inner join SmaOfferings o on o.SmaOfferingId = f.SmaOfferingId
+                    where SponsorFirmCode = @SponsorFirmCode and FlowDate = @FlowDate
+                    and RankFinalNetBySponsorManager > 0)
+                    ";
+
+                    break;
+            }
+            try
+            {
+                cmd = new SqlCommand
+                {
+                    Connection = mSqlConn1,
+                    CommandText = commandText1
+                };
+
+                cmd2 = new SqlCommand
+                {
+                    Connection = mSqlConn2,
+                    CommandText = commandText2
+                };
+
+                cmd3 = new SqlCommand
+                {
+                    Connection = mSqlConn3,
+                    CommandText = commandText3
+                };
+
+                cmd.Parameters.Add("@FlowDate", SqlDbType.Date);
+
+                cmd2.Parameters.Add("@FlowDate", SqlDbType.Date);
+                cmd2.Parameters.Add("@SponsorFirmCode", SqlDbType.VarChar);
+
+                cmd3.Parameters.Add("@FlowDate", SqlDbType.Date);
+                cmd3.Parameters.Add("@SponsorFirmCode", SqlDbType.VarChar);
+                cmd3.Parameters.Add("@Num", SqlDbType.Int);
+
+                cmd.Parameters["@FlowDate"].Value = sEndOfQtrDate;
+                cmd2.Parameters["@FlowDate"].Value = sEndOfQtrDate;
+                cmd3.Parameters["@FlowDate"].Value = sEndOfQtrDate;
+
+                SqlDataReader dr = null;
+                SqlDataReader dr2 = null;
+
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    string sponsorFirmCode = "";
+                    int num = 0;
+
+                    while (dr.Read())
+                    {
+                        sponsorFirmCode = dr["SponsorFirmCode"].ToString();
+                        cmd2.Parameters["@SponsorFirmCode"].Value = sponsorFirmCode.ToString();
+                        cmd3.Parameters["@SponsorFirmCode"].Value = sponsorFirmCode.ToString();
+
+                        dr2 = cmd2.ExecuteReader();
+                        if (dr2.HasRows)
+                        {
+                            dr2.Read();
+                            string val = dr2["Num"].ToString();
+                            num = Convert.ToInt32(val);
+                            if (num > 0)
+                            {
+                                try
+                                {
+                                    cmd3.Parameters["@Num"].Value = num.ToString();
+                                    cmd3.ExecuteNonQuery();
+                                }
+                                catch (SqlException ex)
+                                {
+                                    LogHelper.WriteLine(logFuncName + ex.Message);
+                                }
+                                finally
+                                {
+                                }
+                            }
+                        }
+                        dr2.Close();
                     }
                 }
                 dr.Close();

@@ -1,0 +1,119 @@
+Code	CodeDesc
+AA	Commodities Agriculture
+AL	Allocation - 70% to 85% Equity
+AM	Multialternative
+BB	Commodities Broad Basket
+BL	Bank Loan
+BM	Bear Market
+CA	Allocation - 30% to 50% Equity
+CC	Consumer Defensive
+CD	Consumer Cyclical
+CE	Commodities Energy
+CH	China Region
+CI	Intermediate-Term Bond
+CL	Long-Term Bond
+CM	Commodities Miscellaneous
+CO	Commodities Precious Metals
+CR	Multicurrency
+CS	Short-Term Bond
+CV	Convertibles
+DP	Diversified Pacific/Asia
+EB	Emerging-Markets Bond
+EE	Equity Energy
+EI	India Equity
+EM	Diversified Emerging Markets
+ES	Europe Stock
+FA	Foreign Small/Mid-Value
+FB	Foreign Large-Blend
+FF	Managed Futures
+FG	Foreign Large-Growth
+FQ	Foreign Small/Mid-Blend
+FR	Foreign Small/Mid-Growth
+FV	Foreign Large-Value
+FX	Single Currency
+GI	Intermediate Government
+GL	Long Government
+GR	Global Real Estate
+GS	Short Government
+HM	High-Yield Muni
+HY	High-Yield Bond
+IB	World Bond
+IC	Trading - Inverse Commodities
+ID	Industrials
+IE	Trading - Inverse Equity
+IH	World Allocation
+IM	Commodities Industrial Metals
+IP	Inflation-Protected Bond
+IS	Trading - Miscellaneous
+JS	Japan Stock
+LB	Large-Cap Blend
+LC	Trading - Leveraged Equity
+LE	Trading - Leveraged Commodities
+LG	Large-Cap Growth
+LL	Leveraged Net Long
+LO	Long-Short Equity
+LP	Energy Limited Partnership
+LS	Latin America Stock
+LV	Large-Cap Value
+MA	Allocation - 50% to 70% Equity
+MB	Mid-Cap Blend
+MC	Muni California Long
+MF	Muni California Intermediate
+MG	Mid-Cap Growth
+MI	Muni National Intermediate
+MJ	Muni New Jersey
+ML	Muni National Long
+MN	Muni New York Intermediate
+MO	Muni Ohio
+MP	Muni Pennsylvania
+MQ	Miscellaneous Region
+MR	Miscellaneous Sector
+MS	Muni National Short
+MT	Muni Massachusetts
+MU	Multisector Bond
+MV	Mid-Cap Value
+MY	Muni New York Long
+ND	Trading - Inverse Debt
+NE	Market Neutral
+NT	Nontraditional Bond
+PJ	Pacific /Asia ex-Japan Stock
+RI	Target Date Retirement
+RR	Preferred Stock
+SB	Small-Cap Blend
+SC	Communications
+SF	Financial
+SG	Small-Cap Growth
+SH	Health
+SI	Muni Single State Intemediate
+SL	Muni Single State Long
+SM	Muni Minnesota
+SN	Natural Resources
+SP	Equity Precious Metals
+SR	Real Estate
+ST	Technology
+SU	Utilities
+SV	Small-Cap Value
+TA	Target Date 2000-2010
+TD	Target Date 2015
+TE	Target Date 2020
+TG	Target Date 2025
+TH	Target Date 2030
+TI	Target Date 2035
+TJ	Target Date 2040
+TK	Target Date 2045
+TL	Target Date 2055
+TN	Target Date 2050
+TV	Tactical Allocation
+TW	Corporate Bond
+UB	Ultrashort Bond
+VD	Trading - Leveraged Debt
+VL	Stable Value
+VO	Volatility
+WS	World Stock
+XM	Allocation - 85%+ Equity
+XO	Infrastructure
+XP	Emerging-Markets Local-Currency Bond
+XQ	Target Date 2060+
+XR	Option Writing
+XS	Long-Short Credit
+XY	Allocation - 15% to 30% Equity
