@@ -18,6 +18,7 @@ namespace DoverSMA
     {
         private FileProcessor mSmaFileProcessor = null;
         private Metrics mSmaMetrics = null;
+        private Reports mReports = null;
         private string mSelectedManager = "";
 
         public DoverSMA_Form()
@@ -27,6 +28,7 @@ namespace DoverSMA
             LogHelper.StartLog("DoverSmaLog.txt", @"C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\", deleteExisting);
             mSmaFileProcessor = new FileProcessor();
             mSmaMetrics = new Metrics();
+            mReports = new Reports();
             ListBoxManagers.SetSelected(0, true);
         }
 
@@ -101,6 +103,11 @@ namespace DoverSMA
             //mSmaMetrics.CalculateNumManagersMetrics("03/31/2016", "03/31/2018");
             mSmaMetrics.CalculateManagerMetrics("03/31/2016", "03/31/2018");
 
+        }
+
+        private void BtnGenerateReportSponsorAmounts_Click(object sender, EventArgs e)
+        {
+            mReports.GenerateReportSponsorAmounts("03/31/2016", "03/31/2018");
         }
     }
 }

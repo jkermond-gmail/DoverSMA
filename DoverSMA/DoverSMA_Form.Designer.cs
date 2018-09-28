@@ -39,6 +39,7 @@
             this.BtnUpdateSmaOfferings = new System.Windows.Forms.Button();
             this.BtnCalculateOpportunityMetrics = new System.Windows.Forms.Button();
             this.BtnCalculateAllMetrics = new System.Windows.Forms.Button();
+            this.BtnGenerateReportSponsorAmounts = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnProcessSmaOfferings
@@ -166,11 +167,22 @@
             this.BtnCalculateAllMetrics.UseVisualStyleBackColor = true;
             this.BtnCalculateAllMetrics.Click += new System.EventHandler(this.BtnCalculateAllMetrics_Click);
             // 
+            // BtnGenerateReportSponsorAmounts
+            // 
+            this.BtnGenerateReportSponsorAmounts.Location = new System.Drawing.Point(195, 192);
+            this.BtnGenerateReportSponsorAmounts.Name = "BtnGenerateReportSponsorAmounts";
+            this.BtnGenerateReportSponsorAmounts.Size = new System.Drawing.Size(185, 23);
+            this.BtnGenerateReportSponsorAmounts.TabIndex = 13;
+            this.BtnGenerateReportSponsorAmounts.Text = "BtnGenerateReportSponsorAmounts";
+            this.BtnGenerateReportSponsorAmounts.UseVisualStyleBackColor = true;
+            this.BtnGenerateReportSponsorAmounts.Click += new System.EventHandler(this.BtnGenerateReportSponsorAmounts_Click);
+            // 
             // DoverSMA_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BtnGenerateReportSponsorAmounts);
             this.Controls.Add(this.BtnCalculateAllMetrics);
             this.Controls.Add(this.BtnCalculateOpportunityMetrics);
             this.Controls.Add(this.BtnUpdateSmaOfferings);
@@ -201,5 +213,6 @@
         private System.Windows.Forms.Button BtnUpdateSmaOfferings;
         private System.Windows.Forms.Button BtnCalculateOpportunityMetrics;
         private System.Windows.Forms.Button BtnCalculateAllMetrics;
+        private System.Windows.Forms.Button BtnGenerateReportSponsorAmounts;
     }
 }

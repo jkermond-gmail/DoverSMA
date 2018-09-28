@@ -1,10 +1,8 @@
 ﻿using System;
-using System.IO;
+//using System.IO;
 using System.Data;
 using System.Data.SqlClient;
-using System.Globalization;
-
-using LumenWorks.Framework.IO.Csv;
+//using System.Globalization;
 
 using DoverUtilities;
 
@@ -205,7 +203,7 @@ namespace DoverSmaEngine
             //CalculateManagerAmountMetrics("AssetsByManager");
             //CalculateManagerAmountMetrics("FinalNetByManager");
             //CalculateSponsorManagerAmountMetrics("AssetsBySponsorManager");
-            //CalculateSponsorManagerAmountMetrics("FinalNetBySponsorManager");
+            CalculateSponsorManagerAmountMetrics("FinalNetBySponsorManager");
             //CalculateSponsorManagerShareMetrics("AssetShareBySponsorManager");
             //CalculateSponsorManagerShareMetrics("FinalNetShareBySponsorManager");
 
@@ -216,7 +214,7 @@ namespace DoverSmaEngine
                 //CalculateManagerShareMetricsForDate("AssetShareByManager", sCurrentDate);
                 //CalculateManagerShareMetricsForDate("FinalNetShareByManager", sCurrentDate);
                 //CalculateSponsorManagerRankMetrics("RankAssetsBySponsorManager", sCurrentDate);
-                //CalculateSponsorManagerRankMetrics("RankFinalNetBySponsorManager", sCurrentDate);
+                CalculateSponsorManagerRankMetrics("RankFinalNetBySponsorManager", sCurrentDate);
                 //CalculateSponsorManagerNumMetrics("NumAssetsBySponsorManager", sCurrentDate);
                 CalculateSponsorManagerNumMetrics("NumFinalNetBySponsorManager", sCurrentDate);
 
@@ -629,7 +627,7 @@ namespace DoverSmaEngine
             }
         }
 
-        private void CalculateSponsorManagerRankMetrics(string shareColumn, string sEndOfQtrDate) 
+        private void CalculateSponsorManagerRankMetrics(string updateColumn, string sEndOfQtrDate) 
         {
             SqlCommand cmd = null;
             SqlCommand cmd2 = null;
@@ -639,14 +637,15 @@ namespace DoverSmaEngine
             string commandText1 = "";
             string commandText2 = "";
 
-            switch (shareColumn)
+            switch (updateColumn)
             {
                 case "RankAssetsBySponsorManager":
                     commandText1 = @"
                         SELECT distinct SponsorFirmCode, FlowDate, o.AssetManagerCode, AssetsBySponsorManager
                         FROM SmaOfferings o
                         Inner join SmaFlows f on o.SmaOfferingId = f.SmaOfferingId
-                        where SponsorFirmCode not in ('')  and AssetsBySponsorManager > 0 and FlowDate = @FlowDate
+                        where SponsorFirmCode in (select SponsorFirmCode from SponsorFirms where InManagerSponsorScorecard = 'Y')  
+                        and AssetsBySponsorManager > 0 and FlowDate = @FlowDate
                         order by SponsorFirmCode, FlowDate, AssetsBySponsorManager desc
                     ";
                     commandText2 = @"
@@ -664,7 +663,8 @@ namespace DoverSmaEngine
                         SELECT distinct SponsorFirmCode, FlowDate, o.AssetManagerCode, FinalNetBySponsorManager
                         FROM SmaOfferings o
                         Inner join SmaFlows f on o.SmaOfferingId = f.SmaOfferingId
-                        where SponsorFirmCode not in ('')  and FinalNetBySponsorManager is not NULL and FlowDate = @FlowDate
+                        where SponsorFirmCode in (select SponsorFirmCode from SponsorFirms where InManagerSponsorScorecard = 'Y')  
+                        and FinalNetBySponsorManager is not NULL and FlowDate = @FlowDate
                         order by SponsorFirmCode, FlowDate, FinalNetBySponsorManager desc
                     ";
                     commandText2 = @"
@@ -751,11 +751,11 @@ namespace DoverSmaEngine
             }
             finally
             {
-                LogHelper.WriteLine(logFuncName + " done " + shareColumn);
+                LogHelper.WriteLine(logFuncName + " done " + updateColumn);
             }
         }
 
-        private void CalculateSponsorManagerNumMetrics(string shareColumn, string sEndOfQtrDate)
+        private void CalculateSponsorManagerNumMetrics(string updateColumn, string sEndOfQtrDate)
         {
             SqlCommand cmd = null;
             SqlCommand cmd2 = null;
@@ -767,7 +767,7 @@ namespace DoverSmaEngine
             string commandText2 = "";
             string commandText3 = "";
 
-            switch (shareColumn)
+            switch (updateColumn)
             {
                 /*
                 case "NumAssetsBySponsorManager":
@@ -784,7 +784,8 @@ namespace DoverSmaEngine
                     commandText1 = @"
                     select distinct SponsorFirmCode FROM SmaOfferings
                     Inner join SmaFlows on SmaOfferings.SmaOfferingId = SmaFlows.SmaOfferingId
-                    where FlowDate = @FlowDate and FinalNetFlowsD is not null and SponsorFirmCode not in ('')
+                    where FlowDate = @FlowDate and FinalNetFlowsD is not null and SponsorFirmCode in 
+                    (select SponsorFirmCode from SponsorFirms where InManagerSponsorScorecard = 'Y')
                     order by SponsorFirmCode
                     ";
 
@@ -889,7 +890,7 @@ namespace DoverSmaEngine
             }
             finally
             {
-                LogHelper.WriteLine(logFuncName + " done " + shareColumn);
+                LogHelper.WriteLine(logFuncName + " done " + updateColumn);
             }
         }
 
