@@ -102,12 +102,13 @@ namespace DoverSMA
             //mSmaMetrics.CalculateRankMetrics("03/31/2016", "03/31/2018");
             //mSmaMetrics.CalculateNumManagersMetrics("03/31/2016", "03/31/2018");
             mSmaMetrics.CalculateManagerMetrics("03/31/2016", "03/31/2018");
-
         }
 
         private void BtnGenerateReportSponsorAmounts_Click(object sender, EventArgs e)
         {
             mReports.GenerateReportSponsorAmounts("03/31/2016", "03/31/2018");
+            mReports.GenerateReportSponsorAmountsOther("03/31/2016", "03/31/2018");
+
         }
     }
 }

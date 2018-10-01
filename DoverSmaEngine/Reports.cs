@@ -41,9 +41,6 @@ namespace DoverSmaEngine
 
         //LogHelper.WriteLine(logFuncName + " " + sStartDate + " to " + sEndDate);
 
-
-            LogHelper.WriteLine(logFuncName + " done " + sStartDate + " to " + sEndDate);
-
             SqlCommand cmd = null;
 
             string commandText = @"
@@ -65,7 +62,6 @@ namespace DoverSmaEngine
 
                 int rows = 0;
                 string FlowDate = "";
-                string prevFlowDate = "";
                 string SponsorFirmCode = "";
                 string prevSponsorFirmCode = "";
                 string MorningstarClassId = "";
@@ -74,10 +70,7 @@ namespace DoverSmaEngine
                 string prevMorningstarClassDesc = "";
                 string AssetsTotal = "";
                 string FinalNetTotal = "";
-                bool writeReportLine = false;
                 string reportLine = "";
-                string assetsLine = "";
-                string finalNetLine = "";
 
                 List<string> flowDateList = new List<string>();
                 List<string> assetsList = new List<string>();
@@ -138,7 +131,6 @@ namespace DoverSmaEngine
                         }
                         else
                         {
-                            writeReportLine = true;
                             reportLine = prevSponsorFirmCode + "," + prevMorningstarClassId + "," + prevMorningstarClassDesc;
 
                             for (i = 0; i < assetsList.Count; i++)
@@ -150,6 +142,7 @@ namespace DoverSmaEngine
                             LogHelper.WriteLine(reportLine);
                             prevSponsorFirmCode = SponsorFirmCode;
                             prevMorningstarClassId = MorningstarClassId;
+                            prevMorningstarClassDesc = MorningstarClassDesc;
                             for (i = 0; i < assetsList.Count; i++)
                             {
                                 assetsList[i] = "";
@@ -167,7 +160,6 @@ namespace DoverSmaEngine
                                     break;
                                 }
                             }
-
                         }
                     }
                     reportLine = prevSponsorFirmCode + "," + prevMorningstarClassId + "," + prevMorningstarClassDesc;
@@ -191,9 +183,153 @@ namespace DoverSmaEngine
             {
                 //LogHelper.WriteLine(logFuncName + " done " );
             }
-
-
-
         }
+
+        public void GenerateReportSponsorAmountsOther(string sStartDate, string sEndDate)
+        {
+            string sCurrentDate = sStartDate;
+            bool moreDates = true;
+            string logFuncName = "GenerateReportSponsorAmounts: ";
+
+            //LogHelper.WriteLine(logFuncName + " " + sStartDate + " to " + sEndDate);
+
+            SqlCommand cmd = null;
+
+            string commandText = @"
+                SELECT FlowDate, MorningstarClassId, m.CodeDesc as MorningstarClassDesc, sum(AssetsD) as AssetsTotal, sum(FinalNetFlowsD) as FinalNetTotal
+                FROM SmaOfferings
+                inner join SmaFlows on SmaOfferings.SmaOfferingId = SmaFlows.SmaOfferingId
+                inner join MorningstarClassifications m on SmaOfferings.MorningstarClassId = m.Code
+                where SponsorFirmCode in (select SponsorFirmCode from SponsorFirms where InSponsorAmountsScorecard = 'N')
+                group by SmaOfferings.MorningstarClassId, m.CodeDesc,FlowDate
+                order by SmaOfferings.MorningstarClassId, FlowDate
+              ";
+            try
+            {
+                cmd = new SqlCommand
+                {
+                    Connection = mSqlConn1,
+                    CommandText = commandText
+                };
+
+                int rows = 0;
+                string FlowDate = "";
+                string MorningstarClassId = "";
+                string prevMorningstarClassId = "";
+                string MorningstarClassDesc = "";
+                string prevMorningstarClassDesc = "";
+                string AssetsTotal = "";
+                string FinalNetTotal = "";
+                string reportLine = "";
+
+                List<string> flowDateList = new List<string>();
+                List<string> assetsList = new List<string>();
+                List<string> finalNetList = new List<string>();
+
+                sCurrentDate = sStartDate;
+                do
+                {
+                    flowDateList.Add(sCurrentDate);
+                    assetsList.Add("");
+                    finalNetList.Add("");
+
+                    if (sCurrentDate.Equals(sEndDate))
+                        moreDates = false;
+                    else
+                        sCurrentDate = Utils.CalculateNextEndOfQtrDate(sCurrentDate);
+                }
+                while (moreDates.Equals(true));
+
+                SqlDataReader dr = null;
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    int i = 0;
+                    while (dr.Read())
+                    {
+                        rows += 1;
+                        FlowDate = dr["FlowDate"].ToString();
+                        MorningstarClassId = dr["MorningstarClassId"].ToString();
+                        MorningstarClassDesc = dr["MorningstarClassDesc"].ToString();
+                        AssetsTotal = dr["AssetsTotal"].ToString();
+                        FinalNetTotal = dr["FinalNetTotal"].ToString();
+
+                        if (prevMorningstarClassId.Equals(""))
+                            prevMorningstarClassId = MorningstarClassId;
+                        if (prevMorningstarClassDesc.Equals(""))
+                            prevMorningstarClassDesc = MorningstarClassDesc;
+
+                        if (MorningstarClassId.Equals(prevMorningstarClassId))
+                        {
+                            sCurrentDate = sStartDate;
+
+                            for (i = 0; i < assetsList.Count; i++)
+                            {
+                                DateTime dt = DateTime.Parse(FlowDate);
+                                string sFlowDate = dt.ToString("MM/dd/yyyy");
+
+                                if (flowDateList[i].Equals(sFlowDate))
+                                {
+                                    assetsList[i] = AssetsTotal;
+                                    finalNetList[i] = FinalNetTotal;
+                                    break;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            reportLine =  "Other-Less than 3 mgrs.," + prevMorningstarClassId + "," + prevMorningstarClassDesc;
+
+                            for (i = 0; i < assetsList.Count; i++)
+                                reportLine += "," + assetsList[i];
+
+                            for (i = 0; i < finalNetList.Count; i++)
+                                reportLine += "," + finalNetList[i];
+
+                            LogHelper.WriteLine(reportLine);
+                            prevMorningstarClassId = MorningstarClassId;
+                            prevMorningstarClassDesc = MorningstarClassDesc;
+
+                            for (i = 0; i < assetsList.Count; i++)
+                            {
+                                assetsList[i] = "";
+                                finalNetList[i] = "";
+                            }
+                            for (i = 0; i < assetsList.Count; i++)
+                            {
+                                DateTime dt = DateTime.Parse(FlowDate);
+                                string sFlowDate = dt.ToString("MM/dd/yyyy");
+
+                                if (flowDateList[i].Equals(sFlowDate))
+                                {
+                                    assetsList[i] = AssetsTotal;
+                                    finalNetList[i] = FinalNetTotal;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    reportLine = "Other-Less than 3 mgrs.," + prevMorningstarClassId + "," + prevMorningstarClassDesc;
+
+                    for (i = 0; i < assetsList.Count; i++)
+                        reportLine += "," + assetsList[i];
+
+                    for (i = 0; i < finalNetList.Count; i++)
+                        reportLine += "," + finalNetList[i];
+
+                    LogHelper.WriteLine(reportLine);
+                }
+                dr.Close();
+            }
+            catch (SqlException ex)
+            {
+                LogHelper.WriteLine(logFuncName + " " + ex.Message);
+            }
+            finally
+            {
+                //LogHelper.WriteLine(logFuncName + " done " );
+            }
+        }
+
     }
 }
