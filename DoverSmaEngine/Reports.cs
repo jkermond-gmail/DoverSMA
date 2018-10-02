@@ -33,6 +33,183 @@ namespace DoverSmaEngine
         }
         #endregion Constructor
 
+        private void getTopNSponsorsByAssets(int topN, string sEndOfQtrDate, out List<string> listSponsors)
+        {
+            string logFuncName = "getTopNSponsorsByAssets: ";
+
+            LogHelper.WriteLine(logFuncName + " " + topN + "  " + sEndOfQtrDate);
+
+            listSponsors = new List<string>();
+
+            SqlCommand cmd = null;
+
+            string commandText = @"
+                SELECT top " + topN + " " ;
+            commandText += @"
+                SponsorFirmCode, sum(AssetsD) as AssetsTotal
+                FROM SmaOfferings o
+                inner join SmaFlows on o.SmaOfferingId = SmaFlows.SmaOfferingId
+                where FlowDate = @FlowDate and AssetsD is not null
+                group by SponsorFirmCode 
+                order by AssetsTotal desc 
+                ";
+            try
+            {
+                cmd = new SqlCommand
+                {
+                    Connection = mSqlConn1,
+                    CommandText = commandText
+                };
+
+                cmd.Parameters.Add("@FlowDate", SqlDbType.Date);
+                cmd.Parameters["@FlowDate"].Value = sEndOfQtrDate;
+
+                SqlDataReader dr = null;
+                dr = cmd.ExecuteReader();
+                int rows = 0;
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        rows += 1;
+                        string sponsorFirmCode = "";
+                        sponsorFirmCode = dr["SponsorFirmCode"].ToString();
+                        listSponsors.Add(sponsorFirmCode);
+                    }
+                }
+                dr.Close();
+            }
+            catch (SqlException ex)
+            {
+                LogHelper.WriteLine(logFuncName + " " + ex.Message);
+            }
+            finally
+            {
+                LogHelper.WriteLine(logFuncName + " done " );
+            }
+            return;
+        }
+
+        private void getCountOfferings(string SponsorFirmCode, string sFlowDate, string MorningstarClassId, out int TheCount)
+
+        {
+            string logFuncName = "getCountOfferings: ";
+
+            LogHelper.WriteLine(logFuncName );
+
+            TheCount = 0;
+
+            SqlCommand cmd = null;
+
+            string commandText = @"
+                select count(*) as TheCount FROM SmaOfferings o
+                inner join SmaFlows on o.SmaOfferingId = SmaFlows.SmaOfferingId
+                where SponsorFirmCode = @SponsorFirmCode and FlowDate = @FlowDate 
+                and MorningstarClassId = @MorningstarClassId and AssetsD is not null 
+                ";
+            try
+            {
+                cmd = new SqlCommand
+                {
+                    Connection = mSqlConn2,
+                    CommandText = commandText
+                };
+
+                cmd.Parameters.Add("@FlowDate", SqlDbType.Date);
+                cmd.Parameters["@FlowDate"].Value = sFlowDate;
+                cmd.Parameters.Add("@SponsorFirmCode", SqlDbType.VarChar);
+                cmd.Parameters["@SponsorFirmCode"].Value = SponsorFirmCode;
+                cmd.Parameters.Add("@MorningstarClassId", SqlDbType.VarChar);
+                cmd.Parameters["@MorningstarClassId"].Value = MorningstarClassId;
+
+                SqlDataReader dr = null;
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    dr.Read();
+                    string val = dr["TheCount"].ToString();
+                    TheCount = Convert.ToInt32(val);
+                }
+                dr.Close();
+            }
+            catch (SqlException ex)
+            {
+                LogHelper.WriteLine(logFuncName + " " + ex.Message);
+            }
+            finally
+            {
+                LogHelper.WriteLine(logFuncName + " done ");
+            }
+            return;
+        }
+
+
+        public void GenerateReportManagerDataset()
+        {
+            string logFuncName = "GenerateReportManagerDataset: ";
+
+            LogHelper.WriteLine(logFuncName);
+
+            List<string> listSponsors;
+            int topN = 20;
+            string sEndOfQtrDate = "03/31/2018";
+            getTopNSponsorsByAssets(topN, sEndOfQtrDate, out listSponsors);
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand
+                {
+                    Connection = mSqlConn1,
+                    CommandText = @"
+                        SELECT o.AssetManagerCode, FlowDate, SmaStrategy, MorningstarClassId, m.CodeDesc as MorningstarClassDesc, 
+                        sum(AssetsD) as AssetsTotal, sum(FinalNetFlowsD) as FinalNetTotal
+                        FROM SmaOfferings o
+                        inner join SmaFlows on o.SmaOfferingId = SmaFlows.SmaOfferingId
+                        inner join MorningstarClassifications m on o.MorningstarClassId = m.Code
+                        inner join AssetManagers a on o.AssetManagerCode = a.AssetManagerCode
+                        where SponsorFirmCode = @SponsorFirmCode
+                        and AssetsD is not null 
+                        group by o.AssetManagerCode, o.MorningstarClassId, m.CodeDesc, SmaStrategy, FlowDate
+                        order by o.MorningstarClassId,  m.CodeDesc, AssetsTotal desc, o.AssetManagerCode, SmaStrategy, FlowDate
+                        "
+                };
+
+                cmd.Parameters.Add("@SponsorFirmCode", SqlDbType.VarChar);
+
+                foreach (string sponsorFirmCode in listSponsors)
+                {
+                    cmd.Parameters["@SponsorFirmCode"].Value = sponsorFirmCode;
+
+                    string sFlowDate = "";
+                    string MorningstarClassId = "";
+                    int TheCount = 0;
+
+                    SqlDataReader dr = null;
+                    dr = cmd.ExecuteReader();
+                    int rows = 0;
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            rows += 1;
+                            sFlowDate = dr["FlowDate"].ToString();
+                            MorningstarClassId = dr["MorningstarClassId"].ToString();
+                            getCountOfferings(sponsorFirmCode, sFlowDate, MorningstarClassId, out TheCount);
+                        }
+                    }
+                    dr.Close();
+                }
+            }
+            catch (SqlException ex)
+            {
+                LogHelper.WriteLine(logFuncName + " " + ex.Message);
+            }
+            finally
+            {
+                LogHelper.WriteLine(logFuncName + " done ");
+            }
+        }
+
         public void GenerateReportSponsorAmounts(string sStartDate, string sEndDate)
         { 
         string sCurrentDate = sStartDate;

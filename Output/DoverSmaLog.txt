@@ -784,3 +784,29 @@ Other-Less than 3 mgrs.,TW,Corporate Bond,46.02277810,25.96360392,28.90858782,26
 Other-Less than 3 mgrs.,WS,World Stock,241.44617926,232.14308232,181.51925357,230.92431085,260.87561297,270.81506536,281.99938997,283.22353727,277.36939824,-0.27871900,-10.71280078,-21.77523059,-3.88581461,21.99792546,3.05783423,2.33354245,-3.48127652,-7.62118180
 Other-Less than 3 mgrs.,XM,Allocation - 85%+ Equity,0.00000000,0.00000000,0.00000000,0.00000000,0.00000000,0.00000000,0.05017317,0.05278210,0.05294400,,,,,,,0.05000000,,
 Other-Less than 3 mgrs.,XY,Allocation - 15% to 30% Equity,0.66600000,0.63680000,0.15430000,0.00000000,0.00000000,0.00000000,0.37524652,0.38075652,0.37823502,,,,,,,0.37500000,,
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-10-01 21:06:29
+getTopNSponsorsByAssets:  20  03/31/2018
+getTopNSponsorsByAssets:  done 
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-10-01 21:59:50
+GenerateReportManagerDataset: 
+getTopNSponsorsByAssets:  20  03/31/2018
+getTopNSponsorsByAssets:  done 
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-10-01 22:00:05
+GenerateReportManagerDataset: 
+getTopNSponsorsByAssets:  20  03/31/2018
+getTopNSponsorsByAssets:  done 
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-10-01 22:00:38
+GenerateReportManagerDataset: 
+getTopNSponsorsByAssets:  20  03/31/2018
+getTopNSponsorsByAssets:  done 
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-10-01 22:02:47
+GenerateReportManagerDataset: 
+getTopNSponsorsByAssets:  20  03/31/2018
+getTopNSponsorsByAssets:  done 
+getCountOfferings: 
+C:\A_Development\visual studio 2017\Projects\DoverSMA\Output\DoverSmaLog.txt opened 2018-10-01 22:04:22
+GenerateReportManagerDataset: 
+getTopNSponsorsByAssets:  20  03/31/2018
+getTopNSponsorsByAssets:  done 
+getCountOfferings: 
+getCountOfferings:  done 
