@@ -33,11 +33,12 @@ namespace DoverSmaEngine
         }
         #endregion Constructor
 
+
         private void getTopNSponsorsByAssets(int topN, string sEndOfQtrDate, out List<string> listSponsors)
         {
             string logFuncName = "getTopNSponsorsByAssets: ";
 
-            LogHelper.WriteLine(logFuncName + " " + topN + "  " + sEndOfQtrDate);
+            //LogHelper.WriteLine(logFuncName + " " + topN + "  " + sEndOfQtrDate);
 
             listSponsors = new List<string>();
 
@@ -85,27 +86,26 @@ namespace DoverSmaEngine
             }
             finally
             {
-                LogHelper.WriteLine(logFuncName + " done " );
+              //  LogHelper.WriteLine(logFuncName + " done " );
             }
             return;
         }
 
         private void getCountOfferings(string SponsorFirmCode, string sFlowDate, string MorningstarClassId, out int TheCount)
-
         {
             string logFuncName = "getCountOfferings: ";
 
-            LogHelper.WriteLine(logFuncName );
+            //LogHelper.WriteLine(logFuncName );
 
             TheCount = 0;
 
             SqlCommand cmd = null;
 
             string commandText = @"
-                select count(*) as TheCount FROM SmaOfferings o
+                select count(*) FROM (select distinct SmaStrategy, SponsorFirmCode, MorningstarClassId from SmaOfferings o
                 inner join SmaFlows on o.SmaOfferingId = SmaFlows.SmaOfferingId
-                where SponsorFirmCode = @SponsorFirmCode and FlowDate = @FlowDate 
-                and MorningstarClassId = @MorningstarClassId and AssetsD is not null 
+                where SponsorFirmCode = @SponsorFirmCode and FlowDate = @FlowDate and MorningstarClassId = @MorningstarClassId 
+                and AssetsD is not null and AssetsD > 0) as TheCount
                 ";
             try
             {
@@ -127,7 +127,7 @@ namespace DoverSmaEngine
                 if (dr.HasRows)
                 {
                     dr.Read();
-                    string val = dr["TheCount"].ToString();
+                    string val = dr[0].ToString();
                     TheCount = Convert.ToInt32(val);
                 }
                 dr.Close();
@@ -138,22 +138,227 @@ namespace DoverSmaEngine
             }
             finally
             {
-                LogHelper.WriteLine(logFuncName + " done ");
+              //  LogHelper.WriteLine(logFuncName + " done ");
+            }
+            return;
+        }
+
+        private void getCountOfferingsFinalNet(string SponsorFirmCode, string sFlowDate, string MorningstarClassId, out int TheCount)
+        {
+            string logFuncName = "getCountOfferingsFinalNet: ";
+
+            //LogHelper.WriteLine(logFuncName );
+
+            TheCount = 0;
+
+            SqlCommand cmd = null;
+
+            string commandText = @"
+                select count(*) FROM (select distinct SmaStrategy, SponsorFirmCode, MorningstarClassId from SmaOfferings o
+                inner join SmaFlows on o.SmaOfferingId = SmaFlows.SmaOfferingId
+                where SponsorFirmCode = @SponsorFirmCode and FlowDate = @FlowDate and MorningstarClassId = @MorningstarClassId 
+                and FinalNetFlowsD is not null) as TheCount
+                ";
+            try
+            {
+                cmd = new SqlCommand
+                {
+                    Connection = mSqlConn2,
+                    CommandText = commandText
+                };
+
+                cmd.Parameters.Add("@FlowDate", SqlDbType.Date);
+                cmd.Parameters["@FlowDate"].Value = sFlowDate;
+                cmd.Parameters.Add("@SponsorFirmCode", SqlDbType.VarChar);
+                cmd.Parameters["@SponsorFirmCode"].Value = SponsorFirmCode;
+                cmd.Parameters.Add("@MorningstarClassId", SqlDbType.VarChar);
+                cmd.Parameters["@MorningstarClassId"].Value = MorningstarClassId;
+
+                SqlDataReader dr = null;
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    dr.Read();
+                    string val = dr[0].ToString();
+                    TheCount = Convert.ToInt32(val);
+                }
+                dr.Close();
+            }
+            catch (SqlException ex)
+            {
+                LogHelper.WriteLine(logFuncName + " " + ex.Message);
+            }
+            finally
+            {
+                //  LogHelper.WriteLine(logFuncName + " done ");
+            }
+            return;
+        }
+
+        private void getRankOfferings(string SponsorFirmCode, string sFlowDate, string MorningstarClassId, string SmaStrategy, out int Rank)
+        {
+            string logFuncName = "getRankOfferings: ";
+
+            //LogHelper.WriteLine(logFuncName );
+
+            Rank = 0;
+
+            SqlCommand cmd = null;
+
+            string commandText = @"
+                select SmaStrategy, SponsorFirmCode, MorningstarClassId, sum(AssetsD) as AssetsTotal FROM SmaOfferings o
+                inner join SmaFlows on o.SmaOfferingId = SmaFlows.SmaOfferingId
+                where SponsorFirmCode = @SponsorFirmCode and FlowDate = @FlowDate and MorningstarClassId = @MorningstarClassId 
+                and AssetsD is not null and AssetsD > 0
+                group by SmaStrategy, SponsorFirmCode, MorningstarClassId
+                order by AssetsTotal desc
+                ";
+            try
+            {
+                cmd = new SqlCommand
+                {
+                    Connection = mSqlConn2,
+                    CommandText = commandText
+                };
+
+                cmd.Parameters.Add("@FlowDate", SqlDbType.Date);
+                cmd.Parameters["@FlowDate"].Value = sFlowDate;
+                cmd.Parameters.Add("@SponsorFirmCode", SqlDbType.VarChar);
+                cmd.Parameters["@SponsorFirmCode"].Value = SponsorFirmCode;
+                cmd.Parameters.Add("@MorningstarClassId", SqlDbType.VarChar);
+                cmd.Parameters["@MorningstarClassId"].Value = MorningstarClassId;
+
+                SqlDataReader dr = null;
+                dr = cmd.ExecuteReader();
+                string compareSmaStrategy = "";
+                bool found = false;
+                if (dr.HasRows)
+                {
+                    while(dr.Read())
+                    {
+                        Rank += 1;
+                        compareSmaStrategy = dr["SmaStrategy"].ToString();
+                        if (SmaStrategy.Equals(compareSmaStrategy))
+                        {
+                            found = true;
+                            break;
+                        }
+                    }
+                }
+                dr.Close();
+                if (found.Equals(false))
+                    found = false;
+
+            }
+            catch (SqlException ex)
+            {
+                LogHelper.WriteLine(logFuncName + " " + ex.Message);
+            }
+            finally
+            {
+                //  LogHelper.WriteLine(logFuncName + " done ");
+            }
+            return;
+        }
+
+        private void getRankOfferingsFinalNet(string SponsorFirmCode, string sFlowDate, string MorningstarClassId, string SmaStrategy, out int Rank)
+        {
+            string logFuncName = "getRankOfferingsFinalNet: ";
+
+            //LogHelper.WriteLine(logFuncName );
+
+            Rank = 0;
+
+            SqlCommand cmd = null;
+
+            string commandText = @"
+                select SmaStrategy, SponsorFirmCode, MorningstarClassId, sum(FinalNetFlowsD) as FinalNetTotal FROM SmaOfferings o
+                inner join SmaFlows on o.SmaOfferingId = SmaFlows.SmaOfferingId
+                where SponsorFirmCode = @SponsorFirmCode and FlowDate = @FlowDate and MorningstarClassId = @MorningstarClassId 
+                and FinalNetFlowsD is not null
+                group by SmaStrategy, SponsorFirmCode, MorningstarClassId
+                order by FinalNetTotal desc
+                ";
+            try
+            {
+                cmd = new SqlCommand
+                {
+                    Connection = mSqlConn2,
+                    CommandText = commandText
+                };
+
+                cmd.Parameters.Add("@FlowDate", SqlDbType.Date);
+                cmd.Parameters["@FlowDate"].Value = sFlowDate;
+                cmd.Parameters.Add("@SponsorFirmCode", SqlDbType.VarChar);
+                cmd.Parameters["@SponsorFirmCode"].Value = SponsorFirmCode;
+                cmd.Parameters.Add("@MorningstarClassId", SqlDbType.VarChar);
+                cmd.Parameters["@MorningstarClassId"].Value = MorningstarClassId;
+
+                SqlDataReader dr = null;
+                dr = cmd.ExecuteReader();
+                string compareSmaStrategy = "";
+                bool found = false;
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        Rank += 1;
+                        compareSmaStrategy = dr["SmaStrategy"].ToString();
+                        if (SmaStrategy.Equals(compareSmaStrategy))
+                        {
+                            found = true;
+                            break;
+                        }
+                    }
+                }
+                dr.Close();
+                if (found.Equals(false))
+                    found = false;
+
+            }
+            catch (SqlException ex)
+            {
+                LogHelper.WriteLine(logFuncName + " " + ex.Message);
+            }
+            finally
+            {
+                //  LogHelper.WriteLine(logFuncName + " done ");
             }
             return;
         }
 
 
-        public void GenerateReportManagerDataset()
+
+        public void GenerateReportManagerDataset(string sStartDate, string sEndDate)
         {
             string logFuncName = "GenerateReportManagerDataset: ";
 
-            LogHelper.WriteLine(logFuncName);
+            //LogHelper.WriteLine(logFuncName);
+            string sCurrentDate = sStartDate;
+            bool moreDates = true;
 
             List<string> listSponsors;
             int topN = 20;
-            string sEndOfQtrDate = "03/31/2018";
-            getTopNSponsorsByAssets(topN, sEndOfQtrDate, out listSponsors);
+            getTopNSponsorsByAssets(topN, sEndDate, out listSponsors);
+
+            List<string> flowDateList = new List<string>();
+            List<string> assetsList = new List<string>();
+            List<string> finalNetList = new List<string>();
+
+            sCurrentDate = sStartDate;
+            do
+            {
+                flowDateList.Add(sCurrentDate);
+                assetsList.Add("");
+                finalNetList.Add("");
+
+                if (sCurrentDate.Equals(sEndDate))
+                    moreDates = false;
+                else
+                    sCurrentDate = Utils.CalculateNextEndOfQtrDate(sCurrentDate);
+            }
+            while (moreDates.Equals(true));
+
 
             try
             {
@@ -168,9 +373,9 @@ namespace DoverSmaEngine
                         inner join MorningstarClassifications m on o.MorningstarClassId = m.Code
                         inner join AssetManagers a on o.AssetManagerCode = a.AssetManagerCode
                         where SponsorFirmCode = @SponsorFirmCode
-                        and AssetsD is not null 
+                        and AssetsD is not null and AssetsD > 0 
                         group by o.AssetManagerCode, o.MorningstarClassId, m.CodeDesc, SmaStrategy, FlowDate
-                        order by o.MorningstarClassId,  m.CodeDesc, AssetsTotal desc, o.AssetManagerCode, SmaStrategy, FlowDate
+                        order by o.MorningstarClassId,  o.AssetManagerCode, SmaStrategy, FlowDate 
                         "
                 };
 
@@ -180,9 +385,25 @@ namespace DoverSmaEngine
                 {
                     cmd.Parameters["@SponsorFirmCode"].Value = sponsorFirmCode;
 
-                    string sFlowDate = "";
+                    string AssetManagerCode = "";
+                    string FlowDate = "";
                     string MorningstarClassId = "";
-                    int TheCount = 0;
+                    string MorningstarClassDesc = "";
+                    string SmaStrategy = "";
+                    string prevAssetManagerCode = "";
+                    string prevFlowDate = "";
+                    string prevMorningstarClassId = "";
+                    string prevMorningstarClassDesc = "";
+                    string prevSmaStrategy = "";
+
+                    string AssetsTotal = "";
+                    string FinalNetTotal = "";
+                    string reportLine = "";
+
+
+                    int count = 0;
+                    int rank = 0;
+                    int i = 0;
 
                     SqlDataReader dr = null;
                     dr = cmd.ExecuteReader();
@@ -192,9 +413,162 @@ namespace DoverSmaEngine
                         while (dr.Read())
                         {
                             rows += 1;
-                            sFlowDate = dr["FlowDate"].ToString();
+                            AssetManagerCode = dr["AssetManagerCode"].ToString();
+                            FlowDate = dr["FlowDate"].ToString();
+                            SmaStrategy = dr["SmaStrategy"].ToString();
                             MorningstarClassId = dr["MorningstarClassId"].ToString();
-                            getCountOfferings(sponsorFirmCode, sFlowDate, MorningstarClassId, out TheCount);
+                            MorningstarClassDesc = dr["MorningstarClassDesc"].ToString();
+                            AssetsTotal = dr["AssetsTotal"].ToString();
+                            FinalNetTotal = dr["FinalNetTotal"].ToString();
+
+                            if (AssetManagerCode.Equals("nuve") && sponsorFirmCode.Equals("Schwab") && MorningstarClassId.Equals("AL"))
+                                i = 0;
+
+                            if (prevAssetManagerCode.Equals(""))
+                                prevAssetManagerCode = AssetManagerCode;
+                            if (prevFlowDate.Equals(""))
+                                prevFlowDate = FlowDate;
+                            if (prevSmaStrategy.Equals(""))
+                                prevSmaStrategy = SmaStrategy;
+                            if (prevMorningstarClassId.Equals(""))
+                                prevMorningstarClassId = MorningstarClassId;
+                            if (prevMorningstarClassDesc.Equals(""))
+                                prevMorningstarClassDesc = MorningstarClassDesc;
+
+                            if ( SmaStrategy.Equals(prevSmaStrategy) && MorningstarClassId.Equals(prevMorningstarClassId) )
+                            {
+                                sCurrentDate = sStartDate;
+
+                                for (i = 0; i < assetsList.Count; i++)
+                                {
+                                    DateTime dt = DateTime.Parse(FlowDate);
+                                    string sFlowDate = dt.ToString("MM/dd/yyyy");
+
+                                    if (flowDateList[i].Equals(sFlowDate))
+                                    {
+                                        assetsList[i] = AssetsTotal;
+                                        finalNetList[i] = FinalNetTotal;
+                                        break;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                reportLine = sponsorFirmCode + "," + prevAssetManagerCode + "," + prevSmaStrategy + "," + prevMorningstarClassId + "," + prevMorningstarClassDesc;
+
+                                for (i = 0; i < assetsList.Count; i++)
+                                    reportLine += "," + assetsList[i];
+
+                                for (i = 0; i < finalNetList.Count; i++)
+                                    reportLine += "," + finalNetList[i];
+
+                                for (i = 0; i < assetsList.Count; i++)
+                                {
+                                    if (assetsList[i].Length > 0)
+                                    {
+                                        getRankOfferings(sponsorFirmCode, flowDateList[i], prevMorningstarClassId, prevSmaStrategy, out rank);
+                                        reportLine += "," + rank.ToString();
+                                        getCountOfferings(sponsorFirmCode, flowDateList[i], prevMorningstarClassId, out count);
+                                        reportLine += "," + count.ToString();
+                                    }
+                                    else
+                                    {
+                                        reportLine += ",,";
+                                    }
+                                }
+
+                                for (i = 0; i < finalNetList.Count; i++)
+                                {
+                                    if (finalNetList[i].Length > 0)
+                                    {
+                                        getRankOfferingsFinalNet(sponsorFirmCode, flowDateList[i], prevMorningstarClassId, prevSmaStrategy, out rank);
+                                        reportLine += "," + rank.ToString();
+                                        getCountOfferingsFinalNet(sponsorFirmCode, flowDateList[i], prevMorningstarClassId, out count);
+                                        reportLine += "," + count.ToString();
+                                    }
+                                    else
+                                    {
+                                        reportLine += ",,";
+                                    }
+                                }
+
+
+                                LogHelper.WriteLine(reportLine);
+
+                                prevAssetManagerCode = AssetManagerCode;
+                                prevSmaStrategy = SmaStrategy;
+                                prevMorningstarClassId = MorningstarClassId;
+                                prevMorningstarClassDesc = MorningstarClassDesc;
+
+                                for (i = 0; i < assetsList.Count; i++)
+                                {
+                                    assetsList[i] = "";
+                                    finalNetList[i] = "";
+                                }
+
+                                for (i = 0; i < assetsList.Count; i++)
+                                {
+                                    DateTime dt = DateTime.Parse(FlowDate);
+                                    string sFlowDate = dt.ToString("MM/dd/yyyy");
+
+                                    if (flowDateList[i].Equals(sFlowDate))
+                                    {
+                                        assetsList[i] = AssetsTotal;
+                                        finalNetList[i] = FinalNetTotal;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        reportLine = sponsorFirmCode + "," + AssetManagerCode + "," + SmaStrategy + "," + MorningstarClassId + "," + MorningstarClassDesc;
+
+                        for (i = 0; i < assetsList.Count; i++)
+                            reportLine += "," + assetsList[i];
+
+                        for (i = 0; i < finalNetList.Count; i++)
+                            reportLine += "," + finalNetList[i];
+
+                        for (i = 0; i < assetsList.Count; i++)
+                        {
+                            if (assetsList[i].Length > 0)
+                            {
+                                getRankOfferings(sponsorFirmCode, flowDateList[i], MorningstarClassId, SmaStrategy, out rank);
+                                reportLine += "," + rank.ToString();
+                                getCountOfferings(sponsorFirmCode, flowDateList[i], MorningstarClassId, out count);
+                                reportLine += "," + count.ToString();
+                            }
+                            else
+                            {
+                                reportLine += ",,";
+                            }
+                        }
+
+                        for (i = 0; i < finalNetList.Count; i++)
+                        {
+                            if (finalNetList[i].Length > 0)
+                            {
+                                getRankOfferingsFinalNet(sponsorFirmCode, flowDateList[i], MorningstarClassId, SmaStrategy, out rank);
+                                reportLine += "," + rank.ToString();
+                                getCountOfferingsFinalNet(sponsorFirmCode, flowDateList[i], MorningstarClassId, out count);
+                                reportLine += "," + count.ToString();
+                            }
+                            else
+                            {
+                                reportLine += ",,";
+                            }
+                        }
+
+                        LogHelper.WriteLine(reportLine);
+
+                        prevAssetManagerCode = AssetManagerCode;
+                        prevSmaStrategy = SmaStrategy;
+                        prevMorningstarClassId = MorningstarClassId;
+                        prevMorningstarClassDesc = MorningstarClassDesc;
+
+                        for (i = 0; i < assetsList.Count; i++)
+                        {
+                            assetsList[i] = "";
+                            finalNetList[i] = "";
                         }
                     }
                     dr.Close();
@@ -206,7 +580,7 @@ namespace DoverSmaEngine
             }
             finally
             {
-                LogHelper.WriteLine(logFuncName + " done ");
+                //LogHelper.WriteLine(logFuncName + " done ");
             }
         }
 

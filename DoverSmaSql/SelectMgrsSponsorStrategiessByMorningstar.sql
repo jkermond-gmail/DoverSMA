@@ -19,13 +19,11 @@ order by AssetsTotal desc
 
 
 declare @SponsorFirmCode varchar(80);
-set @SponsorFirmCode = 'Merrill';
+set @SponsorFirmCode = 'Schwab';
 declare @FlowDate date;
-set @FlowDate = '09/30/2017';
+set @FlowDate = '03/31/2018';
 declare @MorningstarClassId varchar(80);
-set @MorningstarClassId = 'CI'
-
-
+set @MorningstarClassId = 'AL'
 
 --SELECT o.AssetManagerCode, FlowDate, SmaStrategy, MorningstarClassId, m.CodeDesc as MorningstarClassDesc, 
 --sum(AssetsD) as AssetsTotal, sum(FinalNetFlowsD) as FinalNetTotal
@@ -34,13 +32,26 @@ set @MorningstarClassId = 'CI'
 --inner join MorningstarClassifications m on o.MorningstarClassId = m.Code
 --inner join AssetManagers a on o.AssetManagerCode = a.AssetManagerCode
 --where SponsorFirmCode = @SponsorFirmCode
---and AssetsD is not null 
+--and AssetsD is not null and AssetsD > 0 
 --group by o.AssetManagerCode, o.MorningstarClassId, m.CodeDesc, SmaStrategy, FlowDate
---order by o.MorningstarClassId,  m.CodeDesc, AssetsTotal desc, o.AssetManagerCode, SmaStrategy, FlowDate
+--order by o.MorningstarClassId,  o.AssetManagerCode, SmaStrategy, FlowDate 
 
-
-select count(*) FROM SmaOfferings o
+select count(*)  FROM (select distinct SmaStrategy, SponsorFirmCode, MorningstarClassId from SmaOfferings o
 inner join SmaFlows on o.SmaOfferingId = SmaFlows.SmaOfferingId
-where SponsorFirmCode = @SponsorFirmCode and FlowDate = @FlowDate and MorningstarClassId = @MorningstarClassId and AssetsD is not null
+where SponsorFirmCode = @SponsorFirmCode and FlowDate = @FlowDate and MorningstarClassId = @MorningstarClassId 
+and AssetsD is not null and AssetsD > 0) as theCount
+
+select distinct SmaStrategy, SponsorFirmCode, MorningstarClassId  FROM SmaOfferings o
+inner join SmaFlows on o.SmaOfferingId = SmaFlows.SmaOfferingId
+where SponsorFirmCode = @SponsorFirmCode and FlowDate = @FlowDate and MorningstarClassId = @MorningstarClassId 
+and AssetsD is not null and AssetsD > 0
+order by SmaStrategy
+
+select SmaStrategy, SponsorFirmCode, MorningstarClassId, sum(AssetsD) as AssetsTotal FROM SmaOfferings o
+inner join SmaFlows on o.SmaOfferingId = SmaFlows.SmaOfferingId
+where SponsorFirmCode = @SponsorFirmCode and FlowDate = @FlowDate and MorningstarClassId = @MorningstarClassId 
+and AssetsD is not null and AssetsD > 0
+group by SmaStrategy, SponsorFirmCode, MorningstarClassId
+order by AssetsTotal desc
 
 

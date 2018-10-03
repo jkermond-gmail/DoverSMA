@@ -41,7 +41,7 @@ namespace DoverUtilities
             }
             LogFileOpened = true;
             string message = LogFileName + " opened " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            WriteLine(message);
+            //WriteLine(message);
             swLogFile.Flush();
         }
 
@@ -90,7 +90,7 @@ namespace DoverUtilities
             Trace.WriteLine(message);
             Trace.TraceInformation(message);
             Trace.Flush();
-            Console.WriteLine(message);
+            //Console.WriteLine(message);
             swLogFile.WriteLine(message);
             swLogFile.Flush();
         }
