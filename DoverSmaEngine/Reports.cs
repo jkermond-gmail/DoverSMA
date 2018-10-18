@@ -327,6 +327,75 @@ namespace DoverSmaEngine
             return;
         }
 
+        private void getOpportunity(string OpportunityColumn, string SponsorFirmCode, string sFlowDate, string MorningstarClassId, out string Opportunity)
+        {
+            string logFuncName = "getOpportunity: ";
+            // This routine calculates on the same level as GenerateReportSponsorAmounts()
+
+            //LogHelper.WriteLine(logFuncName );
+
+            Opportunity = "";
+
+            SqlCommand cmd = null;
+            string commandText = "";
+
+            if (OpportunityColumn.Equals("AssetsD"))
+            { 
+                commandText = @"
+                    select sum(AssetsD) as Opportunity FROM SmaOfferings o
+                    inner join SmaFlows on o.SmaOfferingId = SmaFlows.SmaOfferingId
+                    where SponsorFirmCode = @SponsorFirmCode and FlowDate = @FlowDate and MorningstarClassId = @MorningstarClassId 
+                    and AssetsD is not null
+                ";
+            }
+            else if (OpportunityColumn.Equals("FinalNetFlowsD"))
+            {
+                commandText = @"
+                    select sum(FinalNetFlowsD) as Opportunity FROM SmaOfferings o
+                    inner join SmaFlows on o.SmaOfferingId = SmaFlows.SmaOfferingId
+                    where SponsorFirmCode = @SponsorFirmCode and FlowDate = @FlowDate and MorningstarClassId = @MorningstarClassId 
+                    and FinalNetFlowsD is not null
+                ";
+            }
+
+            try
+                {
+                cmd = new SqlCommand
+                {
+                    Connection = mSqlConn2,
+                    CommandText = commandText
+                };
+
+                cmd.Parameters.Add("@FlowDate", SqlDbType.Date);
+                cmd.Parameters["@FlowDate"].Value = sFlowDate;
+                cmd.Parameters.Add("@SponsorFirmCode", SqlDbType.VarChar);
+                cmd.Parameters["@SponsorFirmCode"].Value = SponsorFirmCode;
+                cmd.Parameters.Add("@MorningstarClassId", SqlDbType.VarChar);
+                cmd.Parameters["@MorningstarClassId"].Value = MorningstarClassId;
+
+                SqlDataReader dr = null;
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    dr.Read();
+                    {
+                        Opportunity = dr["Opportunity"].ToString();
+                    }
+                }
+                dr.Close();
+
+            }
+            catch (SqlException ex)
+            {
+                LogHelper.WriteLine(logFuncName + " " + ex.Message);
+            }
+            finally
+            {
+                //  LogHelper.WriteLine(logFuncName + " done ");
+            }
+            return;
+        }
+
 
 
         public void GenerateReportManagerDataset(string sStartDate, string sEndDate)
@@ -399,6 +468,7 @@ namespace DoverSmaEngine
                     string AssetsTotal = "";
                     string FinalNetTotal = "";
                     string reportLine = "";
+                    string opportunity = "";
 
 
                     int count = 0;
@@ -466,6 +536,32 @@ namespace DoverSmaEngine
                                 {
                                     if (assetsList[i].Length > 0)
                                     {
+                                        getOpportunity("AssetsD", sponsorFirmCode, flowDateList[i], prevMorningstarClassId, out opportunity);
+                                        reportLine += "," + opportunity.ToString();
+                                    }
+                                    else
+                                    {
+                                        reportLine += ",";
+                                    }
+                                }
+
+                                for (i = 0; i < finalNetList.Count; i++)
+                                {
+                                    if (finalNetList[i].Length > 0)
+                                    {
+                                        getOpportunity("FinalNetFlowsD", sponsorFirmCode, flowDateList[i], prevMorningstarClassId, out opportunity);
+                                        reportLine += "," + opportunity.ToString();
+                                    }
+                                    else
+                                    {
+                                        reportLine += ",";
+                                    }
+                                }
+
+                                for (i = 0; i < assetsList.Count; i++)
+                                {
+                                    if (assetsList[i].Length > 0)
+                                    {
                                         getRankOfferings(sponsorFirmCode, flowDateList[i], prevMorningstarClassId, prevSmaStrategy, out rank);
                                         reportLine += "," + rank.ToString();
                                         getCountOfferings(sponsorFirmCode, flowDateList[i], prevMorningstarClassId, out count);
@@ -527,6 +623,32 @@ namespace DoverSmaEngine
 
                         for (i = 0; i < finalNetList.Count; i++)
                             reportLine += "," + finalNetList[i];
+
+                        for (i = 0; i < assetsList.Count; i++)
+                        {
+                            if (assetsList[i].Length > 0)
+                            {
+                                getOpportunity("AssetsD", sponsorFirmCode, flowDateList[i], MorningstarClassId, out opportunity);
+                                reportLine += "," + opportunity.ToString();
+                            }
+                            else
+                            {
+                                reportLine += ",";
+                            }
+                        }
+
+                        for (i = 0; i < finalNetList.Count; i++)
+                        {
+                            if (finalNetList[i].Length > 0)
+                            {
+                                getOpportunity("FinalNetFlowsD", sponsorFirmCode, flowDateList[i], MorningstarClassId, out opportunity);
+                                reportLine += "," + opportunity.ToString();
+                            }
+                            else
+                            {
+                                reportLine += ",";
+                            }
+                        }
 
                         for (i = 0; i < assetsList.Count; i++)
                         {
