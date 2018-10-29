@@ -32,7 +32,6 @@ namespace DoverSMA
             ListBoxManagers.SetSelected(0, true);
         }
 
-
         private void BtnProcessSmaOfferings_Click(object sender, EventArgs e)
         {
             mSmaFileProcessor.ProcessManagerOfferings(mSelectedManager);
