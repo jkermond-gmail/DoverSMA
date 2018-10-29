@@ -85,7 +85,6 @@ namespace DoverSMA
             //mSmaFileProcessor.ProcessOfferingsDataUpdatesByColumn("SmidCode", SqlDbType.VarChar);
             //mSmaFileProcessor.ProcessOfferingsDataUpdatesByColumn("EsgCode", SqlDbType.VarChar);
             //mSmaFileProcessor.ProcessOfferingsDataUpdatesByColumn("SmartBetaCode", SqlDbType.VarChar);
-
         }
 
         private void BtnCalculateOpportunityMetrics_Click(object sender, EventArgs e)
