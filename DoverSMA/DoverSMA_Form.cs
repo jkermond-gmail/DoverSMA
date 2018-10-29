@@ -107,7 +107,6 @@ namespace DoverSMA
             //mReports.GenerateReportSponsorAmounts("03/31/2016", "03/31/2018");
             //mReports.GenerateReportSponsorAmountsOther("03/31/2016", "03/31/2018");
             mReports.GenerateReportManagerDataset("03/31/2016", "03/31/2018");
-
         }
     }
 }
